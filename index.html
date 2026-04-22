@@ -447,6 +447,8 @@
           <button class="preset-btn" onclick="applyPreset('warm')">Warm</button>
           <button class="preset-btn" onclick="applyPreset('cool')">Cool</button>
           <button class="preset-btn" onclick="applyPreset('retro')">Retro</button>
+          <button class="preset-btn" onclick="applyPreset('nightvision')">Night Vision</button>
+          <button class="preset-btn" onclick="applyPreset('infrared')">Infrared</button>
         </div>
       </div>
     </div>
@@ -495,7 +497,9 @@
       vivid:     { brightness: 110, contrast: 120, saturate: 180, hueRotate: 0, sepia: 0, blur: 0 },
       warm:      { brightness: 105, contrast: 105, saturate: 110, hueRotate: 15, sepia: 20, blur: 0 },
       cool:      { brightness: 100, contrast: 105, saturate: 90,  hueRotate: 200, sepia: 0, blur: 0 },
-      retro:     { brightness: 95,  contrast: 110, saturate: 70,  hueRotate: 10, sepia: 40, blur: 0 },
+      retro:      { brightness: 95,  contrast: 110, saturate: 70,  hueRotate: 10, sepia: 40, blur: 0 },
+      nightvision:{ brightness: 80,  contrast: 150, saturate: 120, hueRotate: 120, sepia: 0, blur: 0 },
+      infrared:   { brightness: 110, contrast: 140, saturate: 200, hueRotate: 180, sepia: 0, blur: 0 },
     };
 
     function getEmbedUrl(url) {
@@ -622,7 +626,8 @@
     function getPresetLabel(name) {
       const labels = {
         default: 'Default', bright: 'Bright', nightmode: 'Night Mode',
-        vivid: 'Vivid', warm: 'Warm', cool: 'Cool', retro: 'Retro'
+        vivid: 'Vivid', warm: 'Warm', cool: 'Cool', retro: 'Retro',
+        nightvision: 'Night Vision', infrared: 'Infrared'
       };
       return labels[name] || name;
     }
