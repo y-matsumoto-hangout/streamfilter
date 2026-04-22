@@ -155,6 +155,25 @@
 
     .url-bar button:hover { background: #e03030; }
 
+    .video-size-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: #aaa;
+    }
+
+    .video-size-bar input[type="range"] {
+      flex: 1;
+      max-width: 200px;
+    }
+
+    .video-size-bar .value {
+      color: #fff;
+      font-variant-numeric: tabular-nums;
+      min-width: 40px;
+    }
+
     .video-wrapper {
       position: relative;
       width: 100%;
@@ -316,6 +335,11 @@
       <button onclick="loadVideo()">再生</button>
     </div>
 
+    <div class="video-size-bar">
+      <span>動画サイズ</span>
+      <input type="range" id="videoSize" min="30" max="100" value="100" oninput="resizeVideo()">
+      <span class="value" id="videoSizeVal">100%</span>
+    </div>
     <div class="video-wrapper" id="videoWrapper">
       <div class="video-placeholder" id="placeholder">動画URLを貼り付けて「再生」をクリック</div>
     </div>
@@ -530,6 +554,13 @@
       document.querySelectorAll('.preset-btn').forEach(btn => {
         btn.classList.toggle('active', btn.textContent === (labels[name] || name));
       });
+    }
+
+    function resizeVideo() {
+      const size = document.getElementById('videoSize').value;
+      document.getElementById('videoSizeVal').textContent = `${size}%`;
+      document.getElementById('videoWrapper').style.width = `${size}%`;
+      document.getElementById('videoWrapper').style.margin = '0 auto';
     }
 
     document.getElementById('urlInput').addEventListener('keydown', (e) => {
