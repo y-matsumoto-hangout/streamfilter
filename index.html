@@ -888,6 +888,20 @@
 
     zoomOverlay.addEventListener('touchend', () => { isDragging = false; });
 
+    // Double-click to toggle overlay (allow video controls)
+    zoomOverlay.addEventListener('dblclick', (e) => {
+      zoomOverlay.style.display = 'none';
+      zoomOverlay.dataset.hidden = 'true';
+    });
+
+    document.getElementById('videoWrapper').addEventListener('dblclick', (e) => {
+      if (e.target === zoomOverlay) return;
+      if (zoomLevel > 1 && zoomOverlay.dataset.hidden === 'true') {
+        zoomOverlay.style.display = 'block';
+        zoomOverlay.dataset.hidden = '';
+      }
+    });
+
     zoomOverlay.addEventListener('wheel', (e) => {
       e.preventDefault();
       const zoomSlider = document.getElementById('videoZoom');
