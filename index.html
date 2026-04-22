@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stream Filter - Adjust Brightness, Contrast & Color for Videos</title>
-  <meta name="description" content="Free online video filter tool. Adjust brightness, contrast, saturation, and more while watching YouTube videos.">
+  <meta name="description" content="Free online video filter tool. Adjust brightness, contrast, saturation, and more while watching YouTube, Twitch, Vimeo, and Dailymotion videos.">
   <!-- OGP -->
   <meta property="og:title" content="Stream Filter - Adjust Brightness, Contrast & Color for Videos">
   <meta property="og:description" content="Free online tool to adjust brightness, contrast, saturation and more while watching videos. No install required.">
@@ -333,12 +333,12 @@
 
   <main>
     <div class="url-bar">
-      <input type="text" id="urlInput" placeholder="Paste a YouTube URL (e.g. https://www.youtube.com/watch?v=...)">
+      <input type="text" id="urlInput" placeholder="Paste a video URL (YouTube, Twitch, Vimeo, Dailymotion)">
       <button onclick="loadVideo()">Play</button>
     </div>
 
     <div class="video-wrapper" id="videoWrapper">
-      <div class="video-placeholder" id="placeholder">Paste a YouTube URL and click "Play"</div>
+      <div class="video-placeholder" id="placeholder">Paste a video URL and click "Play"</div>
     </div>
 
     <div class="controls">
@@ -413,6 +413,7 @@
   </main>
 
   <footer>
+    <a href="/guide.html">How to Use</a>
     <a href="/privacy.html">Privacy Policy</a>
     <a href="/terms.html">Terms of Service</a>
     <span>&copy; 2026 Stream Filter</span>
@@ -438,15 +439,40 @@
       retro:     { brightness: 95,  contrast: 110, saturate: 70,  hueRotate: 10, sepia: 40, blur: 0 },
     };
 
-    function extractVideoId(url) {
-      const patterns = [
-        /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/,
-        /youtube\.com\/shorts\/([a-zA-Z0-9_-]{11})/,
-      ];
-      for (const p of patterns) {
-        const m = url.match(p);
-        if (m) return m[1];
-      }
+    function getEmbedUrl(url) {
+      // YouTube
+      let m = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/);
+      if (m) return `https://www.youtube.com/embed/${m[1]}?autoplay=1`;
+
+      m = url.match(/youtube\.com\/shorts\/([a-zA-Z0-9_-]{11})/);
+      if (m) return `https://www.youtube.com/embed/${m[1]}?autoplay=1`;
+
+      m = url.match(/youtube\.com\/live\/([a-zA-Z0-9_-]{11})/);
+      if (m) return `https://www.youtube.com/embed/${m[1]}?autoplay=1`;
+
+      // Twitch videos
+      m = url.match(/twitch\.tv\/videos\/(\d+)/);
+      if (m) return `https://player.twitch.tv/?video=${m[1]}&parent=${location.hostname}&autoplay=true`;
+
+      // Twitch live channels
+      m = url.match(/twitch\.tv\/([a-zA-Z0-9_]+)\/?$/);
+      if (m && m[1] !== 'videos') return `https://player.twitch.tv/?channel=${m[1]}&parent=${location.hostname}&autoplay=true`;
+
+      // Twitch clips
+      m = url.match(/twitch\.tv\/\w+\/clip\/([a-zA-Z0-9_-]+)/);
+      if (m) return `https://clips.twitch.tv/embed?clip=${m[1]}&parent=${location.hostname}&autoplay=true`;
+
+      // Vimeo
+      m = url.match(/vimeo\.com\/(\d+)/);
+      if (m) return `https://player.vimeo.com/video/${m[1]}?autoplay=1`;
+
+      // Dailymotion
+      m = url.match(/dailymotion\.com\/video\/([a-zA-Z0-9]+)/);
+      if (m) return `https://www.dailymotion.com/embed/video/${m[1]}?autoplay=1`;
+
+      m = url.match(/dai\.ly\/([a-zA-Z0-9]+)/);
+      if (m) return `https://www.dailymotion.com/embed/video/${m[1]}?autoplay=1`;
+
       return null;
     }
 
@@ -454,9 +480,9 @@
       const url = document.getElementById('urlInput').value.trim();
       if (!url) return;
 
-      const videoId = extractVideoId(url);
-      if (!videoId) {
-        alert('Please enter a valid YouTube URL');
+      const embedUrl = getEmbedUrl(url);
+      if (!embedUrl) {
+        alert('Please enter a valid video URL (YouTube, Twitch, Vimeo, or Dailymotion)');
         return;
       }
 
@@ -473,7 +499,7 @@
         wrapper.appendChild(iframe);
       }
 
-      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+      iframe.src = embedUrl;
       applyFilters();
     }
 

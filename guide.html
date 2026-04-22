@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Use - Stream Filter</title>
+  <meta name="description" content="Learn how to use Stream Filter to adjust brightness, contrast, saturation and more on YouTube, Twitch, Vimeo and Dailymotion videos.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff4444'/><polygon points='38,25 38,75 78,50' fill='white'/></svg>">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0f0f0f;
+      color: #ccc;
+      min-height: 100vh;
+    }
+    header {
+      width: 100%;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #1a1a1a;
+      border-bottom: 1px solid #333;
+    }
+    header a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    header h1 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .logo {
+      width: 28px;
+      height: 28px;
+      background: #ff4444;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: #fff;
+    }
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+      line-height: 1.8;
+    }
+    h2 { color: #fff; font-size: 28px; margin-bottom: 8px; }
+    .subtitle { color: #888; font-size: 16px; margin-bottom: 40px; }
+    h3 { color: #fff; font-size: 20px; margin: 40px 0 16px; }
+    h4 { color: #ddd; font-size: 16px; margin: 24px 0 8px; }
+    p { margin-bottom: 16px; }
+    ul, ol { margin: 0 0 16px 24px; }
+    li { margin-bottom: 10px; }
+    a { color: #ff4444; }
+    a:hover { color: #ff6666; }
+
+    .step {
+      background: #1a1a1a;
+      border: 1px solid #282828;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+    .step-number {
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      background: #ff4444;
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 28px;
+      font-size: 14px;
+      font-weight: 700;
+      margin-right: 12px;
+    }
+    .step-title {
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .step p {
+      margin: 12px 0 0;
+      color: #aaa;
+    }
+
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin: 16px 0;
+    }
+    .platform-card {
+      background: #1a1a1a;
+      border: 1px solid #282828;
+      border-radius: 10px;
+      padding: 16px;
+      text-align: center;
+    }
+    .platform-card .name {
+      color: #fff;
+      font-weight: 600;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+    .platform-card .example {
+      color: #666;
+      font-size: 11px;
+      word-break: break-all;
+    }
+
+    .filter-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+    }
+    .filter-table th {
+      text-align: left;
+      color: #fff;
+      padding: 10px 12px;
+      border-bottom: 1px solid #333;
+      font-size: 13px;
+    }
+    .filter-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #1a1a1a;
+      font-size: 13px;
+      color: #aaa;
+    }
+
+    .preset-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+    }
+    .preset-table th {
+      text-align: left;
+      color: #fff;
+      padding: 8px 12px;
+      border-bottom: 1px solid #333;
+      font-size: 13px;
+    }
+    .preset-table td {
+      padding: 8px 12px;
+      border-bottom: 1px solid #1a1a1a;
+      font-size: 13px;
+      color: #aaa;
+    }
+
+    .cta {
+      display: inline-block;
+      padding: 12px 28px;
+      background: #ff4444;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      margin-top: 16px;
+      transition: background 0.2s;
+    }
+    .cta:hover {
+      background: #e03030;
+      color: #fff;
+    }
+
+    .faq-item {
+      margin-bottom: 24px;
+    }
+    .faq-item strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    footer {
+      width: 100%;
+      padding: 20px 24px;
+      text-align: center;
+      font-size: 12px;
+      color: #555;
+      border-top: 1px solid #1a1a1a;
+    }
+    footer a {
+      color: #777;
+      text-decoration: none;
+      margin: 0 12px;
+    }
+    footer a:hover { color: #fff; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="/">
+      <div class="logo">&#9655;</div>
+      <h1>Stream Filter</h1>
+    </a>
+  </header>
+
+  <main>
+    <h2>How to Use Stream Filter</h2>
+    <p class="subtitle">Adjust brightness, contrast, and color while watching videos &mdash; no installation required.</p>
+
+    <h3>Quick Start</h3>
+
+    <div class="step">
+      <span class="step-number">1</span>
+      <span class="step-title">Copy a video URL</span>
+      <p>Copy the URL from YouTube, Twitch, Vimeo, or Dailymotion. Any standard video or clip URL will work.</p>
+    </div>
+
+    <div class="step">
+      <span class="step-number">2</span>
+      <span class="step-title">Paste and Play</span>
+      <p>Paste the URL into the input field on Stream Filter and click <strong>"Play"</strong> (or press Enter).</p>
+    </div>
+
+    <div class="step">
+      <span class="step-number">3</span>
+      <span class="step-title">Adjust filters</span>
+      <p>Use the sliders to adjust brightness, contrast, saturation, and more in real time. Try a preset for instant results.</p>
+    </div>
+
+    <h3>Supported Platforms</h3>
+    <p>Stream Filter works with any video platform that supports embedding:</p>
+
+    <div class="platform-grid">
+      <div class="platform-card">
+        <div class="name">YouTube</div>
+        <div class="example">youtube.com/watch?v=...</div>
+      </div>
+      <div class="platform-card">
+        <div class="name">Twitch</div>
+        <div class="example">twitch.tv/videos/...</div>
+      </div>
+      <div class="platform-card">
+        <div class="name">Vimeo</div>
+        <div class="example">vimeo.com/123456</div>
+      </div>
+      <div class="platform-card">
+        <div class="name">Dailymotion</div>
+        <div class="example">dailymotion.com/video/...</div>
+      </div>
+    </div>
+
+    <h3>Available Filters</h3>
+    <table class="filter-table">
+      <thead>
+        <tr><th>Filter</th><th>Range</th><th>What it does</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Brightness</td><td>30% &ndash; 500%</td><td>Makes the video brighter or darker. Great for dark scenes or night viewing.</td></tr>
+        <tr><td>Contrast</td><td>30% &ndash; 500%</td><td>Increases or decreases the difference between light and dark areas.</td></tr>
+        <tr><td>Saturation</td><td>0% &ndash; 500%</td><td>Controls color intensity. 0% = grayscale, higher = more vivid colors.</td></tr>
+        <tr><td>Hue Rotate</td><td>0° &ndash; 360°</td><td>Shifts all colors around the color wheel. Use for color temperature adjustments.</td></tr>
+        <tr><td>Sepia</td><td>0% &ndash; 100%</td><td>Adds a warm, brownish tone. Comfortable for long viewing sessions.</td></tr>
+        <tr><td>Blur</td><td>0 &ndash; 10px</td><td>Softens the image. Useful for background/ambient playback.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Presets</h3>
+    <p>Don't want to tweak each slider? Use one of the built-in presets:</p>
+    <table class="preset-table">
+      <thead>
+        <tr><th>Preset</th><th>Best for</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Default</strong></td><td>Reset everything to normal</td></tr>
+        <tr><td><strong>Bright</strong></td><td>Dark videos that are hard to see</td></tr>
+        <tr><td><strong>Night Mode</strong></td><td>Late-night viewing to reduce eye strain</td></tr>
+        <tr><td><strong>Vivid</strong></td><td>Make colors pop on nature, travel, and food videos</td></tr>
+        <tr><td><strong>Warm</strong></td><td>Cozy, warm-toned viewing experience</td></tr>
+        <tr><td><strong>Cool</strong></td><td>Blue-tinted, cinematic feel</td></tr>
+        <tr><td><strong>Retro</strong></td><td>Vintage film aesthetic with muted colors</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Tips</h3>
+    <ul>
+      <li><strong>Night Mode + lower brightness</strong> is the easiest way to reduce eye strain at night.</li>
+      <li><strong>Vivid preset</strong> works great for nature documentaries and cooking videos.</li>
+      <li>Use <strong>Hue Rotate</strong> to shift the overall color temperature &mdash; try 15&ndash;30° for a warmer tone.</li>
+      <li>Click <strong>"Reset"</strong> to instantly return all filters to their default values.</li>
+      <li>You can combine presets with manual adjustments &mdash; pick a preset first, then fine-tune.</li>
+    </ul>
+
+    <h3>FAQ</h3>
+
+    <div class="faq-item">
+      <strong>Is Stream Filter free?</strong>
+      <p>Yes, completely free. No account, no installation, no ads (yet).</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>Does it work on mobile?</strong>
+      <p>Yes! Stream Filter is fully responsive and works on phones and tablets.</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>Is my data collected?</strong>
+      <p>No. All filters are applied locally in your browser using CSS. Nothing is sent to any server. See our <a href="/privacy.html">Privacy Policy</a> for details.</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>Why does a video show an error?</strong>
+      <p>Some videos have embedding disabled by their owners. In that case, the video cannot be loaded in Stream Filter. Try a different video.</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>Can I use this for live streams?</strong>
+      <p>Yes! Twitch live streams and YouTube live streams are supported.</p>
+    </div>
+
+    <p style="text-align:center; margin-top: 40px;">
+      <a href="/" class="cta">Start Using Stream Filter</a>
+    </p>
+  </main>
+
+  <footer>
+    <a href="/privacy.html">Privacy Policy</a>
+    <a href="/terms.html">Terms of Service</a>
+    <span>&copy; 2026 Stream Filter</span>
+  </footer>
+</body>
+</html>
