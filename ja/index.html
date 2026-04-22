@@ -772,14 +772,16 @@
 
     zoomOverlay.addEventListener('touchend', () => { isDragging = false; });
 
-    zoomOverlay.addEventListener('dblclick', (e) => {
+    zoomOverlay.addEventListener('contextmenu', (e) => {
+      e.preventDefault();
       zoomOverlay.style.display = 'none';
       zoomOverlay.dataset.hidden = 'true';
     });
 
-    document.getElementById('videoWrapper').addEventListener('dblclick', (e) => {
+    document.getElementById('videoWrapper').addEventListener('contextmenu', (e) => {
       if (e.target === zoomOverlay) return;
       if (zoomLevel > 1 && zoomOverlay.dataset.hidden === 'true') {
+        e.preventDefault();
         zoomOverlay.style.display = 'block';
         zoomOverlay.dataset.hidden = '';
       }
