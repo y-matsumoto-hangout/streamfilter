@@ -188,6 +188,10 @@
       min-width: 40px;
     }
 
+    .video-outer {
+      transition: max-width 0.2s ease;
+    }
+
     /* Video Container */
     .video-wrapper {
       position: relative;
@@ -391,21 +395,23 @@
     </a>
   </header>
 
-  <main>
+  <div class="video-outer" id="videoOuter" style="max-width:1200px; width:100%; margin:0 auto; padding:24px 24px 0;">
     <div class="url-bar">
       <input type="text" id="urlInput" placeholder="Paste any video URL (YouTube, Twitch, Vimeo, Dailymotion, and more)">
       <button onclick="loadVideo()">Play</button>
     </div>
 
-    <div class="video-size-bar">
+    <div class="video-size-bar" style="margin-top:12px;">
       <span>Video Size</span>
-      <input type="range" id="videoSize" min="30" max="100" value="100" oninput="resizeVideo()">
-      <span class="value" id="videoSizeVal">100%</span>
+      <input type="range" id="videoSize" min="50" max="100" value="66" oninput="resizeVideo()">
+      <span class="value" id="videoSizeVal">66%</span>
     </div>
-    <div class="video-wrapper" id="videoWrapper">
+    <div class="video-wrapper" id="videoWrapper" style="margin-top:12px;">
       <div class="video-placeholder" id="placeholder">Paste a video URL and click "Play"</div>
     </div>
+  </div>
 
+  <main>
     <div class="controls">
       <div class="controls-header">
         <h2>Video Filters</h2>
@@ -660,9 +666,12 @@
     function resizeVideo() {
       const size = document.getElementById('videoSize').value;
       document.getElementById('videoSizeVal').textContent = `${size}%`;
-      document.getElementById('videoWrapper').style.width = `${size}%`;
-      document.getElementById('videoWrapper').style.margin = '0 auto';
+      const maxW = Math.round(window.innerWidth * (size / 100));
+      document.getElementById('videoOuter').style.maxWidth = `${maxW}px`;
     }
+
+    // Initialize on load
+    resizeVideo();
 
     // Enter key to load
     document.getElementById('urlInput').addEventListener('keydown', (e) => {
