@@ -192,6 +192,25 @@
       transition: max-width 0.2s ease;
     }
 
+    .speed-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: #aaa;
+    }
+
+    .speed-bar input[type="range"] {
+      flex: 1;
+      max-width: 100%;
+    }
+
+    .speed-bar .value {
+      color: #fff;
+      font-variant-numeric: tabular-nums;
+      min-width: 40px;
+    }
+
     /* Video Container */
     .video-wrapper {
       position: relative;
@@ -406,6 +425,11 @@
       <input type="range" id="videoSize" min="50" max="100" value="66" oninput="resizeVideo()">
       <span class="value" id="videoSizeVal">66%</span>
     </div>
+    <div class="speed-bar" id="speedBar" style="margin-top:12px; display:none;">
+      <span>Playback Speed</span>
+      <input type="range" id="playbackSpeed" min="25" max="200" value="100" step="25" oninput="changeSpeed()">
+      <span class="value" id="speedVal">1x</span>
+    </div>
     <div class="video-wrapper" id="videoWrapper" style="margin-top:12px;">
       <div class="video-placeholder" id="placeholder">Paste a video URL and click "Play"</div>
     </div>
@@ -511,7 +535,11 @@
   </div>
   <!-- END AADS AD UNIT 2435272 -->
 
+  <script src="https://www.youtube.com/iframe_api"></script>
   <script>
+    let ytPlayer = null;
+    let isYouTube = false;
+
     const filters = {
       brightness: document.getElementById('brightness'),
       contrast: document.getElementById('contrast'),
@@ -533,19 +561,22 @@
       infrared:   { brightness: 110, contrast: 140, saturate: 200, hueRotate: 180, sepia: 0, blur: 0 },
     };
 
+    function getYouTubeId(url) {
+      const patterns = [
+        /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/,
+        /youtube\.com\/shorts\/([a-zA-Z0-9_-]{11})/,
+        /youtube\.com\/live\/([a-zA-Z0-9_-]{11})/,
+      ];
+      for (const p of patterns) {
+        const m = url.match(p);
+        if (m) return m[1];
+      }
+      return null;
+    }
+
     function getEmbedUrl(url) {
-      // YouTube
-      let m = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/);
-      if (m) return `https://www.youtube.com/embed/${m[1]}?autoplay=1`;
-
-      m = url.match(/youtube\.com\/shorts\/([a-zA-Z0-9_-]{11})/);
-      if (m) return `https://www.youtube.com/embed/${m[1]}?autoplay=1`;
-
-      m = url.match(/youtube\.com\/live\/([a-zA-Z0-9_-]{11})/);
-      if (m) return `https://www.youtube.com/embed/${m[1]}?autoplay=1`;
-
       // Twitch videos
-      m = url.match(/twitch\.tv\/videos\/(\d+)/);
+      let m = url.match(/twitch\.tv\/videos\/(\d+)/);
       if (m) return `https://player.twitch.tv/?video=${m[1]}&parent=${location.hostname}&autoplay=true`;
 
       // Twitch live channels
@@ -567,7 +598,7 @@
       m = url.match(/dai\.ly\/([a-zA-Z0-9]+)/);
       if (m) return `https://www.dailymotion.com/embed/video/${m[1]}?autoplay=1`;
 
-      // Fallback: try any URL directly (works if the site allows iframe embedding)
+      // Fallback: try any URL directly
       if (url.match(/^https?:\/\/.+/)) return url;
 
       return null;
@@ -577,15 +608,61 @@
       const url = document.getElementById('urlInput').value.trim();
       if (!url) return;
 
+      const wrapper = document.getElementById('videoWrapper');
+      const placeholder = document.getElementById('placeholder');
+      if (placeholder) placeholder.remove();
+
+      // Reset speed slider
+      document.getElementById('playbackSpeed').value = 100;
+      document.getElementById('speedVal').textContent = '1x';
+
+      // Check if YouTube
+      const ytId = getYouTubeId(url);
+      if (ytId) {
+        isYouTube = true;
+        document.getElementById('speedBar').style.display = 'flex';
+
+        // Remove old iframe if exists
+        const oldIframe = wrapper.querySelector('iframe');
+        if (oldIframe) oldIframe.remove();
+
+        // Remove old YT player div if exists
+        const oldDiv = document.getElementById('ytPlayerDiv');
+        if (oldDiv) oldDiv.remove();
+
+        // Create container for YT API player
+        const div = document.createElement('div');
+        div.id = 'ytPlayerDiv';
+        div.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;';
+        wrapper.appendChild(div);
+
+        if (ytPlayer) ytPlayer.destroy();
+        ytPlayer = new YT.Player('ytPlayerDiv', {
+          videoId: ytId,
+          playerVars: { autoplay: 1, modestbranding: 1 },
+          events: {
+            onReady: function(e) {
+              applyFilters();
+            }
+          }
+        });
+        return;
+      }
+
+      // Non-YouTube
+      isYouTube = false;
+      document.getElementById('speedBar').style.display = 'none';
+      if (ytPlayer) { ytPlayer.destroy(); ytPlayer = null; }
+
       const embedUrl = getEmbedUrl(url);
       if (!embedUrl) {
         alert('Please enter a valid URL');
         return;
       }
 
-      const wrapper = document.getElementById('videoWrapper');
-      const placeholder = document.getElementById('placeholder');
-      if (placeholder) placeholder.remove();
+      // Remove YT player div if exists
+      const oldDiv = document.getElementById('ytPlayerDiv');
+      if (oldDiv) oldDiv.remove();
 
       let iframe = wrapper.querySelector('iframe');
       if (!iframe) {
@@ -598,6 +675,15 @@
 
       iframe.src = embedUrl;
       applyFilters();
+    }
+
+    function changeSpeed() {
+      const val = document.getElementById('playbackSpeed').value;
+      const speed = val / 100;
+      document.getElementById('speedVal').textContent = `${speed}x`;
+      if (ytPlayer && ytPlayer.setPlaybackRate) {
+        ytPlayer.setPlaybackRate(speed);
+      }
     }
 
     function applyFilters() {
@@ -625,9 +711,9 @@
       ].join(' ');
 
       const iframe = document.querySelector('#videoWrapper iframe');
-      if (iframe) {
-        iframe.style.filter = filterStr;
-      }
+      if (iframe) iframe.style.filter = filterStr;
+      const ytDiv = document.querySelector('#videoWrapper #ytPlayerDiv');
+      if (ytDiv) ytDiv.style.filter = filterStr;
 
       document.querySelectorAll('.preset-btn').forEach(btn => btn.classList.remove('active'));
     }
