@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>動画をズーム・拡大して見る - 最大10倍 | Stream Filter</title>
+  <meta name="description" content="YouTube、Twitch、Vimeoの動画を最大10倍に拡大。ドラッグで好きな位置を表示。オンライン無料ツール、インストール不要。">
+  <link rel="canonical" href="https://streamfilter.tv/ja/tools/zoom.html">
+  <link rel="alternate" hreflang="en" href="https://streamfilter.tv/tools/zoom.html">
+  <link rel="alternate" hreflang="ja" href="https://streamfilter.tv/ja/tools/zoom.html">
+  <link rel="alternate" hreflang="x-default" href="https://streamfilter.tv/tools/zoom.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff4444'/><polygon points='38,25 38,75 78,50' fill='white'/></svg>">
+  <meta property="og:title" content="動画をズーム・拡大して見る - 最大10倍">
+  <meta property="og:description" content="動画を最大10倍に拡大。ドラッグで好きな位置にパン移動。無料オンラインツール。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://streamfilter.tv/ja/tools/zoom.html">
+  <meta property="og:image" content="https://streamfilter.tv/ogp.png">
+  <meta property="og:locale" content="ja_JP">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2360009503992783" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "YouTube動画をズーム・拡大するには？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "streamfilter.tvにアクセスし、YouTube URLを貼り付けてズームスライダーで1倍〜10倍に拡大します。マウスでドラッグすれば好きな位置にパン移動でき、クリックで再生/一時停止も可能です。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "動画の好きな部分を拡大できますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい。ズーム後にドラッグすることで、画面の隅々まで自由に移動できます。ホワイトボードの小さな文字を読んだり、商品の細部を確認したり、好きな部分にフォーカスできます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "拡大すると画質は落ちますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "拡大は既存のピクセルを引き伸ばすため、高倍率ではピクセルが見える場合があります。最高画質（1080pや4K）で再生してからズームすると、最もきれいに拡大できます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "スマホでも動画をズームできますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい。スマホのブラウザでstreamfilter.tvにアクセスし、ズームスライダーで拡大、指でドラッグしてパン移動できます。ブラウザのピンチズーム（ページ全体の拡大）とは異なり、動画だけを拡大します。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "ブラウザのズームとは何が違いますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ブラウザのズーム（Ctrl + スクロール）はページ全体をUI含めて拡大します。Stream Filterのズームは動画コンテンツだけを拡大し、操作パネルは通常サイズのまま使えます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "ズームしながら明るさ調整もできますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい。Stream Filterの全機能は同時に使えます。ズームしながら明るさ、コントラスト、彩度などのフィルター調整も同時に行えます。"
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', sans-serif; background: #0f0f0f; color: #ccc; min-height: 100vh; }
+    header { width: 100%; padding: 12px 24px; display: flex; align-items: center; gap: 12px; background: #1a1a1a; border-bottom: 1px solid #333; }
+    header a { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    header h1 { font-size: 18px; font-weight: 600; color: #fff; }
+    .logo { width: 28px; height: 28px; background: #ff4444; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; }
+    main { max-width: 800px; margin: 0 auto; padding: 40px 24px 60px; line-height: 1.8; }
+    h2 { color: #fff; font-size: 28px; margin-bottom: 8px; }
+    .subtitle { color: #888; font-size: 16px; margin-bottom: 32px; }
+    h3 { color: #fff; font-size: 20px; margin: 32px 0 12px; }
+    p { margin-bottom: 16px; }
+    ul, ol { margin: 0 0 16px 24px; }
+    li { margin-bottom: 8px; }
+    a { color: #ff4444; }
+    a:hover { color: #ff6666; }
+    .cta { display: inline-block; padding: 14px 32px; background: #ff4444; color: #fff; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px; margin: 8px 0 32px; transition: background 0.2s; }
+    .cta:hover { background: #e03030; color: #fff; }
+    .faq-item { margin-bottom: 24px; }
+    .faq-item strong { color: #fff; display: block; margin-bottom: 6px; }
+    .use-cases { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 16px 0 24px; }
+    .use-case { background: #1a1a1a; border: 1px solid #282828; border-radius: 10px; padding: 16px; }
+    .use-case .title { color: #fff; font-weight: 600; margin-bottom: 4px; }
+    .use-case .desc { color: #888; font-size: 13px; }
+    .controls-table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+    .controls-table th { text-align: left; color: #fff; padding: 10px 12px; border-bottom: 1px solid #333; font-size: 13px; }
+    .controls-table td { padding: 10px 12px; border-bottom: 1px solid #1a1a1a; font-size: 13px; color: #aaa; }
+    footer { width: 100%; padding: 20px 24px; text-align: center; font-size: 12px; color: #555; border-top: 1px solid #1a1a1a; }
+    footer a { color: #777; text-decoration: none; margin: 0 12px; }
+    footer a:hover { color: #fff; }
+  </style>
+</head>
+<body>
+  <header><a href="/ja/"><div class="logo">&#9655;</div><h1>Stream Filter</h1></a></header>
+  <main>
+    <h2>動画をズーム・拡大して見る</h2>
+    <p class="subtitle">動画を最大10倍に拡大し、ドラッグで好きな位置を表示 &mdash; ソフト不要、拡張機能不要。</p>
+
+    <a href="/ja/" class="cta">動画ズームツールを開く</a>
+
+    <h3>なぜ動画をズームするのか？</h3>
+    <p>ホワイトボードの小さな文字、商品レビューの細部、ゲームのミニマップなど、動画内の細かい部分を見たいことはよくあります。ブラウザのズームはページ全体を拡大してしまいますが、Stream Filterは<strong>動画だけ</strong>を拡大し、操作パネルはそのまま使えます。</p>
+
+    <h3>こんなときに便利</h3>
+    <div class="use-cases">
+      <div class="use-case">
+        <div class="title">オンライン講義</div>
+        <div class="desc">ホワイトボード、スライド、手書きノートの文字を読みやすく。</div>
+      </div>
+      <div class="use-case">
+        <div class="title">商品レビュー</div>
+        <div class="desc">商品の質感、ディテール、細かい表記を拡大確認。</div>
+      </div>
+      <div class="use-case">
+        <div class="title">ゲーム分析</div>
+        <div class="desc">HUD、ミニマップ、特定エリアをズームして確認。</div>
+      </div>
+      <div class="use-case">
+        <div class="title">自然・野生動物</div>
+        <div class="desc">遠くの野生動物や鳥、自然の細部を拡大。</div>
+      </div>
+      <div class="use-case">
+        <div class="title">チュートリアル</div>
+        <div class="desc">コード、UI要素、ソフトウェアの小さなテキストを拡大。</div>
+      </div>
+      <div class="use-case">
+        <div class="title">スポーツリプレイ</div>
+        <div class="desc">際どいプレーやファウルをズームして判定確認。</div>
+      </div>
+    </div>
+
+    <h3>使い方</h3>
+    <ol>
+      <li><a href="/ja/">streamfilter.tv/ja/</a> にアクセス</li>
+      <li>動画URLを貼り付けて再生</li>
+      <li><strong>ズーム</strong>スライダーで1倍〜10倍に拡大</li>
+      <li>動画を<strong>ドラッグ</strong>して好きな位置にパン移動</li>
+      <li><strong>クリック</strong>で再生/一時停止（YouTube動画）</li>
+      <li>動画上で<strong>スクロール</strong>すれば素早くズーム調整</li>
+    </ol>
+
+    <h3>操作一覧</h3>
+    <table class="controls-table">
+      <thead>
+        <tr><th>操作</th><th>方法</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>ズーム</td><td>スライダー（1x〜10x）または動画上でスクロール</td></tr>
+        <tr><td>パン（視点移動）</td><td>動画をクリック＆ドラッグ</td></tr>
+        <tr><td>再生/一時停止</td><td>動画をクリック（YouTube動画）</td></tr>
+        <tr><td>リセット</td><td>ズームスライダー横の「リセット」ボタン</td></tr>
+        <tr><td>スマホでパン</td><td>動画をタッチ＆ドラッグ</td></tr>
+      </tbody>
+    </table>
+
+    <h3>ズーム × フィルターの組み合わせ</h3>
+    <ul>
+      <li><strong>ズーム + 明るさアップ</strong> — 暗い動画を拡大しつつ見やすく</li>
+      <li><strong>ズーム + ビビッド</strong> — 自然映像を色鮮やかに拡大</li>
+      <li><strong>ズーム + 暗視スコープ</strong> — ゲーム配信を戦術的に拡大分析</li>
+      <li><strong>ズーム + スロー再生</strong> — 高速な場面をコマ送り風に拡大分析</li>
+    </ul>
+
+    <h3>よくある質問</h3>
+
+    <div class="faq-item">
+      <strong>YouTube動画をズーム・拡大するには？</strong>
+      <p>streamfilter.tvにアクセスし、YouTube URLを貼り付けてズームスライダーで1倍〜10倍に拡大します。マウスでドラッグすれば好きな位置にパン移動でき、クリックで再生/一時停止も可能です。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>動画の好きな部分を拡大できますか？</strong>
+      <p>はい。ズーム後にドラッグすることで、画面の隅々まで自由に移動できます。ホワイトボードの小さな文字を読んだり、商品の細部を確認したり、好きな部分にフォーカスできます。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>拡大すると画質は落ちますか？</strong>
+      <p>拡大は既存のピクセルを引き伸ばすため、高倍率ではピクセルが見える場合があります。最高画質（1080pや4K）で再生してからズームすると、最もきれいに拡大できます。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>スマホでも動画をズームできますか？</strong>
+      <p>はい。スマホのブラウザでstreamfilter.tvにアクセスし、ズームスライダーで拡大、指でドラッグしてパン移動できます。ブラウザのピンチズームとは異なり、動画だけを拡大します。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>ブラウザのズームとは何が違いますか？</strong>
+      <p>ブラウザのズーム（Ctrl + スクロール）はページ全体をUI含めて拡大します。Stream Filterのズームは動画コンテンツだけを拡大し、操作パネルは通常サイズのまま使えます。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>ズームしながら明るさ調整もできますか？</strong>
+      <p>はい。Stream Filterの全機能は同時に使えます。ズームしながら明るさ、コントラスト、彩度などのフィルター調整も同時に行えます。</p>
+    </div>
+
+    <p style="text-align:center; margin-top: 32px;">
+      <a href="/ja/" class="cta">無料で試す</a>
+    </p>
+  </main>
+  <footer>
+    <a href="/guide.html">使い方</a>
+    <a href="/ja/tools/brightness.html">明るさ</a>
+    <a href="/ja/tools/contrast.html">コントラスト</a>
+    <a href="/ja/tools/night-mode.html">ナイトモード</a>
+    <a href="/ja/tools/speed.html">再生速度</a>
+    <a href="/ja/tools/infrared.html">赤外線</a>
+    <a href="/privacy.html">プライバシー</a>
+  </footer>
+</body>
+</html>

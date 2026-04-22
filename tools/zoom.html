@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zoom In on Videos Online - Magnify & Pan Any Video | Stream Filter</title>
+  <meta name="description" content="Zoom into any YouTube, Twitch, or Vimeo video up to 10x. Drag to pan and explore any part of the frame. Free online video zoom tool, no install needed.">
+  <link rel="canonical" href="https://streamfilter.tv/tools/zoom.html">
+  <link rel="alternate" hreflang="en" href="https://streamfilter.tv/tools/zoom.html">
+  <link rel="alternate" hreflang="ja" href="https://streamfilter.tv/ja/tools/zoom.html">
+  <link rel="alternate" hreflang="x-default" href="https://streamfilter.tv/tools/zoom.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff4444'/><polygon points='38,25 38,75 78,50' fill='white'/></svg>">
+  <meta property="og:title" content="Zoom In on Videos Online - Magnify & Pan Any Video">
+  <meta property="og:description" content="Zoom into any video up to 10x and drag to explore any part of the frame. Free online tool.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://streamfilter.tv/tools/zoom.html">
+  <meta property="og:image" content="https://streamfilter.tv/ogp.png">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2360009503992783" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I zoom in on a YouTube video?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Open streamfilter.tv, paste any YouTube URL, and use the Zoom slider to magnify from 1x up to 10x. Drag with your mouse to pan and explore any part of the frame. Click to play/pause while zoomed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I zoom in on a specific part of a video?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! After zooming in, drag the video to move your viewpoint to any part of the frame. You can explore corners, read small text, or focus on details anywhere in the video."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does zooming reduce video quality?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Zooming magnifies the existing pixels, so at very high zoom levels the image may appear pixelated. For best results, make sure the video is playing at the highest available quality (1080p or 4K) before zooming in."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I zoom in on videos on my phone?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! Stream Filter works on mobile browsers. Use the zoom slider to magnify the video, then drag with your finger to pan around the frame. This is different from pinch-to-zoom, which zooms the entire page."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is this different from browser zoom?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Browser zoom (Ctrl/Cmd + scroll) zooms the entire page including UI, menus, and controls. Stream Filter's zoom only magnifies the video content, keeping all controls and sliders at normal size."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I zoom and adjust brightness at the same time?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! All Stream Filter features work together. You can zoom in while adjusting brightness, contrast, saturation, and other filters simultaneously."
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f0f0f; color: #ccc; min-height: 100vh; }
+    header { width: 100%; padding: 12px 24px; display: flex; align-items: center; gap: 12px; background: #1a1a1a; border-bottom: 1px solid #333; }
+    header a { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    header h1 { font-size: 18px; font-weight: 600; color: #fff; }
+    .logo { width: 28px; height: 28px; background: #ff4444; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; }
+    main { max-width: 800px; margin: 0 auto; padding: 40px 24px 60px; line-height: 1.8; }
+    h2 { color: #fff; font-size: 28px; margin-bottom: 8px; }
+    .subtitle { color: #888; font-size: 16px; margin-bottom: 32px; }
+    h3 { color: #fff; font-size: 20px; margin: 32px 0 12px; }
+    p { margin-bottom: 16px; }
+    ul, ol { margin: 0 0 16px 24px; }
+    li { margin-bottom: 8px; }
+    a { color: #ff4444; }
+    a:hover { color: #ff6666; }
+    .cta { display: inline-block; padding: 14px 32px; background: #ff4444; color: #fff; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px; margin: 8px 0 32px; transition: background 0.2s; }
+    .cta:hover { background: #e03030; color: #fff; }
+    .faq-item { margin-bottom: 24px; }
+    .faq-item strong { color: #fff; display: block; margin-bottom: 6px; }
+    .use-cases { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 16px 0 24px; }
+    .use-case { background: #1a1a1a; border: 1px solid #282828; border-radius: 10px; padding: 16px; }
+    .use-case .title { color: #fff; font-weight: 600; margin-bottom: 4px; }
+    .use-case .desc { color: #888; font-size: 13px; }
+    .controls-table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+    .controls-table th { text-align: left; color: #fff; padding: 10px 12px; border-bottom: 1px solid #333; font-size: 13px; }
+    .controls-table td { padding: 10px 12px; border-bottom: 1px solid #1a1a1a; font-size: 13px; color: #aaa; }
+    footer { width: 100%; padding: 20px 24px; text-align: center; font-size: 12px; color: #555; border-top: 1px solid #1a1a1a; }
+    footer a { color: #777; text-decoration: none; margin: 0 12px; }
+    footer a:hover { color: #fff; }
+  </style>
+</head>
+<body>
+  <header><a href="/"><div class="logo">&#9655;</div><h1>Stream Filter</h1></a></header>
+  <main>
+    <h2>Zoom In on Videos Online</h2>
+    <p class="subtitle">Magnify any video up to 10x and drag to explore any part of the frame — no software, no extensions.</p>
+
+    <a href="/" class="cta">Open Video Zoom Tool</a>
+
+    <h3>Why Zoom Into Videos?</h3>
+    <p>Sometimes you need to see details that are too small in the original video — reading text on a whiteboard, checking a product close-up, or analyzing gameplay footage. Browser zoom scales the entire page, but Stream Filter zooms <strong>only the video</strong>, keeping controls at normal size.</p>
+
+    <h3>Use Cases</h3>
+    <div class="use-cases">
+      <div class="use-case">
+        <div class="title">Online Lectures</div>
+        <div class="desc">Zoom into whiteboards, slides, and handwritten notes that are hard to read.</div>
+      </div>
+      <div class="use-case">
+        <div class="title">Product Reviews</div>
+        <div class="desc">Get a closer look at product details, textures, and fine print.</div>
+      </div>
+      <div class="use-case">
+        <div class="title">Gaming Analysis</div>
+        <div class="desc">Zoom into HUD elements, mini-maps, or specific areas during gameplay replays.</div>
+      </div>
+      <div class="use-case">
+        <div class="title">Nature & Wildlife</div>
+        <div class="desc">Magnify distant wildlife, birds, or small details in nature footage.</div>
+      </div>
+      <div class="use-case">
+        <div class="title">Tutorial Details</div>
+        <div class="desc">See code, UI elements, or small text in software tutorials.</div>
+      </div>
+      <div class="use-case">
+        <div class="title">Sports Replays</div>
+        <div class="desc">Zoom into controversial plays, fouls, or close calls for a better view.</div>
+      </div>
+    </div>
+
+    <h3>How It Works</h3>
+    <ol>
+      <li>Go to <a href="/">streamfilter.tv</a></li>
+      <li>Paste any video URL and click Play</li>
+      <li>Use the <strong>Zoom</strong> slider to magnify from 1x to 10x</li>
+      <li><strong>Drag</strong> the video to pan and explore any part of the frame</li>
+      <li><strong>Click</strong> to play/pause while zoomed (YouTube)</li>
+      <li>Use <strong>scroll wheel</strong> on the video for quick zoom in/out</li>
+    </ol>
+
+    <h3>Zoom Controls</h3>
+    <table class="controls-table">
+      <thead>
+        <tr><th>Action</th><th>How</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Zoom in/out</td><td>Zoom slider (1x to 10x) or scroll wheel on video</td></tr>
+        <tr><td>Pan (move viewpoint)</td><td>Click and drag on the video</td></tr>
+        <tr><td>Play/Pause</td><td>Single click on the video (YouTube)</td></tr>
+        <tr><td>Reset zoom</td><td>Click the "Reset" button next to the zoom slider</td></tr>
+        <tr><td>Mobile pan</td><td>Touch and drag on the video</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Combine Zoom with Filters</h3>
+    <p>Stream Filter is the only tool that lets you zoom into a video while adjusting visual filters at the same time:</p>
+    <ul>
+      <li><strong>Zoom + Brightness boost</strong> — See details in dark, zoomed-in footage</li>
+      <li><strong>Zoom + Vivid preset</strong> — Magnify nature footage with enhanced colors</li>
+      <li><strong>Zoom + Night Vision</strong> — Tactical magnified view for gaming streams</li>
+      <li><strong>Zoom + Slow speed</strong> — Frame-by-frame analysis of fast-moving content</li>
+    </ul>
+
+    <h3>Frequently Asked Questions</h3>
+
+    <div class="faq-item">
+      <strong>How do I zoom in on a YouTube video?</strong>
+      <p>Open streamfilter.tv, paste any YouTube URL, and use the Zoom slider to magnify from 1x up to 10x. Drag with your mouse to pan and explore any part of the frame. Click to play/pause while zoomed.</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>Can I zoom in on a specific part of a video?</strong>
+      <p>Yes! After zooming in, drag the video to move your viewpoint to any part of the frame. You can explore corners, read small text, or focus on details anywhere in the video.</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>Does zooming reduce video quality?</strong>
+      <p>Zooming magnifies the existing pixels, so at very high zoom levels the image may appear pixelated. For best results, make sure the video is playing at the highest available quality (1080p or 4K) before zooming in.</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>Can I zoom in on videos on my phone?</strong>
+      <p>Yes! Stream Filter works on mobile browsers. Use the zoom slider to magnify the video, then drag with your finger to pan around the frame. This is different from pinch-to-zoom, which zooms the entire page.</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>How is this different from browser zoom?</strong>
+      <p>Browser zoom (Ctrl/Cmd + scroll) zooms the entire page including UI, menus, and controls. Stream Filter's zoom only magnifies the video content, keeping all controls and sliders at normal size.</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>Can I zoom and adjust brightness at the same time?</strong>
+      <p>Yes! All Stream Filter features work together. You can zoom in while adjusting brightness, contrast, saturation, and other filters simultaneously.</p>
+    </div>
+
+    <p style="text-align:center; margin-top: 32px;">
+      <a href="/" class="cta">Try Video Zoom — Free</a>
+    </p>
+  </main>
+  <footer>
+    <a href="/guide.html">How to Use</a>
+    <a href="/tools/brightness.html">Brightness</a>
+    <a href="/tools/contrast.html">Contrast</a>
+    <a href="/tools/night-mode.html">Night Mode</a>
+    <a href="/tools/speed.html">Playback Speed</a>
+    <a href="/tools/infrared.html">Infrared</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+  </footer>
+</body>
+</html>

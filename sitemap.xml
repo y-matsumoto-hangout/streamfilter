@@ -94,6 +94,20 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://streamfilter.tv/tools/zoom.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://streamfilter.tv/tools/zoom.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://streamfilter.tv/ja/tools/zoom.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://streamfilter.tv/ja/tools/zoom.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://streamfilter.tv/tools/zoom.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://streamfilter.tv/ja/tools/zoom.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://streamfilter.tv/privacy.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
