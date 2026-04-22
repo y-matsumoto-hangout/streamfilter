@@ -225,11 +225,19 @@
       overflow: hidden;
     }
 
-    .video-wrapper iframe {
+    .video-wrapper iframe, .video-wrapper #ytPlayerDiv {
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
       border: none;
+    }
+
+    .zoom-overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 10;
+      display: none;
     }
 
     .video-placeholder {
@@ -394,6 +402,7 @@
       <button class="reset-btn" onclick="resetZoom()" style="margin-left:8px;">リセット</button>
     </div>
     <div class="video-wrapper" id="videoWrapper" style="margin-top:12px;">
+      <div class="zoom-overlay" id="zoomOverlay"></div>
       <div class="video-placeholder" id="placeholder">動画URLを貼り付けて「再生」をクリック</div>
     </div>
   </div>
@@ -695,11 +704,13 @@
     function updateTransform() {
       const wrapper = document.getElementById('videoWrapper');
       const inner = wrapper.querySelector('iframe') || wrapper.querySelector('#ytPlayerDiv');
+      const overlay = document.getElementById('zoomOverlay');
       if (!inner) return;
       if (zoomLevel <= 1) {
         inner.style.transform = '';
         inner.style.transformOrigin = '';
-        wrapper.style.cursor = '';
+        overlay.style.display = 'none';
+        overlay.style.cursor = '';
         return;
       }
       const minPan = (1 / (2 * zoomLevel)) * 100;
@@ -708,25 +719,26 @@
       panY = Math.max(minPan, Math.min(maxPan, panY));
       inner.style.transform = `scale(${zoomLevel})`;
       inner.style.transformOrigin = `${panX}% ${panY}%`;
-      wrapper.style.cursor = zoomLevel > 1 ? 'grab' : '';
+      overlay.style.display = 'block';
+      overlay.style.cursor = 'grab';
     }
 
-    const videoWrapper = document.getElementById('videoWrapper');
+    const zoomOverlay = document.getElementById('zoomOverlay');
 
-    videoWrapper.addEventListener('mousedown', (e) => {
+    zoomOverlay.addEventListener('mousedown', (e) => {
       if (zoomLevel <= 1) return;
       isDragging = true;
       dragStartX = e.clientX;
       dragStartY = e.clientY;
       panStartX = panX;
       panStartY = panY;
-      videoWrapper.style.cursor = 'grabbing';
+      zoomOverlay.style.cursor = 'grabbing';
       e.preventDefault();
     });
 
     document.addEventListener('mousemove', (e) => {
       if (!isDragging) return;
-      const rect = videoWrapper.getBoundingClientRect();
+      const rect = zoomOverlay.getBoundingClientRect();
       const sensitivity = 100 / (zoomLevel * Math.max(rect.width, 1));
       panX = panStartX - (e.clientX - dragStartX) * sensitivity;
       panY = panStartY - (e.clientY - dragStartY) * sensitivity;
@@ -736,11 +748,11 @@
     document.addEventListener('mouseup', () => {
       if (isDragging) {
         isDragging = false;
-        videoWrapper.style.cursor = zoomLevel > 1 ? 'grab' : '';
+        zoomOverlay.style.cursor = zoomLevel > 1 ? 'grab' : '';
       }
     });
 
-    videoWrapper.addEventListener('touchstart', (e) => {
+    zoomOverlay.addEventListener('touchstart', (e) => {
       if (zoomLevel <= 1 || e.touches.length !== 1) return;
       isDragging = true;
       dragStartX = e.touches[0].clientX;
@@ -749,18 +761,18 @@
       panStartY = panY;
     }, { passive: true });
 
-    videoWrapper.addEventListener('touchmove', (e) => {
+    zoomOverlay.addEventListener('touchmove', (e) => {
       if (!isDragging || e.touches.length !== 1) return;
-      const rect = videoWrapper.getBoundingClientRect();
+      const rect = zoomOverlay.getBoundingClientRect();
       const sensitivity = 100 / (zoomLevel * Math.max(rect.width, 1));
       panX = panStartX - (e.touches[0].clientX - dragStartX) * sensitivity;
       panY = panStartY - (e.touches[0].clientY - dragStartY) * sensitivity;
       updateTransform();
     }, { passive: true });
 
-    videoWrapper.addEventListener('touchend', () => { isDragging = false; });
+    zoomOverlay.addEventListener('touchend', () => { isDragging = false; });
 
-    videoWrapper.addEventListener('wheel', (e) => {
+    zoomOverlay.addEventListener('wheel', (e) => {
       e.preventDefault();
       const zoomSlider = document.getElementById('videoZoom');
       let newVal = parseInt(zoomSlider.value) - Math.sign(e.deltaY) * 10;
