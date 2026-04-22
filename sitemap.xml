@@ -48,6 +48,41 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://streamfilter.tv/ja/tools/brightness.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://streamfilter.tv/tools/brightness.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://streamfilter.tv/ja/tools/brightness.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://streamfilter.tv/ja/tools/contrast.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://streamfilter.tv/tools/contrast.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://streamfilter.tv/ja/tools/contrast.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://streamfilter.tv/ja/tools/night-mode.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://streamfilter.tv/tools/night-mode.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://streamfilter.tv/ja/tools/night-mode.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://streamfilter.tv/ja/tools/speed.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://streamfilter.tv/tools/speed.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://streamfilter.tv/ja/tools/speed.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://streamfilter.tv/ja/tools/infrared.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://streamfilter.tv/tools/infrared.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://streamfilter.tv/ja/tools/infrared.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://streamfilter.tv/privacy.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>動画の明るさをオンラインで調整 - 無料＆即時 | Stream Filter</title>
+  <meta name="description" content="YouTube、Twitch、Vimeoなどの動画の明るさをリアルタイムで調整。アップロード不要、ダウンロード不要、アカウント不要。無料のオンライン明るさ調整ツール。">
+  <link rel="canonical" href="https://streamfilter.tv/ja/tools/brightness.html">
+  <link rel="alternate" hreflang="en" href="https://streamfilter.tv/tools/brightness.html">
+  <link rel="alternate" hreflang="ja" href="https://streamfilter.tv/ja/tools/brightness.html">
+  <link rel="alternate" hreflang="x-default" href="https://streamfilter.tv/tools/brightness.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff4444'/><polygon points='38,25 38,75 78,50' fill='white'/></svg>">
+  <meta property="og:title" content="動画の明るさをオンラインで調整 - 無料＆即時">
+  <meta property="og:description" content="暗い動画を明るくしたり、夜間視聴用に暗くしたり。YouTube、Twitch、Vimeoなどに対応。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://streamfilter.tv/ja/tools/brightness.html">
+  <meta property="og:image" content="https://streamfilter.tv/ogp.png">
+  <meta property="og:locale" content="ja_JP">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2360009503992783" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "暗いYouTube動画を明るくするには？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Stream FilterにYouTubeのURLを貼り付けて、明るさスライダーを上げるだけです。「明るく」プリセットを使えば一瞬で調整できます。アップロードやソフトのインストールは不要で、ブラウザだけで動作します。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "明るさを調整すると動画の画質は落ちますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "いいえ。Stream FilterはCSSフィルターを動画プレイヤーの上に適用するだけなので、元の動画品質には影響しません。画面上の表示だけが変わります。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "スマホでも明るさ調整できますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい、Stream Filterは完全レスポンシブ対応で、スマホやタブレットのブラウザでそのまま使えます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "明るさはどの範囲で調整できますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "30%（非常に暗い）から500%（非常に明るい）まで調整可能です。暗い動画でもしっかり見えるようになります。"
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', sans-serif; background: #0f0f0f; color: #ccc; min-height: 100vh; }
+    header { width: 100%; padding: 12px 24px; display: flex; align-items: center; gap: 12px; background: #1a1a1a; border-bottom: 1px solid #333; }
+    header a { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    header h1 { font-size: 18px; font-weight: 600; color: #fff; }
+    .logo { width: 28px; height: 28px; background: #ff4444; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; }
+    main { max-width: 800px; margin: 0 auto; padding: 40px 24px 60px; line-height: 1.8; }
+    h2 { color: #fff; font-size: 28px; margin-bottom: 8px; }
+    .subtitle { color: #888; font-size: 16px; margin-bottom: 32px; }
+    h3 { color: #fff; font-size: 20px; margin: 32px 0 12px; }
+    p { margin-bottom: 16px; }
+    ul, ol { margin: 0 0 16px 24px; }
+    li { margin-bottom: 8px; }
+    a { color: #ff4444; }
+    a:hover { color: #ff6666; }
+    .cta { display: inline-block; padding: 14px 32px; background: #ff4444; color: #fff; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px; margin: 8px 0 32px; transition: background 0.2s; }
+    .cta:hover { background: #e03030; color: #fff; }
+    .faq-item { margin-bottom: 24px; }
+    .faq-item strong { color: #fff; display: block; margin-bottom: 6px; }
+    .use-cases { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 16px 0 24px; }
+    .use-case { background: #1a1a1a; border: 1px solid #282828; border-radius: 10px; padding: 16px; }
+    .use-case .title { color: #fff; font-weight: 600; margin-bottom: 4px; }
+    .use-case .desc { color: #888; font-size: 13px; }
+    footer { width: 100%; padding: 20px 24px; text-align: center; font-size: 12px; color: #555; border-top: 1px solid #1a1a1a; }
+    footer a { color: #777; text-decoration: none; margin: 0 12px; }
+    footer a:hover { color: #fff; }
+  </style>
+</head>
+<body>
+  <header><a href="/ja/"><div class="logo">&#9655;</div><h1>Stream Filter</h1></a></header>
+  <main>
+    <h2>動画の明るさをオンラインで調整</h2>
+    <p class="subtitle">暗い動画を明るくしたり、夜間視聴用に暗くしたり。アップロード不要で即座に調整できます。</p>
+
+    <a href="/ja/" class="cta">明るさ調整ツールを開く</a>
+
+    <h3>なぜ明るさを調整するのか？</h3>
+    <p>暗い場所で撮影された動画は見づらいことがよくあります。目を細めて見る代わりに、再生中にリアルタイムで明るさを上げましょう。Stream Filterならソフトのダウンロードやファイルのアップロードなしで調整できます。</p>
+
+    <h3>よくある使い方</h3>
+    <div class="use-cases">
+      <div class="use-case">
+        <div class="title">暗い動画</div>
+        <div class="desc">暗い映像のディテールを見えるように明るさアップ。</div>
+      </div>
+      <div class="use-case">
+        <div class="title">夜間視聴</div>
+        <div class="desc">明るさを下げて目の負担を軽減。</div>
+      </div>
+      <div class="use-case">
+        <div class="title">屋外視聴</div>
+        <div class="desc">日光の下でも見えるように明るさを最大に。</div>
+      </div>
+      <div class="use-case">
+        <div class="title">アクセシビリティ</div>
+        <div class="desc">視覚に困難がある方の視聴サポートに。</div>
+      </div>
+    </div>
+
+    <h3>使い方</h3>
+    <ol>
+      <li><a href="/ja/">streamfilter.tv/ja/</a> にアクセス</li>
+      <li>動画URLを貼り付け（YouTube、Twitch、Vimeo、Dailymotionなど）</li>
+      <li><strong>明るさ</strong>スライダーで30%〜500%に調整</li>
+      <li>または<strong>「明るく」</strong>プリセットでワンクリック調整</li>
+    </ol>
+    <p>すべての処理はブラウザ内で完結。動画データがサーバーに送信されることはありません。</p>
+
+    <h3>明るさの範囲</h3>
+    <ul>
+      <li><strong>30%</strong> — 非常に暗い。極端なナイトモード向け</li>
+      <li><strong>100%</strong> — デフォルト。元の明るさ</li>
+      <li><strong>200%</strong> — 明るめ。暗い動画に最適</li>
+      <li><strong>500%</strong> — 最大ブースト。最も暗い映像にも</li>
+    </ul>
+
+    <h3>よくある質問</h3>
+
+    <div class="faq-item">
+      <strong>暗いYouTube動画を明るくするには？</strong>
+      <p>Stream FilterにYouTubeのURLを貼り付けて、明るさスライダーを上げるだけです。「明るく」プリセットを使えば一瞬で調整できます。アップロードやソフトのインストールは不要です。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>明るさを調整すると動画の画質は落ちますか？</strong>
+      <p>いいえ。Stream FilterはCSSフィルターを動画プレイヤーの上に適用するだけなので、元の動画品質には影響しません。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>スマホでも明るさ調整できますか？</strong>
+      <p>はい、Stream Filterは完全レスポンシブ対応で、スマホやタブレットのブラウザでそのまま使えます。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>明るさはどの範囲で調整できますか？</strong>
+      <p>30%（非常に暗い）から500%（非常に明るい）まで調整可能です。</p>
+    </div>
+
+    <p style="text-align:center; margin-top: 32px;">
+      <a href="/ja/" class="cta">無料で試す</a>
+    </p>
+  </main>
+  <footer>
+    <a href="/guide.html">使い方</a>
+    <a href="/ja/tools/contrast.html">コントラスト</a>
+    <a href="/ja/tools/night-mode.html">ナイトモード</a>
+    <a href="/ja/tools/speed.html">再生速度</a>
+    <a href="/ja/tools/infrared.html">赤外線</a>
+    <a href="/privacy.html">プライバシー</a>
+  </footer>
+</body>
+</html>
