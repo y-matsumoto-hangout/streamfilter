@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Filter</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0f0f0f;
+      color: #e0e0e0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      width: 100%;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #1a1a1a;
+      border-bottom: 1px solid #333;
+    }
+
+    header h1 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .logo {
+      width: 28px;
+      height: 28px;
+      background: #ff4444;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    main {
+      width: 100%;
+      max-width: 1200px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* URL Input */
+    .url-bar {
+      display: flex;
+      gap: 8px;
+    }
+
+    .url-bar input {
+      flex: 1;
+      padding: 10px 16px;
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .url-bar input:focus {
+      border-color: #666;
+    }
+
+    .url-bar input::placeholder {
+      color: #666;
+    }
+
+    .url-bar button {
+      padding: 10px 20px;
+      background: #ff4444;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .url-bar button:hover {
+      background: #e03030;
+    }
+
+    /* Video Container */
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .video-placeholder {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #555;
+      font-size: 16px;
+    }
+
+    /* Controls */
+    .controls {
+      background: #1a1a1a;
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid #282828;
+    }
+
+    .controls-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .controls-header h2 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #ccc;
+    }
+
+    .reset-btn {
+      padding: 6px 14px;
+      background: #282828;
+      color: #aaa;
+      border: 1px solid #333;
+      border-radius: 6px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .reset-btn:hover {
+      background: #333;
+      color: #fff;
+    }
+
+    .sliders {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .slider-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .slider-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+    }
+
+    .slider-label span:first-child {
+      color: #aaa;
+    }
+
+    .slider-label .value {
+      color: #fff;
+      font-variant-numeric: tabular-nums;
+      min-width: 44px;
+      text-align: right;
+    }
+
+    input[type="range"] {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 6px;
+      background: #333;
+      border-radius: 3px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      background: #fff;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: transform 0.1s;
+    }
+
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+
+    /* Presets */
+    .presets {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid #282828;
+    }
+
+    .presets h3 {
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 10px;
+    }
+
+    .preset-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .preset-btn {
+      padding: 6px 14px;
+      background: #222;
+      color: #ccc;
+      border: 1px solid #333;
+      border-radius: 20px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .preset-btn:hover {
+      background: #333;
+      color: #fff;
+      border-color: #555;
+    }
+
+    .preset-btn.active {
+      background: #ff4444;
+      color: #fff;
+      border-color: #ff4444;
+    }
+
+    @media (max-width: 640px) {
+      main { padding: 12px; }
+      .sliders { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">&#9655;</div>
+    <h1>YouTube Filter</h1>
+  </header>
+
+  <main>
+    <div class="url-bar">
+      <input type="text" id="urlInput" placeholder="YouTube URLを貼り付け（例: https://www.youtube.com/watch?v=...）">
+      <button onclick="loadVideo()">再生</button>
+    </div>
+
+    <div class="video-wrapper" id="videoWrapper">
+      <div class="video-placeholder" id="placeholder">URLを入力して「再生」を押してください</div>
+    </div>
+
+    <div class="controls">
+      <div class="controls-header">
+        <h2>映像フィルター</h2>
+        <button class="reset-btn" onclick="resetFilters()">リセット</button>
+      </div>
+
+      <div class="sliders">
+        <div class="slider-group">
+          <div class="slider-label">
+            <span>明るさ</span>
+            <span class="value" id="brightnessVal">100%</span>
+          </div>
+          <input type="range" id="brightness" min="30" max="500" value="100" oninput="applyFilters()">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-label">
+            <span>コントラスト</span>
+            <span class="value" id="contrastVal">100%</span>
+          </div>
+          <input type="range" id="contrast" min="30" max="500" value="100" oninput="applyFilters()">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-label">
+            <span>彩度</span>
+            <span class="value" id="saturateVal">100%</span>
+          </div>
+          <input type="range" id="saturate" min="0" max="500" value="100" oninput="applyFilters()">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-label">
+            <span>色相回転</span>
+            <span class="value" id="hueRotateVal">0°</span>
+          </div>
+          <input type="range" id="hueRotate" min="0" max="360" value="0" oninput="applyFilters()">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-label">
+            <span>セピア</span>
+            <span class="value" id="sepiaVal">0%</span>
+          </div>
+          <input type="range" id="sepia" min="0" max="100" value="0" oninput="applyFilters()">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-label">
+            <span>ぼかし</span>
+            <span class="value" id="blurVal">0px</span>
+          </div>
+          <input type="range" id="blur" min="0" max="10" value="0" step="0.5" oninput="applyFilters()">
+        </div>
+      </div>
+
+      <div class="presets">
+        <h3>プリセット</h3>
+        <div class="preset-buttons">
+          <button class="preset-btn" onclick="applyPreset('default')">デフォルト</button>
+          <button class="preset-btn" onclick="applyPreset('bright')">明るく</button>
+          <button class="preset-btn" onclick="applyPreset('nightmode')">ナイトモード</button>
+          <button class="preset-btn" onclick="applyPreset('vivid')">ビビッド</button>
+          <button class="preset-btn" onclick="applyPreset('warm')">暖色</button>
+          <button class="preset-btn" onclick="applyPreset('cool')">寒色</button>
+          <button class="preset-btn" onclick="applyPreset('retro')">レトロ</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const filters = {
+      brightness: document.getElementById('brightness'),
+      contrast: document.getElementById('contrast'),
+      saturate: document.getElementById('saturate'),
+      hueRotate: document.getElementById('hueRotate'),
+      sepia: document.getElementById('sepia'),
+      blur: document.getElementById('blur'),
+    };
+
+    const presets = {
+      default:   { brightness: 100, contrast: 100, saturate: 100, hueRotate: 0, sepia: 0, blur: 0 },
+      bright:    { brightness: 140, contrast: 110, saturate: 110, hueRotate: 0, sepia: 0, blur: 0 },
+      nightmode: { brightness: 70,  contrast: 90,  saturate: 80,  hueRotate: 0, sepia: 10, blur: 0 },
+      vivid:     { brightness: 110, contrast: 120, saturate: 180, hueRotate: 0, sepia: 0, blur: 0 },
+      warm:      { brightness: 105, contrast: 105, saturate: 110, hueRotate: 15, sepia: 20, blur: 0 },
+      cool:      { brightness: 100, contrast: 105, saturate: 90,  hueRotate: 200, sepia: 0, blur: 0 },
+      retro:     { brightness: 95,  contrast: 110, saturate: 70,  hueRotate: 10, sepia: 40, blur: 0 },
+    };
+
+    function extractVideoId(url) {
+      const patterns = [
+        /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/,
+        /youtube\.com\/shorts\/([a-zA-Z0-9_-]{11})/,
+      ];
+      for (const p of patterns) {
+        const m = url.match(p);
+        if (m) return m[1];
+      }
+      return null;
+    }
+
+    function loadVideo() {
+      const url = document.getElementById('urlInput').value.trim();
+      if (!url) return;
+
+      const videoId = extractVideoId(url);
+      if (!videoId) {
+        alert('有効なYouTube URLを入力してください');
+        return;
+      }
+
+      const wrapper = document.getElementById('videoWrapper');
+      const placeholder = document.getElementById('placeholder');
+      if (placeholder) placeholder.remove();
+
+      let iframe = wrapper.querySelector('iframe');
+      if (!iframe) {
+        iframe = document.createElement('iframe');
+        iframe.id = 'videoFrame';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.allowFullscreen = true;
+        wrapper.appendChild(iframe);
+      }
+
+      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const b = filters.brightness.value;
+      const c = filters.contrast.value;
+      const s = filters.saturate.value;
+      const h = filters.hueRotate.value;
+      const sp = filters.sepia.value;
+      const bl = filters.blur.value;
+
+      document.getElementById('brightnessVal').textContent = `${b}%`;
+      document.getElementById('contrastVal').textContent = `${c}%`;
+      document.getElementById('saturateVal').textContent = `${s}%`;
+      document.getElementById('hueRotateVal').textContent = `${h}°`;
+      document.getElementById('sepiaVal').textContent = `${sp}%`;
+      document.getElementById('blurVal').textContent = `${bl}px`;
+
+      const filterStr = [
+        `brightness(${b / 100})`,
+        `contrast(${c / 100})`,
+        `saturate(${s / 100})`,
+        `hue-rotate(${h}deg)`,
+        `sepia(${sp / 100})`,
+        `blur(${bl}px)`,
+      ].join(' ');
+
+      const iframe = document.querySelector('#videoWrapper iframe');
+      if (iframe) {
+        iframe.style.filter = filterStr;
+      }
+
+      // Update active preset button
+      document.querySelectorAll('.preset-btn').forEach(btn => btn.classList.remove('active'));
+    }
+
+    function resetFilters() {
+      applyPreset('default');
+    }
+
+    function applyPreset(name) {
+      const p = presets[name];
+      if (!p) return;
+
+      filters.brightness.value = p.brightness;
+      filters.contrast.value = p.contrast;
+      filters.saturate.value = p.saturate;
+      filters.hueRotate.value = p.hueRotate;
+      filters.sepia.value = p.sepia;
+      filters.blur.value = p.blur;
+
+      applyFilters();
+
+      document.querySelectorAll('.preset-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent === getPresetLabel(name));
+      });
+    }
+
+    function getPresetLabel(name) {
+      const labels = {
+        default: 'デフォルト', bright: '明るく', nightmode: 'ナイトモード',
+        vivid: 'ビビッド', warm: '暖色', cool: '寒色', retro: 'レトロ'
+      };
+      return labels[name] || name;
+    }
+
+    // Enter key to load
+    document.getElementById('urlInput').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') loadVideo();
+    });
+  </script>
+</body>
+</html>
