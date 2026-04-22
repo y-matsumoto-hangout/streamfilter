@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Playback Speed Controller - Slow Down or Speed Up Videos | Stream Filter</title>
+  <meta name="description" content="Change YouTube playback speed from 0.25x to 2x with a smooth slider. Slow down tutorials or speed up lectures. Free online tool, no extension needed.">
+  <link rel="canonical" href="https://streamfilter.tv/tools/speed.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff4444'/><polygon points='38,25 38,75 78,50' fill='white'/></svg>">
+  <meta property="og:title" content="YouTube Playback Speed Controller">
+  <meta property="og:description" content="Change playback speed from 0.25x to 2x with a smooth slider. Free online tool.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://streamfilter.tv/tools/speed.html">
+  <meta property="og:image" content="https://streamfilter.tv/ogp.png">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2360009503992783" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I change YouTube playback speed?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "YouTube has a built-in speed option (gear icon > Playback speed), but it only offers fixed increments. Stream Filter provides a smooth slider from 0.25x to 2x with 0.25x steps, plus you can adjust visual filters at the same time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I slow down a YouTube video below 0.25x?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Stream Filter supports speeds from 0.25x to 2x, matching YouTube's API limits. 0.25x is the slowest available speed for YouTube videos."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does speed control work on Twitch and Vimeo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Currently, the speed control feature only works with YouTube videos because it uses the YouTube IFrame API. For other platforms, you can still use all the visual filters (brightness, contrast, etc.)."
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f0f0f; color: #ccc; min-height: 100vh; }
+    header { width: 100%; padding: 12px 24px; display: flex; align-items: center; gap: 12px; background: #1a1a1a; border-bottom: 1px solid #333; }
+    header a { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    header h1 { font-size: 18px; font-weight: 600; color: #fff; }
+    .logo { width: 28px; height: 28px; background: #ff4444; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; }
+    main { max-width: 800px; margin: 0 auto; padding: 40px 24px 60px; line-height: 1.8; }
+    h2 { color: #fff; font-size: 28px; margin-bottom: 8px; }
+    .subtitle { color: #888; font-size: 16px; margin-bottom: 32px; }
+    h3 { color: #fff; font-size: 20px; margin: 32px 0 12px; }
+    p { margin-bottom: 16px; }
+    ul, ol { margin: 0 0 16px 24px; }
+    li { margin-bottom: 8px; }
+    a { color: #ff4444; }
+    a:hover { color: #ff6666; }
+    .cta { display: inline-block; padding: 14px 32px; background: #ff4444; color: #fff; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px; margin: 8px 0 32px; transition: background 0.2s; }
+    .cta:hover { background: #e03030; color: #fff; }
+    .faq-item { margin-bottom: 24px; }
+    .faq-item strong { color: #fff; display: block; margin-bottom: 6px; }
+    .use-cases { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 16px 0 24px; }
+    .use-case { background: #1a1a1a; border: 1px solid #282828; border-radius: 10px; padding: 16px; }
+    .use-case .title { color: #fff; font-weight: 600; margin-bottom: 4px; }
+    .use-case .desc { color: #888; font-size: 13px; }
+    footer { width: 100%; padding: 20px 24px; text-align: center; font-size: 12px; color: #555; border-top: 1px solid #1a1a1a; }
+    footer a { color: #777; text-decoration: none; margin: 0 12px; }
+    footer a:hover { color: #fff; }
+  </style>
+</head>
+<body>
+  <header><a href="/"><div class="logo">&#9655;</div><h1>Stream Filter</h1></a></header>
+  <main>
+    <h2>YouTube Playback Speed Controller</h2>
+    <p class="subtitle">Slow down tutorials or speed up lectures with a smooth speed slider — plus adjust visual filters at the same time.</p>
+
+    <a href="/" class="cta">Open Speed Controller</a>
+
+    <h3>Why Change Playback Speed?</h3>
+    <p>Different content calls for different speeds. Coding tutorials are often easier to follow at 0.75x, while news and podcasts can be consumed faster at 1.5x or 2x. Stream Filter gives you a smooth slider instead of YouTube's limited fixed options.</p>
+
+    <h3>Speed Settings</h3>
+    <div class="use-cases">
+      <div class="use-case">
+        <div class="title">0.25x — Super Slow</div>
+        <div class="desc">Analyze fast-paced footage frame by frame.</div>
+      </div>
+      <div class="use-case">
+        <div class="title">0.5x - 0.75x — Slow</div>
+        <div class="desc">Follow complex tutorials and learn step by step.</div>
+      </div>
+      <div class="use-case">
+        <div class="title">1x — Normal</div>
+        <div class="desc">Default playback speed.</div>
+      </div>
+      <div class="use-case">
+        <div class="title">1.5x - 2x — Fast</div>
+        <div class="desc">Speed through lectures, podcasts, and reviews.</div>
+      </div>
+    </div>
+
+    <h3>How It Works</h3>
+    <ol>
+      <li>Go to <a href="/">streamfilter.tv</a></li>
+      <li>Paste a YouTube URL and click Play</li>
+      <li>The <strong>Playback Speed</strong> slider appears automatically</li>
+      <li>Drag to set your preferred speed (0.25x to 2x)</li>
+    </ol>
+    <p><strong>Note:</strong> Speed control is currently available for YouTube videos only. Visual filters (brightness, contrast, etc.) work on all platforms.</p>
+
+    <h3>Combine Speed with Visual Filters</h3>
+    <p>Stream Filter is the only tool that lets you adjust both playback speed and visual appearance at the same time:</p>
+    <ul>
+      <li><strong>Speed up a lecture + increase brightness</strong> for a well-lit, fast review</li>
+      <li><strong>Slow down a tutorial + vivid preset</strong> for clearer, more colorful step-by-step viewing</li>
+      <li><strong>Normal speed + night mode</strong> for comfortable late-night watching</li>
+    </ul>
+
+    <h3>Frequently Asked Questions</h3>
+
+    <div class="faq-item">
+      <strong>How do I change YouTube playback speed?</strong>
+      <p>YouTube has a built-in speed option (gear icon > Playback speed), but it only offers fixed increments. Stream Filter provides a smooth slider from 0.25x to 2x with 0.25x steps, plus you can adjust visual filters at the same time.</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>Can I slow down a YouTube video below 0.25x?</strong>
+      <p>Stream Filter supports speeds from 0.25x to 2x, matching YouTube's API limits. 0.25x is the slowest available speed for YouTube videos.</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>Does speed control work on Twitch and Vimeo?</strong>
+      <p>Currently, the speed control feature only works with YouTube videos because it uses the YouTube IFrame API. For other platforms, you can still use all the visual filters (brightness, contrast, etc.).</p>
+    </div>
+
+    <p style="text-align:center; margin-top: 32px;">
+      <a href="/" class="cta">Try It Now — Free</a>
+    </p>
+  </main>
+  <footer>
+    <a href="/guide.html">How to Use</a>
+    <a href="/tools/brightness.html">Brightness</a>
+    <a href="/tools/contrast.html">Contrast</a>
+    <a href="/tools/night-mode.html">Night Mode</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+  </footer>
+</body>
+</html>

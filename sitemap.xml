@@ -23,6 +23,31 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://streamfilter.tv/tools/brightness.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://streamfilter.tv/tools/contrast.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://streamfilter.tv/tools/night-mode.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://streamfilter.tv/tools/speed.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://streamfilter.tv/tools/infrared.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://streamfilter.tv/privacy.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
