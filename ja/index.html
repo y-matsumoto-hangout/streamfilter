@@ -178,6 +178,25 @@
       transition: max-width 0.2s ease;
     }
 
+    .zoom-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: #aaa;
+    }
+
+    .zoom-bar input[type="range"] {
+      flex: 1;
+      max-width: 100%;
+    }
+
+    .zoom-bar .value {
+      color: #fff;
+      font-variant-numeric: tabular-nums;
+      min-width: 30px;
+    }
+
     .speed-bar {
       display: flex;
       align-items: center;
@@ -367,6 +386,12 @@
       <span>再生速度</span>
       <input type="range" id="playbackSpeed" min="25" max="200" value="100" step="25" oninput="changeSpeed()">
       <span class="value" id="speedVal">1x</span>
+    </div>
+    <div class="zoom-bar" id="zoomBar" style="margin-top:12px;">
+      <span>ズーム</span>
+      <input type="range" id="videoZoom" min="100" max="300" value="100" oninput="applyZoom()">
+      <span class="value" id="zoomVal">1x</span>
+      <button class="reset-btn" onclick="resetZoom()" style="margin-left:8px;">リセット</button>
     </div>
     <div class="video-wrapper" id="videoWrapper" style="margin-top:12px;">
       <div class="video-placeholder" id="placeholder">動画URLを貼り付けて「再生」をクリック</div>
@@ -645,6 +670,104 @@
       const maxW = Math.round(window.innerWidth * (size / 100));
       document.getElementById('videoOuter').style.maxWidth = `${maxW}px`;
     }
+
+    // Zoom & Pan
+    let zoomLevel = 1;
+    let panX = 50, panY = 50;
+    let isDragging = false;
+    let dragStartX, dragStartY, panStartX, panStartY;
+
+    function applyZoom() {
+      zoomLevel = document.getElementById('videoZoom').value / 100;
+      document.getElementById('zoomVal').textContent = `${zoomLevel}x`;
+      updateTransform();
+    }
+
+    function resetZoom() {
+      zoomLevel = 1;
+      panX = 50;
+      panY = 50;
+      document.getElementById('videoZoom').value = 100;
+      document.getElementById('zoomVal').textContent = '1x';
+      updateTransform();
+    }
+
+    function updateTransform() {
+      const wrapper = document.getElementById('videoWrapper');
+      const inner = wrapper.querySelector('iframe') || wrapper.querySelector('#ytPlayerDiv');
+      if (!inner) return;
+      if (zoomLevel <= 1) {
+        inner.style.transform = '';
+        inner.style.transformOrigin = '';
+        wrapper.style.cursor = '';
+        return;
+      }
+      const minPan = (1 / (2 * zoomLevel)) * 100;
+      const maxPan = 100 - minPan;
+      panX = Math.max(minPan, Math.min(maxPan, panX));
+      panY = Math.max(minPan, Math.min(maxPan, panY));
+      inner.style.transform = `scale(${zoomLevel})`;
+      inner.style.transformOrigin = `${panX}% ${panY}%`;
+      wrapper.style.cursor = zoomLevel > 1 ? 'grab' : '';
+    }
+
+    const videoWrapper = document.getElementById('videoWrapper');
+
+    videoWrapper.addEventListener('mousedown', (e) => {
+      if (zoomLevel <= 1) return;
+      isDragging = true;
+      dragStartX = e.clientX;
+      dragStartY = e.clientY;
+      panStartX = panX;
+      panStartY = panY;
+      videoWrapper.style.cursor = 'grabbing';
+      e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const rect = videoWrapper.getBoundingClientRect();
+      const sensitivity = 100 / (zoomLevel * Math.max(rect.width, 1));
+      panX = panStartX - (e.clientX - dragStartX) * sensitivity;
+      panY = panStartY - (e.clientY - dragStartY) * sensitivity;
+      updateTransform();
+    });
+
+    document.addEventListener('mouseup', () => {
+      if (isDragging) {
+        isDragging = false;
+        videoWrapper.style.cursor = zoomLevel > 1 ? 'grab' : '';
+      }
+    });
+
+    videoWrapper.addEventListener('touchstart', (e) => {
+      if (zoomLevel <= 1 || e.touches.length !== 1) return;
+      isDragging = true;
+      dragStartX = e.touches[0].clientX;
+      dragStartY = e.touches[0].clientY;
+      panStartX = panX;
+      panStartY = panY;
+    }, { passive: true });
+
+    videoWrapper.addEventListener('touchmove', (e) => {
+      if (!isDragging || e.touches.length !== 1) return;
+      const rect = videoWrapper.getBoundingClientRect();
+      const sensitivity = 100 / (zoomLevel * Math.max(rect.width, 1));
+      panX = panStartX - (e.touches[0].clientX - dragStartX) * sensitivity;
+      panY = panStartY - (e.touches[0].clientY - dragStartY) * sensitivity;
+      updateTransform();
+    }, { passive: true });
+
+    videoWrapper.addEventListener('touchend', () => { isDragging = false; });
+
+    videoWrapper.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const zoomSlider = document.getElementById('videoZoom');
+      let newVal = parseInt(zoomSlider.value) - Math.sign(e.deltaY) * 10;
+      newVal = Math.max(100, Math.min(300, newVal));
+      zoomSlider.value = newVal;
+      applyZoom();
+    }, { passive: false });
 
     resizeVideo();
 
