@@ -35,26 +35,41 @@
   </url>
   <url>
     <loc>https://streamfilter.tv/tools/brightness.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://streamfilter.tv/tools/brightness.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://streamfilter.tv/ja/tools/brightness.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://streamfilter.tv/tools/brightness.html" />
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://streamfilter.tv/tools/contrast.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://streamfilter.tv/tools/contrast.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://streamfilter.tv/ja/tools/contrast.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://streamfilter.tv/tools/contrast.html" />
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://streamfilter.tv/tools/night-mode.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://streamfilter.tv/tools/night-mode.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://streamfilter.tv/ja/tools/night-mode.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://streamfilter.tv/tools/night-mode.html" />
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://streamfilter.tv/tools/speed.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://streamfilter.tv/tools/speed.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://streamfilter.tv/ja/tools/speed.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://streamfilter.tv/tools/speed.html" />
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://streamfilter.tv/tools/infrared.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://streamfilter.tv/tools/infrared.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://streamfilter.tv/ja/tools/infrared.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://streamfilter.tv/tools/infrared.html" />
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
