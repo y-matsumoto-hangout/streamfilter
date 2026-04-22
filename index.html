@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YouTube Filter</title>
+  <title>Stream Filter - Adjust Brightness, Contrast & Color for Videos</title>
+  <meta name="description" content="Free online video filter tool. Adjust brightness, contrast, saturation, and more while watching YouTube videos.">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -270,29 +271,29 @@
 <body>
   <header>
     <div class="logo">&#9655;</div>
-    <h1>YouTube Filter</h1>
+    <h1>Stream Filter</h1>
   </header>
 
   <main>
     <div class="url-bar">
-      <input type="text" id="urlInput" placeholder="YouTube URLを貼り付け（例: https://www.youtube.com/watch?v=...）">
-      <button onclick="loadVideo()">再生</button>
+      <input type="text" id="urlInput" placeholder="Paste a YouTube URL (e.g. https://www.youtube.com/watch?v=...)">
+      <button onclick="loadVideo()">Play</button>
     </div>
 
     <div class="video-wrapper" id="videoWrapper">
-      <div class="video-placeholder" id="placeholder">URLを入力して「再生」を押してください</div>
+      <div class="video-placeholder" id="placeholder">Paste a YouTube URL and click "Play"</div>
     </div>
 
     <div class="controls">
       <div class="controls-header">
-        <h2>映像フィルター</h2>
-        <button class="reset-btn" onclick="resetFilters()">リセット</button>
+        <h2>Video Filters</h2>
+        <button class="reset-btn" onclick="resetFilters()">Reset</button>
       </div>
 
       <div class="sliders">
         <div class="slider-group">
           <div class="slider-label">
-            <span>明るさ</span>
+            <span>Brightness</span>
             <span class="value" id="brightnessVal">100%</span>
           </div>
           <input type="range" id="brightness" min="30" max="500" value="100" oninput="applyFilters()">
@@ -300,7 +301,7 @@
 
         <div class="slider-group">
           <div class="slider-label">
-            <span>コントラスト</span>
+            <span>Contrast</span>
             <span class="value" id="contrastVal">100%</span>
           </div>
           <input type="range" id="contrast" min="30" max="500" value="100" oninput="applyFilters()">
@@ -308,7 +309,7 @@
 
         <div class="slider-group">
           <div class="slider-label">
-            <span>彩度</span>
+            <span>Saturation</span>
             <span class="value" id="saturateVal">100%</span>
           </div>
           <input type="range" id="saturate" min="0" max="500" value="100" oninput="applyFilters()">
@@ -316,7 +317,7 @@
 
         <div class="slider-group">
           <div class="slider-label">
-            <span>色相回転</span>
+            <span>Hue Rotate</span>
             <span class="value" id="hueRotateVal">0°</span>
           </div>
           <input type="range" id="hueRotate" min="0" max="360" value="0" oninput="applyFilters()">
@@ -324,7 +325,7 @@
 
         <div class="slider-group">
           <div class="slider-label">
-            <span>セピア</span>
+            <span>Sepia</span>
             <span class="value" id="sepiaVal">0%</span>
           </div>
           <input type="range" id="sepia" min="0" max="100" value="0" oninput="applyFilters()">
@@ -332,7 +333,7 @@
 
         <div class="slider-group">
           <div class="slider-label">
-            <span>ぼかし</span>
+            <span>Blur</span>
             <span class="value" id="blurVal">0px</span>
           </div>
           <input type="range" id="blur" min="0" max="10" value="0" step="0.5" oninput="applyFilters()">
@@ -340,15 +341,15 @@
       </div>
 
       <div class="presets">
-        <h3>プリセット</h3>
+        <h3>Presets</h3>
         <div class="preset-buttons">
-          <button class="preset-btn" onclick="applyPreset('default')">デフォルト</button>
-          <button class="preset-btn" onclick="applyPreset('bright')">明るく</button>
-          <button class="preset-btn" onclick="applyPreset('nightmode')">ナイトモード</button>
-          <button class="preset-btn" onclick="applyPreset('vivid')">ビビッド</button>
-          <button class="preset-btn" onclick="applyPreset('warm')">暖色</button>
-          <button class="preset-btn" onclick="applyPreset('cool')">寒色</button>
-          <button class="preset-btn" onclick="applyPreset('retro')">レトロ</button>
+          <button class="preset-btn" onclick="applyPreset('default')">Default</button>
+          <button class="preset-btn" onclick="applyPreset('bright')">Bright</button>
+          <button class="preset-btn" onclick="applyPreset('nightmode')">Night Mode</button>
+          <button class="preset-btn" onclick="applyPreset('vivid')">Vivid</button>
+          <button class="preset-btn" onclick="applyPreset('warm')">Warm</button>
+          <button class="preset-btn" onclick="applyPreset('cool')">Cool</button>
+          <button class="preset-btn" onclick="applyPreset('retro')">Retro</button>
         </div>
       </div>
     </div>
@@ -392,7 +393,7 @@
 
       const videoId = extractVideoId(url);
       if (!videoId) {
-        alert('有効なYouTube URLを入力してください');
+        alert('Please enter a valid YouTube URL');
         return;
       }
 
@@ -442,7 +443,6 @@
         iframe.style.filter = filterStr;
       }
 
-      // Update active preset button
       document.querySelectorAll('.preset-btn').forEach(btn => btn.classList.remove('active'));
     }
 
@@ -470,8 +470,8 @@
 
     function getPresetLabel(name) {
       const labels = {
-        default: 'デフォルト', bright: '明るく', nightmode: 'ナイトモード',
-        vivid: 'ビビッド', warm: '暖色', cool: '寒色', retro: 'レトロ'
+        default: 'Default', bright: 'Bright', nightmode: 'Night Mode',
+        vivid: 'Vivid', warm: 'Warm', cool: 'Cool', retro: 'Retro'
       };
       return labels[name] || name;
     }
