@@ -1,34 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stream Filter - Adjust Brightness, Contrast & Color for Videos</title>
-  <meta name="description" content="Free online video filter tool. Adjust brightness, contrast, saturation, and more while watching YouTube, Twitch, Vimeo, and Dailymotion videos.">
+  <title>Stream Filter - 動画の明るさ・コントラスト・彩度をリアルタイム調整</title>
+  <meta name="description" content="無料のオンライン動画フィルターツール。YouTube、Twitch、Vimeo、Dailymotionの動画の明るさ、コントラスト、彩度などをリアルタイムで調整できます。">
   <!-- OGP -->
-  <meta property="og:title" content="Stream Filter - Adjust Brightness, Contrast & Color for Videos">
-  <meta property="og:description" content="Free online tool to adjust brightness, contrast, saturation and more while watching videos. No install required.">
+  <meta property="og:title" content="Stream Filter - 動画の明るさ・色調をリアルタイム調整">
+  <meta property="og:description" content="無料のオンライン動画フィルターツール。明るさ、コントラスト、彩度などをリアルタイムで調整。インストール不要。">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://streamfilter.tv">
+  <meta property="og:url" content="https://streamfilter.tv/ja/">
   <meta property="og:image" content="https://streamfilter.tv/ogp.png">
+  <meta property="og:locale" content="ja_JP">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Stream Filter - Video Color Adjustment Tool">
-  <meta name="twitter:description" content="Adjust brightness, contrast, saturation and more while watching videos. Free & instant.">
+  <meta name="twitter:title" content="Stream Filter - 動画の色調調整ツール">
+  <meta name="twitter:description" content="動画の明るさ・コントラスト・彩度をリアルタイムで調整。無料・インストール不要。">
   <meta name="twitter:image" content="https://streamfilter.tv/ogp.png">
-  <meta property="og:locale" content="en_US">
   <!-- SEO -->
-  <link rel="canonical" href="https://streamfilter.tv/">
+  <link rel="canonical" href="https://streamfilter.tv/ja/">
   <link rel="alternate" hreflang="en" href="https://streamfilter.tv/">
   <link rel="alternate" hreflang="ja" href="https://streamfilter.tv/ja/">
   <link rel="alternate" hreflang="x-default" href="https://streamfilter.tv/">
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2360009503992783"
+     crossorigin="anonymous"></script>
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff4444'/><polygon points='38,25 38,75 78,50' fill='white'/></svg>">
   <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "Stream Filter",
-    "url": "https://streamfilter.tv",
-    "description": "Free online video filter tool to adjust brightness, contrast, saturation and more while watching videos.",
+    "url": "https://streamfilter.tv/ja/",
+    "description": "無料のオンライン動画フィルターツール。明るさ、コントラスト、彩度などをリアルタイムで調整できます。",
     "applicationCategory": "MultimediaApplication",
     "operatingSystem": "All",
     "offers": {
@@ -36,19 +41,14 @@
       "price": "0",
       "priceCurrency": "USD"
     },
-    "inLanguage": "en"
+    "inLanguage": "ja"
   }
   </script>
-  <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2360009503992783"
-     crossorigin="anonymous"></script>
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff4444'/><polygon points='38,25 38,75 78,50' fill='white'/></svg>">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', sans-serif;
       background: #0f0f0f;
       color: #e0e0e0;
       min-height: 100vh;
@@ -89,9 +89,7 @@
       white-space: nowrap;
     }
 
-    .bmc-btn:hover {
-      opacity: 0.85;
-    }
+    .bmc-btn:hover { opacity: 0.85; }
 
     .lang-switch {
       color: #888;
@@ -125,11 +123,7 @@
       gap: 20px;
     }
 
-    /* URL Input */
-    .url-bar {
-      display: flex;
-      gap: 8px;
-    }
+    .url-bar { display: flex; gap: 8px; }
 
     .url-bar input {
       flex: 1;
@@ -143,13 +137,8 @@
       transition: border-color 0.2s;
     }
 
-    .url-bar input:focus {
-      border-color: #666;
-    }
-
-    .url-bar input::placeholder {
-      color: #666;
-    }
+    .url-bar input:focus { border-color: #666; }
+    .url-bar input::placeholder { color: #666; }
 
     .url-bar button {
       padding: 10px 20px;
@@ -164,11 +153,8 @@
       white-space: nowrap;
     }
 
-    .url-bar button:hover {
-      background: #e03030;
-    }
+    .url-bar button:hover { background: #e03030; }
 
-    /* Video Container */
     .video-wrapper {
       position: relative;
       width: 100%;
@@ -180,19 +166,15 @@
 
     .video-wrapper iframe {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       border: none;
     }
 
     .video-placeholder {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -200,7 +182,6 @@
       font-size: 16px;
     }
 
-    /* Controls */
     .controls {
       background: #1a1a1a;
       border-radius: 12px;
@@ -215,11 +196,7 @@
       margin-bottom: 16px;
     }
 
-    .controls-header h2 {
-      font-size: 15px;
-      font-weight: 600;
-      color: #ccc;
-    }
+    .controls-header h2 { font-size: 15px; font-weight: 600; color: #ccc; }
 
     .reset-btn {
       padding: 6px 14px;
@@ -232,10 +209,7 @@
       transition: all 0.2s;
     }
 
-    .reset-btn:hover {
-      background: #333;
-      color: #fff;
-    }
+    .reset-btn:hover { background: #333; color: #fff; }
 
     .sliders {
       display: grid;
@@ -243,11 +217,7 @@
       gap: 16px;
     }
 
-    .slider-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
+    .slider-group { display: flex; flex-direction: column; gap: 6px; }
 
     .slider-label {
       display: flex;
@@ -256,9 +226,7 @@
       font-size: 13px;
     }
 
-    .slider-label span:first-child {
-      color: #aaa;
-    }
+    .slider-label span:first-child { color: #aaa; }
 
     .slider-label .value {
       color: #fff;
@@ -269,8 +237,7 @@
 
     input[type="range"] {
       -webkit-appearance: none;
-      width: 100%;
-      height: 6px;
+      width: 100%; height: 6px;
       background: #333;
       border-radius: 3px;
       outline: none;
@@ -279,36 +246,24 @@
 
     input[type="range"]::-webkit-slider-thumb {
       -webkit-appearance: none;
-      width: 16px;
-      height: 16px;
+      width: 16px; height: 16px;
       background: #fff;
       border-radius: 50%;
       cursor: pointer;
       transition: transform 0.1s;
     }
 
-    input[type="range"]::-webkit-slider-thumb:hover {
-      transform: scale(1.2);
-    }
+    input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
 
-    /* Presets */
     .presets {
       margin-top: 16px;
       padding-top: 16px;
       border-top: 1px solid #282828;
     }
 
-    .presets h3 {
-      font-size: 13px;
-      color: #888;
-      margin-bottom: 10px;
-    }
+    .presets h3 { font-size: 13px; color: #888; margin-bottom: 10px; }
 
-    .preset-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
+    .preset-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
 
     .preset-btn {
       padding: 6px 14px;
@@ -321,19 +276,10 @@
       transition: all 0.2s;
     }
 
-    .preset-btn:hover {
-      background: #333;
-      color: #fff;
-      border-color: #555;
-    }
+    .preset-btn:hover { background: #333; color: #fff; border-color: #555; }
 
-    .preset-btn.active {
-      background: #ff4444;
-      color: #fff;
-      border-color: #ff4444;
-    }
+    .preset-btn.active { background: #ff4444; color: #fff; border-color: #ff4444; }
 
-    /* Footer */
     footer {
       width: 100%;
       padding: 20px 24px;
@@ -344,15 +290,8 @@
       margin-top: 40px;
     }
 
-    footer a {
-      color: #777;
-      text-decoration: none;
-      margin: 0 12px;
-    }
-
-    footer a:hover {
-      color: #fff;
-    }
+    footer a { color: #777; text-decoration: none; margin: 0 12px; }
+    footer a:hover { color: #fff; }
 
     @media (max-width: 640px) {
       main { padding: 12px; }
@@ -364,7 +303,7 @@
   <header>
     <div class="logo">&#9655;</div>
     <h1>Stream Filter</h1>
-    <a href="/ja/" class="lang-switch">JA</a>
+    <a href="/" class="lang-switch">EN</a>
     <a href="https://buymeacoffee.com/hookup" target="_blank" rel="noopener" class="bmc-btn">
       <svg width="16" height="16" viewBox="0 0 884 1279" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M791 298c52-41 65-102 41-157-5-11-25-44-25-44s-42 25-42 25c-39 22-83 17-117-6-44-31-91-51-130-43-13 3-60 17-79 80-21 71 7 126 62 179" stroke="#000" stroke-width="48"/><path d="M612 227c0 0 22-84-60-148" stroke="#000" stroke-width="48"/><path d="M160 402h564c32 0 58 26 58 58v114c0 110-90 200-200 200H302c-110 0-200-90-200-200V460c0-32 26-58 58-58z" fill="#FFDD00" stroke="#000" stroke-width="48"/><path d="M462 774h-18c-137 0-249 112-249 249v200c0 31 25 56 56 56h404c31 0 56-25 56-56v-200c0-137-112-249-249-249z" fill="#FFDD00" stroke="#000" stroke-width="48"/></svg>
       Buy me a coffee
@@ -373,24 +312,24 @@
 
   <main>
     <div class="url-bar">
-      <input type="text" id="urlInput" placeholder="Paste a video URL (YouTube, Twitch, Vimeo, Dailymotion)">
-      <button onclick="loadVideo()">Play</button>
+      <input type="text" id="urlInput" placeholder="動画URLを貼り付け（YouTube, Twitch, Vimeo, Dailymotion）">
+      <button onclick="loadVideo()">再生</button>
     </div>
 
     <div class="video-wrapper" id="videoWrapper">
-      <div class="video-placeholder" id="placeholder">Paste a video URL and click "Play"</div>
+      <div class="video-placeholder" id="placeholder">動画URLを貼り付けて「再生」をクリック</div>
     </div>
 
     <div class="controls">
       <div class="controls-header">
-        <h2>Video Filters</h2>
-        <button class="reset-btn" onclick="resetFilters()">Reset</button>
+        <h2>映像フィルター</h2>
+        <button class="reset-btn" onclick="resetFilters()">リセット</button>
       </div>
 
       <div class="sliders">
         <div class="slider-group">
           <div class="slider-label">
-            <span>Brightness</span>
+            <span>明るさ</span>
             <span class="value" id="brightnessVal">100%</span>
           </div>
           <input type="range" id="brightness" min="30" max="500" value="100" oninput="applyFilters()">
@@ -398,7 +337,7 @@
 
         <div class="slider-group">
           <div class="slider-label">
-            <span>Contrast</span>
+            <span>コントラスト</span>
             <span class="value" id="contrastVal">100%</span>
           </div>
           <input type="range" id="contrast" min="30" max="500" value="100" oninput="applyFilters()">
@@ -406,7 +345,7 @@
 
         <div class="slider-group">
           <div class="slider-label">
-            <span>Saturation</span>
+            <span>彩度</span>
             <span class="value" id="saturateVal">100%</span>
           </div>
           <input type="range" id="saturate" min="0" max="500" value="100" oninput="applyFilters()">
@@ -414,7 +353,7 @@
 
         <div class="slider-group">
           <div class="slider-label">
-            <span>Hue Rotate</span>
+            <span>色相回転</span>
             <span class="value" id="hueRotateVal">0°</span>
           </div>
           <input type="range" id="hueRotate" min="0" max="360" value="0" oninput="applyFilters()">
@@ -422,7 +361,7 @@
 
         <div class="slider-group">
           <div class="slider-label">
-            <span>Sepia</span>
+            <span>セピア</span>
             <span class="value" id="sepiaVal">0%</span>
           </div>
           <input type="range" id="sepia" min="0" max="100" value="0" oninput="applyFilters()">
@@ -430,7 +369,7 @@
 
         <div class="slider-group">
           <div class="slider-label">
-            <span>Blur</span>
+            <span>ぼかし</span>
             <span class="value" id="blurVal">0px</span>
           </div>
           <input type="range" id="blur" min="0" max="10" value="0" step="0.5" oninput="applyFilters()">
@@ -438,24 +377,24 @@
       </div>
 
       <div class="presets">
-        <h3>Presets</h3>
+        <h3>プリセット</h3>
         <div class="preset-buttons">
-          <button class="preset-btn" onclick="applyPreset('default')">Default</button>
-          <button class="preset-btn" onclick="applyPreset('bright')">Bright</button>
-          <button class="preset-btn" onclick="applyPreset('nightmode')">Night Mode</button>
-          <button class="preset-btn" onclick="applyPreset('vivid')">Vivid</button>
-          <button class="preset-btn" onclick="applyPreset('warm')">Warm</button>
-          <button class="preset-btn" onclick="applyPreset('cool')">Cool</button>
-          <button class="preset-btn" onclick="applyPreset('retro')">Retro</button>
+          <button class="preset-btn" onclick="applyPreset('default')">デフォルト</button>
+          <button class="preset-btn" onclick="applyPreset('bright')">明るく</button>
+          <button class="preset-btn" onclick="applyPreset('nightmode')">ナイトモード</button>
+          <button class="preset-btn" onclick="applyPreset('vivid')">ビビッド</button>
+          <button class="preset-btn" onclick="applyPreset('warm')">暖色</button>
+          <button class="preset-btn" onclick="applyPreset('cool')">寒色</button>
+          <button class="preset-btn" onclick="applyPreset('retro')">レトロ</button>
         </div>
       </div>
     </div>
   </main>
 
   <footer>
-    <a href="/guide.html">How to Use</a>
-    <a href="/privacy.html">Privacy Policy</a>
-    <a href="/terms.html">Terms of Service</a>
+    <a href="/guide.html">使い方</a>
+    <a href="/privacy.html">プライバシーポリシー</a>
+    <a href="/terms.html">利用規約</a>
     <span>&copy; 2026 Stream Filter</span>
   </footer>
 
@@ -499,56 +438,38 @@
     };
 
     function getEmbedUrl(url) {
-      // YouTube
       let m = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/);
       if (m) return `https://www.youtube.com/embed/${m[1]}?autoplay=1`;
-
       m = url.match(/youtube\.com\/shorts\/([a-zA-Z0-9_-]{11})/);
       if (m) return `https://www.youtube.com/embed/${m[1]}?autoplay=1`;
-
       m = url.match(/youtube\.com\/live\/([a-zA-Z0-9_-]{11})/);
       if (m) return `https://www.youtube.com/embed/${m[1]}?autoplay=1`;
-
-      // Twitch videos
       m = url.match(/twitch\.tv\/videos\/(\d+)/);
       if (m) return `https://player.twitch.tv/?video=${m[1]}&parent=${location.hostname}&autoplay=true`;
-
-      // Twitch live channels
       m = url.match(/twitch\.tv\/([a-zA-Z0-9_]+)\/?$/);
       if (m && m[1] !== 'videos') return `https://player.twitch.tv/?channel=${m[1]}&parent=${location.hostname}&autoplay=true`;
-
-      // Twitch clips
       m = url.match(/twitch\.tv\/\w+\/clip\/([a-zA-Z0-9_-]+)/);
       if (m) return `https://clips.twitch.tv/embed?clip=${m[1]}&parent=${location.hostname}&autoplay=true`;
-
-      // Vimeo
       m = url.match(/vimeo\.com\/(\d+)/);
       if (m) return `https://player.vimeo.com/video/${m[1]}?autoplay=1`;
-
-      // Dailymotion
       m = url.match(/dailymotion\.com\/video\/([a-zA-Z0-9]+)/);
       if (m) return `https://www.dailymotion.com/embed/video/${m[1]}?autoplay=1`;
-
       m = url.match(/dai\.ly\/([a-zA-Z0-9]+)/);
       if (m) return `https://www.dailymotion.com/embed/video/${m[1]}?autoplay=1`;
-
       return null;
     }
 
     function loadVideo() {
       const url = document.getElementById('urlInput').value.trim();
       if (!url) return;
-
       const embedUrl = getEmbedUrl(url);
       if (!embedUrl) {
-        alert('Please enter a valid video URL (YouTube, Twitch, Vimeo, or Dailymotion)');
+        alert('有効な動画URLを入力してください（YouTube, Twitch, Vimeo, Dailymotion）');
         return;
       }
-
       const wrapper = document.getElementById('videoWrapper');
       const placeholder = document.getElementById('placeholder');
       if (placeholder) placeholder.remove();
-
       let iframe = wrapper.querySelector('iframe');
       if (!iframe) {
         iframe = document.createElement('iframe');
@@ -557,7 +478,6 @@
         iframe.allowFullscreen = true;
         wrapper.appendChild(iframe);
       }
-
       iframe.src = embedUrl;
       applyFilters();
     }
@@ -569,62 +489,42 @@
       const h = filters.hueRotate.value;
       const sp = filters.sepia.value;
       const bl = filters.blur.value;
-
       document.getElementById('brightnessVal').textContent = `${b}%`;
       document.getElementById('contrastVal').textContent = `${c}%`;
       document.getElementById('saturateVal').textContent = `${s}%`;
       document.getElementById('hueRotateVal').textContent = `${h}°`;
       document.getElementById('sepiaVal').textContent = `${sp}%`;
       document.getElementById('blurVal').textContent = `${bl}px`;
-
       const filterStr = [
-        `brightness(${b / 100})`,
-        `contrast(${c / 100})`,
-        `saturate(${s / 100})`,
-        `hue-rotate(${h}deg)`,
-        `sepia(${sp / 100})`,
-        `blur(${bl}px)`,
+        `brightness(${b / 100})`, `contrast(${c / 100})`, `saturate(${s / 100})`,
+        `hue-rotate(${h}deg)`, `sepia(${sp / 100})`, `blur(${bl}px)`,
       ].join(' ');
-
       const iframe = document.querySelector('#videoWrapper iframe');
-      if (iframe) {
-        iframe.style.filter = filterStr;
-      }
-
+      if (iframe) iframe.style.filter = filterStr;
       document.querySelectorAll('.preset-btn').forEach(btn => btn.classList.remove('active'));
     }
 
-    function resetFilters() {
-      applyPreset('default');
-    }
+    function resetFilters() { applyPreset('default'); }
 
     function applyPreset(name) {
       const p = presets[name];
       if (!p) return;
-
       filters.brightness.value = p.brightness;
       filters.contrast.value = p.contrast;
       filters.saturate.value = p.saturate;
       filters.hueRotate.value = p.hueRotate;
       filters.sepia.value = p.sepia;
       filters.blur.value = p.blur;
-
       applyFilters();
-
+      const labels = {
+        default: 'デフォルト', bright: '明るく', nightmode: 'ナイトモード',
+        vivid: 'ビビッド', warm: '暖色', cool: '寒色', retro: 'レトロ'
+      };
       document.querySelectorAll('.preset-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.textContent === getPresetLabel(name));
+        btn.classList.toggle('active', btn.textContent === (labels[name] || name));
       });
     }
 
-    function getPresetLabel(name) {
-      const labels = {
-        default: 'Default', bright: 'Bright', nightmode: 'Night Mode',
-        vivid: 'Vivid', warm: 'Warm', cool: 'Cool', retro: 'Retro'
-      };
-      return labels[name] || name;
-    }
-
-    // Enter key to load
     document.getElementById('urlInput').addEventListener('keydown', (e) => {
       if (e.key === 'Enter') loadVideo();
     });
