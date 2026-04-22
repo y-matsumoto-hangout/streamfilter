@@ -397,7 +397,7 @@
     </div>
     <div class="zoom-bar" id="zoomBar" style="margin-top:12px;">
       <span>ズーム</span>
-      <input type="range" id="videoZoom" min="100" max="300" value="100" oninput="applyZoom()">
+      <input type="range" id="videoZoom" min="100" max="1000" value="100" oninput="applyZoom()">
       <span class="value" id="zoomVal">1x</span>
       <button class="reset-btn" onclick="resetZoom()" style="margin-left:8px;">リセット</button>
     </div>
@@ -776,7 +776,7 @@
       e.preventDefault();
       const zoomSlider = document.getElementById('videoZoom');
       let newVal = parseInt(zoomSlider.value) - Math.sign(e.deltaY) * 10;
-      newVal = Math.max(100, Math.min(300, newVal));
+      newVal = Math.max(100, Math.min(1000, newVal));
       zoomSlider.value = newVal;
       applyZoom();
     }, { passive: false });
