@@ -312,7 +312,7 @@
 
   <main>
     <div class="url-bar">
-      <input type="text" id="urlInput" placeholder="動画URLを貼り付け（YouTube, Twitch, Vimeo, Dailymotion）">
+      <input type="text" id="urlInput" placeholder="動画URLを貼り付け（YouTube, Twitch, Vimeo, その他何でも）">
       <button onclick="loadVideo()">再生</button>
     </div>
 
@@ -456,6 +456,8 @@
       if (m) return `https://www.dailymotion.com/embed/video/${m[1]}?autoplay=1`;
       m = url.match(/dai\.ly\/([a-zA-Z0-9]+)/);
       if (m) return `https://www.dailymotion.com/embed/video/${m[1]}?autoplay=1`;
+      // Fallback: try any URL directly
+      if (url.match(/^https?:\/\/.+/)) return url;
       return null;
     }
 

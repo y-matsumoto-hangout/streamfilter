@@ -373,7 +373,7 @@
 
   <main>
     <div class="url-bar">
-      <input type="text" id="urlInput" placeholder="Paste a video URL (YouTube, Twitch, Vimeo, Dailymotion)">
+      <input type="text" id="urlInput" placeholder="Paste any video URL (YouTube, Twitch, Vimeo, Dailymotion, and more)">
       <button onclick="loadVideo()">Play</button>
     </div>
 
@@ -532,6 +532,9 @@
       m = url.match(/dai\.ly\/([a-zA-Z0-9]+)/);
       if (m) return `https://www.dailymotion.com/embed/video/${m[1]}?autoplay=1`;
 
+      // Fallback: try any URL directly (works if the site allows iframe embedding)
+      if (url.match(/^https?:\/\/.+/)) return url;
+
       return null;
     }
 
@@ -541,7 +544,7 @@
 
       const embedUrl = getEmbedUrl(url);
       if (!embedUrl) {
-        alert('Please enter a valid video URL (YouTube, Twitch, Vimeo, or Dailymotion)');
+        alert('Please enter a valid URL');
         return;
       }
 
