@@ -19,6 +19,17 @@
   </url>
   <url>
     <loc>https://streamfilter.tv/guide.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://streamfilter.tv/guide.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://streamfilter.tv/ja/guide.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://streamfilter.tv/guide.html" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://streamfilter.tv/ja/guide.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://streamfilter.tv/guide.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://streamfilter.tv/ja/guide.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://streamfilter.tv/guide.html" />
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

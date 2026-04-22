@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>使い方ガイド - Stream Filter</title>
+  <meta name="description" content="Stream Filterの使い方を解説。YouTube、Twitch、Vimeo、Dailymotionの動画の明るさ、コントラスト、彩度などをリアルタイムで調整する方法を紹介します。">
+  <link rel="canonical" href="https://streamfilter.tv/ja/guide.html">
+  <link rel="alternate" hreflang="en" href="https://streamfilter.tv/guide.html">
+  <link rel="alternate" hreflang="ja" href="https://streamfilter.tv/ja/guide.html">
+  <link rel="alternate" hreflang="x-default" href="https://streamfilter.tv/guide.html">
+  <meta property="og:title" content="使い方ガイド - Stream Filter">
+  <meta property="og:description" content="動画の明るさ・コントラスト・彩度をリアルタイムで調整。使い方を3ステップで解説。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://streamfilter.tv/ja/guide.html">
+  <meta property="og:image" content="https://streamfilter.tv/ogp.png">
+  <meta property="og:locale" content="ja_JP">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2360009503992783" crossorigin="anonymous"></script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff4444'/><polygon points='38,25 38,75 78,50' fill='white'/></svg>">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Stream Filterは無料ですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい、完全無料です。アカウント登録もインストールも不要で、ブラウザからすぐに使えます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "スマホでも使えますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい。Stream Filterは完全レスポンシブ対応で、iPhone・Android問わずスマホやタブレットのブラウザで動作します。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "個人情報やデータは収集されますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "いいえ。すべてのフィルター処理はブラウザ内のCSSで行われ、動画データやURLがサーバーに送信されることは一切ありません。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "動画がエラーで再生できません",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "動画の所有者がiframe埋め込みを無効にしている場合、Stream Filterでは再生できません。別の動画でお試しください。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "ライブ配信にも対応していますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい。YouTubeライブ配信やTwitchのライブストリームにも対応しています。リアルタイムでフィルターを適用できます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "YouTube以外の動画サイトにも対応していますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい。YouTube、Twitch、Vimeo、Dailymotionに最適化されていますが、iframe埋め込みを許可しているサイトであれば、URLを貼るだけで使える場合があります。"
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', sans-serif;
+      background: #0f0f0f;
+      color: #ccc;
+      min-height: 100vh;
+    }
+    header { width: 100%; padding: 12px 24px; display: flex; align-items: center; gap: 12px; background: #1a1a1a; border-bottom: 1px solid #333; }
+    header a { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    header h1 { font-size: 18px; font-weight: 600; color: #fff; }
+    .logo { width: 28px; height: 28px; background: #ff4444; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; }
+    main { max-width: 800px; margin: 0 auto; padding: 40px 24px 60px; line-height: 1.8; }
+    h2 { color: #fff; font-size: 28px; margin-bottom: 8px; }
+    .subtitle { color: #888; font-size: 16px; margin-bottom: 40px; }
+    h3 { color: #fff; font-size: 20px; margin: 40px 0 16px; }
+    p { margin-bottom: 16px; }
+    ul, ol { margin: 0 0 16px 24px; }
+    li { margin-bottom: 10px; }
+    a { color: #ff4444; }
+    a:hover { color: #ff6666; }
+
+    .step { background: #1a1a1a; border: 1px solid #282828; border-radius: 12px; padding: 24px; margin-bottom: 16px; }
+    .step-number { display: inline-block; width: 28px; height: 28px; background: #ff4444; color: #fff; border-radius: 50%; text-align: center; line-height: 28px; font-size: 14px; font-weight: 700; margin-right: 12px; }
+    .step-title { color: #fff; font-size: 16px; font-weight: 600; }
+    .step p { margin: 12px 0 0; color: #aaa; }
+
+    .platform-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin: 16px 0; }
+    .platform-card { background: #1a1a1a; border: 1px solid #282828; border-radius: 10px; padding: 16px; text-align: center; }
+    .platform-card .name { color: #fff; font-weight: 600; font-size: 15px; margin-bottom: 4px; }
+    .platform-card .example { color: #666; font-size: 11px; word-break: break-all; }
+
+    .filter-table, .preset-table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+    .filter-table th, .preset-table th { text-align: left; color: #fff; padding: 10px 12px; border-bottom: 1px solid #333; font-size: 13px; }
+    .filter-table td, .preset-table td { padding: 10px 12px; border-bottom: 1px solid #1a1a1a; font-size: 13px; color: #aaa; }
+
+    .cta { display: inline-block; padding: 12px 28px; background: #ff4444; color: #fff; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 15px; margin-top: 16px; transition: background 0.2s; }
+    .cta:hover { background: #e03030; color: #fff; }
+
+    .faq-item { margin-bottom: 24px; }
+    .faq-item strong { color: #fff; display: block; margin-bottom: 6px; }
+
+    footer { width: 100%; padding: 20px 24px; text-align: center; font-size: 12px; color: #555; border-top: 1px solid #1a1a1a; }
+    footer a { color: #777; text-decoration: none; margin: 0 12px; }
+    footer a:hover { color: #fff; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="/ja/">
+      <div class="logo">&#9655;</div>
+      <h1>Stream Filter</h1>
+    </a>
+  </header>
+
+  <main>
+    <h2>Stream Filter の使い方</h2>
+    <p class="subtitle">動画の明るさ、コントラスト、色調をリアルタイムで調整 &mdash; インストール不要。</p>
+
+    <h3>クイックスタート</h3>
+
+    <div class="step">
+      <span class="step-number">1</span>
+      <span class="step-title">動画URLをコピー</span>
+      <p>YouTube、Twitch、Vimeo、Dailymotionなどから動画のURLをコピーします。通常の動画URLやクリップURLが使えます。</p>
+    </div>
+
+    <div class="step">
+      <span class="step-number">2</span>
+      <span class="step-title">貼り付けて再生</span>
+      <p>Stream Filterの入力欄にURLを貼り付けて<strong>「再生」</strong>をクリック（またはEnterキー）。</p>
+    </div>
+
+    <div class="step">
+      <span class="step-number">3</span>
+      <span class="step-title">フィルターを調整</span>
+      <p>スライダーで明るさ、コントラスト、彩度などをリアルタイム調整。プリセットを使えば一瞬で効果を適用できます。</p>
+    </div>
+
+    <h3>対応プラットフォーム</h3>
+    <p>iframe埋め込みに対応している動画プラットフォームで使えます:</p>
+
+    <div class="platform-grid">
+      <div class="platform-card">
+        <div class="name">YouTube</div>
+        <div class="example">youtube.com/watch?v=...</div>
+      </div>
+      <div class="platform-card">
+        <div class="name">Twitch</div>
+        <div class="example">twitch.tv/videos/...</div>
+      </div>
+      <div class="platform-card">
+        <div class="name">Vimeo</div>
+        <div class="example">vimeo.com/123456</div>
+      </div>
+      <div class="platform-card">
+        <div class="name">Dailymotion</div>
+        <div class="example">dailymotion.com/video/...</div>
+      </div>
+    </div>
+    <p>上記以外のサイトでも、URLを貼ってみて表示されればそのまま使えます。</p>
+
+    <h3>フィルター一覧</h3>
+    <table class="filter-table">
+      <thead>
+        <tr><th>フィルター</th><th>範囲</th><th>効果</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>明るさ</td><td>30% &ndash; 500%</td><td>動画を明るく／暗くします。暗いシーンや夜間視聴に最適。</td></tr>
+        <tr><td>コントラスト</td><td>30% &ndash; 500%</td><td>明暗の差を強調または抑制。メリハリのある映像に。</td></tr>
+        <tr><td>彩度</td><td>0% &ndash; 500%</td><td>色の鮮やかさを調整。0%でモノクロ、高いほど鮮やかに。</td></tr>
+        <tr><td>色相回転</td><td>0° &ndash; 360°</td><td>色相を回転させます。色温度の調整に使えます。</td></tr>
+        <tr><td>セピア</td><td>0% &ndash; 100%</td><td>暖かみのある茶色のトーンを追加。長時間視聴の目の負担を軽減。</td></tr>
+        <tr><td>ぼかし</td><td>0 &ndash; 10px</td><td>映像をソフトにぼかします。BGM的な再生に。</td></tr>
+      </tbody>
+    </table>
+
+    <h3>プリセット</h3>
+    <p>スライダーを一つずつ調整するのが面倒？プリセットを使えばワンクリックで適用できます:</p>
+    <table class="preset-table">
+      <thead>
+        <tr><th>プリセット</th><th>こんなときに</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>デフォルト</strong></td><td>すべてを元に戻す</td></tr>
+        <tr><td><strong>明るく</strong></td><td>暗くて見えにくい動画に</td></tr>
+        <tr><td><strong>ナイトモード</strong></td><td>夜間視聴で目の負担を軽減</td></tr>
+        <tr><td><strong>ビビッド</strong></td><td>自然・旅行・料理動画で色を鮮やかに</td></tr>
+        <tr><td><strong>暖色</strong></td><td>暖かみのあるリラックスした視聴に</td></tr>
+        <tr><td><strong>寒色</strong></td><td>青みがかった映画っぽい雰囲気に</td></tr>
+        <tr><td><strong>レトロ</strong></td><td>ヴィンテージフィルム風の色褪せた雰囲気に</td></tr>
+        <tr><td><strong>暗視スコープ</strong></td><td>緑色のミリタリー暗視効果</td></tr>
+        <tr><td><strong>赤外線</strong></td><td>サーマルカメラ風の色反転効果</td></tr>
+      </tbody>
+    </table>
+
+    <h3>便利な使い方</h3>
+    <ul>
+      <li><strong>ナイトモード + 明るさを下げる</strong> &mdash; 夜間の目の疲れを最も効果的に軽減。</li>
+      <li><strong>ビビッドプリセット</strong> &mdash; ネイチャードキュメンタリーや料理動画で効果抜群。</li>
+      <li><strong>色相回転</strong>を15〜30°に設定すると、全体が暖色系になり目に優しくなります。</li>
+      <li><strong>「リセット」</strong>ボタンで全フィルターを即座にデフォルトに戻せます。</li>
+      <li>プリセットを適用してから手動で微調整 &mdash; この組み合わせが最も効率的です。</li>
+      <li><strong>動画サイズスライダー</strong>で画面幅いっぱいまで動画を拡大できます。</li>
+      <li>YouTube動画では<strong>再生速度</strong>も0.25倍〜2倍まで調整可能です。</li>
+    </ul>
+
+    <h3>よくある質問</h3>
+
+    <div class="faq-item">
+      <strong>Stream Filterは無料ですか？</strong>
+      <p>はい、完全無料です。アカウント登録もインストールも不要で、ブラウザからすぐに使えます。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>スマホでも使えますか？</strong>
+      <p>はい。Stream Filterは完全レスポンシブ対応で、iPhone・Android問わずスマホやタブレットのブラウザで動作します。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>個人情報やデータは収集されますか？</strong>
+      <p>いいえ。すべてのフィルター処理はブラウザ内のCSSで行われ、動画データやURLがサーバーに送信されることは一切ありません。詳しくは<a href="/privacy.html">プライバシーポリシー</a>をご覧ください。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>動画がエラーで再生できません</strong>
+      <p>動画の所有者がiframe埋め込みを無効にしている場合、Stream Filterでは再生できません。別の動画でお試しください。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>ライブ配信にも対応していますか？</strong>
+      <p>はい。YouTubeライブ配信やTwitchのライブストリームにも対応しています。リアルタイムでフィルターを適用できます。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>YouTube以外の動画サイトにも対応していますか？</strong>
+      <p>YouTube、Twitch、Vimeo、Dailymotionに最適化されていますが、iframe埋め込みを許可しているサイトであればURLを貼るだけで使える場合があります。</p>
+    </div>
+
+    <p style="text-align:center; margin-top: 40px;">
+      <a href="/ja/" class="cta">Stream Filterを使ってみる</a>
+    </p>
+  </main>
+
+  <footer>
+    <a href="/ja/tools/brightness.html">明るさ</a>
+    <a href="/ja/tools/contrast.html">コントラスト</a>
+    <a href="/ja/tools/night-mode.html">ナイトモード</a>
+    <a href="/ja/tools/speed.html">再生速度</a>
+    <a href="/ja/tools/infrared.html">赤外線</a>
+    <a href="/privacy.html">プライバシー</a>
+    <a href="/terms.html">利用規約</a>
+    <span>&copy; 2026 Stream Filter</span>
+  </footer>
+</body>
+</html>
