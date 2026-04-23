@@ -26,6 +26,8 @@
      crossorigin="anonymous"></script>
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff4444'/><polygon points='38,25 38,75 78,50' fill='white'/></svg>">
+  <!-- Play tracking -->
+  <script src="/assets/tracker.js" defer></script>
   <!-- Structured Data -->
   <script type="application/ld+json">
   {
@@ -489,6 +491,7 @@
     <a href="/ja/tools/speed.html">再生速度</a>
     <a href="/ja/tools/infrared.html">赤外線</a>
     <a href="/ja/tools/zoom.html">ズーム</a>
+    <a href="/ja/ranking.html">ランキング</a>
     <a href="/privacy.html">プライバシーポリシー</a>
     <a href="/terms.html">利用規約</a>
     <span>&copy; 2026 Stream Filter</span>
@@ -572,6 +575,12 @@
     function loadVideo() {
       const url = document.getElementById('urlInput').value.trim();
       if (!url) return;
+
+      if (window.trackerOnPlay) {
+        const svc = window.detectService ? window.detectService(url) : 'other';
+        const vid = window.extractVideoId ? window.extractVideoId(url, svc) : null;
+        window.trackerOnPlay(vid, svc);
+      }
 
       const wrapper = document.getElementById('videoWrapper');
       const placeholder = document.getElementById('placeholder');

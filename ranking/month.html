@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>This Month's Most Played Videos - Stream Filter Ranking</title>
+  <meta name="description" content="This month's most played videos on Stream Filter.">
+  <link rel="canonical" href="https://streamfilter.tv/ranking/month.html">
+  <link rel="alternate" hreflang="en" href="https://streamfilter.tv/ranking/month.html" />
+  <link rel="alternate" hreflang="ja" href="https://streamfilter.tv/ja/ranking/month.html" />
+  <link rel="alternate" hreflang="x-default" href="https://streamfilter.tv/ranking/month.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff4444'/><polygon points='38,25 38,75 78,50' fill='white'/></svg>">
+  <meta property="og:title" content="This Month's Most Played Videos - Stream Filter Ranking">
+  <meta property="og:description" content="This month's most played videos on Stream Filter.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://streamfilter.tv/ranking/month.html">
+  <meta property="og:image" content="https://streamfilter.tv/ogp.png">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2360009503992783" crossorigin="anonymous"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f0f0f; color: #ccc; min-height: 100vh; }
+    header { width: 100%; padding: 12px 24px; display: flex; align-items: center; gap: 12px; background: #1a1a1a; border-bottom: 1px solid #333; }
+    header a.logo-link { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    header h1 { font-size: 18px; font-weight: 600; color: #fff; }
+    .logo { width: 28px; height: 28px; background: #ff4444; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; }
+    main { max-width: 960px; margin: 0 auto; padding: 40px 24px 60px; line-height: 1.6; }
+    h2 { color: #fff; font-size: 28px; margin-bottom: 8px; }
+    .subtitle { color: #888; font-size: 16px; margin-bottom: 24px; }
+    a { color: #ff4444; text-decoration: none; }
+    a:hover { color: #ff6666; }
+    .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .tabs .label { color: #888; font-size: 12px; padding: 8px 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .tabs button, .tabs a { padding: 8px 14px; background: #1a1a1a; border: 1px solid #282828; color: #ccc; border-radius: 20px; font-size: 14px; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+    .tabs button:hover, .tabs a:hover { background: #252525; color: #fff; }
+    .tabs button.active, .tabs a.active { background: #ff4444; border-color: #ff4444; color: #fff; }
+    .ranking-loading, .ranking-empty, .ranking-error { text-align: center; padding: 48px 24px; color: #666; }
+    .ranking-error { color: #ff6666; }
+    ol#ranking-list, ul#ranking-list { list-style: none; padding: 0; margin: 24px 0; }
+    .ranking-entry { display: flex; align-items: center; gap: 16px; padding: 14px 12px; border-bottom: 1px solid #1a1a1a; }
+    .ranking-entry:hover { background: #131313; }
+    .ranking-rank { font-size: 20px; font-weight: 700; color: #ff4444; min-width: 44px; text-align: center; }
+    .ranking-thumb { flex-shrink: 0; }
+    .ranking-thumb img { display: block; border-radius: 6px; background: #222; }
+    .ranking-thumb-placeholder { width: 120px; height: 68px; border-radius: 6px; background: #1a1a1a; border: 1px solid #282828; }
+    .ranking-info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+    .ranking-title { color: #fff; font-weight: 600; font-size: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .ranking-title:hover { color: #ff6666; }
+    .ranking-author { color: #888; font-size: 13px; }
+    .ranking-meta { color: #666; font-size: 12px; }
+    .ranking-service { display: inline-block; margin-top: 2px; font-size: 10px; padding: 2px 8px; border-radius: 10px; background: #1a1a1a; border: 1px solid #282828; color: #888; text-transform: uppercase; letter-spacing: 0.5px; width: fit-content; }
+    .ranking-service--youtube { border-color: #552222; color: #ff6666; }
+    .ranking-service--vimeo { border-color: #1a4459; color: #4ea8c8; }
+    .ranking-service--dailymotion { border-color: #3f2d59; color: #8b6fc4; }
+    footer { width: 100%; padding: 20px 24px; text-align: center; font-size: 12px; color: #555; border-top: 1px solid #1a1a1a; }
+    footer a { color: #777; margin: 0 12px; }
+    footer a:hover { color: #fff; }
+    @media (max-width: 600px) {
+      main { padding: 24px 12px 40px; }
+      .ranking-thumb img, .ranking-thumb-placeholder { width: 80px; height: 45px; }
+      .ranking-rank { font-size: 16px; min-width: 32px; }
+      h2 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo-link" href="/">
+      <div class="logo">&#9655;</div>
+      <h1>Stream Filter</h1>
+    </a>
+  </header>
+  <main>
+    <h2>This Month's Most Played Videos</h2>
+    <p class="subtitle">Top videos played this month on Stream Filter.</p>
+
+    <div class="tabs">
+      <span class="label">Period</span>
+      <a href="/ranking/today.html">Today</a>
+      <a href="/ranking/week.html">Week</a>
+      <a href="/ranking/month.html" class="active">Month</a>
+      <a href="/ranking.html">All Time</a>
+    </div>
+    <div class="tabs">
+      <span class="label">Country</span>
+      <a href="/ranking.html" class="active">Global</a>
+      <a href="/ranking/jp.html">Japan</a>
+      <a href="/ranking/us.html">US</a>
+    </div>
+    <div class="tabs">
+      <span class="label">Sort</span>
+      <a href="/ranking.html" class="active">Most Played</a>
+      <a href="/ranking/watchtime.html">Most Watched</a>
+    </div>
+
+    <ul id="ranking-list"></ul>
+  </main>
+  <footer>
+    <a href="/guide.html">How to Use</a>
+    <a href="/ranking.html">Ranking</a>
+    <a href="/privacy.html">Privacy Policy</a>
+    <a href="/terms.html">Terms</a>
+    <span>&copy; 2026 Stream Filter</span>
+  </footer>
+  <script src="/assets/ranking-ui.js"></script>
+  <script>
+    initRanking({ period: 'month', country: 'global', sort: 'plays', lang: 'en' });
+  </script>
+</body>
+</html>

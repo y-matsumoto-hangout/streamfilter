@@ -1,0 +1,18 @@
+name = "streamfilter-cron"
+main = "ranking-cron.js"
+compatibility_date = "2024-09-23"
+
+[triggers]
+crons = ["0 0 * * *"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "streamfilter-ranking"
+database_id = "9dc1720d-c637-42c4-b954-881db27eedfd"
+
+[[analytics_engine_datasets]]
+binding = "AE"
+dataset = "video_plays"
+
+[vars]
+CF_ACCOUNT_ID = "e12a427b9a0ecfa2de9cc7ef65892ffb"

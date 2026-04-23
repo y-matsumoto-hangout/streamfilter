@@ -1,0 +1,8 @@
+/assets/*
+  Cache-Control: public, max-age=86400
+
+/api/track
+  Cache-Control: no-store
+
+/api/ranking*
+  Cache-Control: public, s-maxage=3600, stale-while-revalidate=300
