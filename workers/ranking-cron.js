@@ -21,8 +21,12 @@ export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
     if (url.pathname === '/__run' && env.CRON_SECRET && url.searchParams.get('key') === env.CRON_SECRET) {
-      ctx.waitUntil(aggregate(env));
-      return new Response('started');
+      try {
+        await aggregate(env);
+        return new Response('done', { status: 200 });
+      } catch (e) {
+        return new Response('error: ' + e.message, { status: 500 });
+      }
     }
     return new Response('ok');
   },
@@ -65,21 +69,50 @@ async function queryAE(env, sinceIso, country) {
       ? "blob2 != 'twitch' AND blob3 NOT IN ('JP', 'US')"
       : "blob2 != 'twitch' AND blob3 = '" + country + "'";
 
-  const sql = `
-    SELECT
-      blob1 AS video_id,
-      blob2 AS service,
-      SUM(CASE WHEN blob4 = 'play' THEN double1 ELSE 0 END) AS play_count,
-      SUM(CASE WHEN blob4 = 'watch' THEN double1 ELSE 0 END) AS total_secs
+  const baseWhere = `${countryFilter} AND timestamp > toDateTime('${sinceSql}')`;
+
+  const playSql = `
+    SELECT blob1 AS video_id, blob2 AS service, SUM(double1) AS play_count
     FROM video_plays
-    WHERE ${countryFilter}
-      AND timestamp > toDateTime('${sinceSql}')
+    WHERE ${baseWhere} AND blob4 = 'play'
     GROUP BY blob1, blob2
-    HAVING play_count > 0
     ORDER BY play_count DESC
     LIMIT 500
   `;
 
+  const watchSql = `
+    SELECT blob1 AS video_id, blob2 AS service, SUM(double1) AS total_secs
+    FROM video_plays
+    WHERE ${baseWhere} AND blob4 = 'watch'
+    GROUP BY blob1, blob2
+    LIMIT 500
+  `;
+
+  const [playRows, watchRows] = await Promise.all([
+    runAESql(env, playSql),
+    runAESql(env, watchSql),
+  ]);
+
+  const merged = new Map();
+  for (const r of playRows) {
+    const key = r.video_id + ':' + r.service;
+    merged.set(key, {
+      video_id: String(r.video_id || ''),
+      service: String(r.service || ''),
+      play_count: Math.round(Number(r.play_count) || 0),
+      total_secs: 0,
+    });
+  }
+  for (const r of watchRows) {
+    const key = r.video_id + ':' + r.service;
+    if (merged.has(key)) {
+      merged.get(key).total_secs = Math.round(Number(r.total_secs) || 0);
+    }
+  }
+  return [...merged.values()].filter(d => d.video_id && d.service && d.play_count > 0);
+}
+
+async function runAESql(env, sql) {
   const res = await fetch(
     'https://api.cloudflare.com/client/v4/accounts/' + env.CF_ACCOUNT_ID + '/analytics_engine/sql',
     {
@@ -93,13 +126,7 @@ async function queryAE(env, sinceIso, country) {
   );
   if (!res.ok) return [];
   const json = await res.json();
-  const data = (json && json.data) || [];
-  return data.map(d => ({
-    video_id: String(d.video_id || ''),
-    service: String(d.service || ''),
-    play_count: Math.round(Number(d.play_count) || 0),
-    total_secs: Math.round(Number(d.total_secs) || 0),
-  })).filter(d => d.video_id && d.service);
+  return (json && json.data) || [];
 }
 
 async function fetchMissingMeta(env, rows) {
