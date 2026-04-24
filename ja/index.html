@@ -820,6 +820,17 @@
     document.getElementById('urlInput').addEventListener('keydown', (e) => {
       if (e.key === 'Enter') loadVideo();
     });
+
+    // ランキングページから ?v= で渡された URL を自動再生
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+      const incoming = params.get('v');
+      if (incoming) {
+        const input = document.getElementById('urlInput');
+        input.value = incoming;
+        loadVideo();
+      }
+    })();
   </script>
 </body>
 </html>

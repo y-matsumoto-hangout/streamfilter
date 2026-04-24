@@ -940,6 +940,17 @@
     document.getElementById('urlInput').addEventListener('keydown', (e) => {
       if (e.key === 'Enter') loadVideo();
     });
+
+    // Auto-load video if ?v= query parameter is present (from ranking pages)
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+      const incoming = params.get('v');
+      if (incoming) {
+        const input = document.getElementById('urlInput');
+        input.value = incoming;
+        loadVideo();
+      }
+    })();
   </script>
 </body>
 </html>
