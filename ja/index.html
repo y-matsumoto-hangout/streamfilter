@@ -825,10 +825,23 @@
     (function() {
       const params = new URLSearchParams(window.location.search);
       const incoming = params.get('v');
-      if (incoming) {
-        const input = document.getElementById('urlInput');
-        input.value = incoming;
+      if (!incoming) return;
+
+      document.getElementById('urlInput').value = incoming;
+
+      const isYouTubeUrl = /youtu\.?be/.test(incoming);
+      if (!isYouTubeUrl) {
         loadVideo();
+        return;
+      }
+      if (window.YT && window.YT.Player) {
+        loadVideo();
+      } else {
+        const prev = window.onYouTubeIframeAPIReady;
+        window.onYouTubeIframeAPIReady = function() {
+          if (typeof prev === 'function') prev();
+          loadVideo();
+        };
       }
     })();
   </script>
