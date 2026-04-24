@@ -44,6 +44,9 @@
 
     if (!videoId || !service || service === 'other') return;
 
+    const source = window.__sfSource === 'ranking' ? 'ranking' : 'direct';
+    window.__sfSource = null;
+
     currentVideoId = videoId;
     currentService = service;
     totalWatchSecs = 0;
@@ -53,7 +56,7 @@
     fetch('/api/track', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ type: 'play', videoId: videoId, service: service }),
+      body: JSON.stringify({ type: 'play', videoId: videoId, service: service, source: source }),
       keepalive: true,
     }).catch(function () {});
   };

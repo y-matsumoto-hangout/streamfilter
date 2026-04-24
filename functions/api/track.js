@@ -16,6 +16,7 @@ export async function onRequestPost(ctx) {
   const type = body.type === 'watch' ? 'watch' : 'play';
   const service = String(body.service || '').toLowerCase();
   const videoId = String(body.videoId || '').slice(0, 64);
+  const source = body.source === 'ranking' ? 'ranking' : 'direct';
 
   if (!videoId || !ALLOWED_SERVICES.has(service)) return new Response('ok');
 
@@ -26,13 +27,13 @@ export async function onRequestPost(ctx) {
     if (secs < 3) return new Response('ok');
     env.AE.writeDataPoint({
       indexes: [videoId],
-      blobs: [videoId, service, country, 'watch'],
+      blobs: [videoId, service, country, 'watch', source],
       doubles: [secs],
     });
   } else {
     env.AE.writeDataPoint({
       indexes: [videoId],
-      blobs: [videoId, service, country, 'play'],
+      blobs: [videoId, service, country, 'play', source],
       doubles: [1],
     });
   }

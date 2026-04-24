@@ -948,6 +948,7 @@
       if (!incoming) return;
 
       document.getElementById('urlInput').value = incoming;
+      window.__sfSource = 'ranking';
 
       const isYouTubeUrl = /youtu\.?be/.test(incoming);
       if (!isYouTubeUrl) {
