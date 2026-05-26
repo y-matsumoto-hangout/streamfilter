@@ -428,9 +428,58 @@
       color: #fff;
     }
 
+    /* Content sections (About / Use cases / FAQ) */
+    .content-section {
+      max-width: 820px;
+      margin: 56px auto 0;
+      padding: 0 24px;
+      line-height: 1.7;
+      color: #b8b8b8;
+    }
+    .content-section h2 {
+      color: #fff;
+      font-size: 24px;
+      margin: 40px 0 12px;
+      font-weight: 600;
+    }
+    .content-section h3 {
+      color: #fff;
+      font-size: 17px;
+      margin: 24px 0 8px;
+      font-weight: 600;
+    }
+    .content-section p { margin: 12px 0; }
+    .content-section ul, .content-section ol { margin: 12px 0 12px 22px; }
+    .content-section li { margin: 6px 0; }
+    .content-section a { color: #ff4444; }
+    .content-section a:hover { color: #ff6666; }
+    .use-case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin: 16px 0;
+    }
+    .use-case-card {
+      background: #141414;
+      border: 1px solid #222;
+      border-radius: 10px;
+      padding: 16px 18px;
+    }
+    .use-case-card h3 { margin: 0 0 6px; font-size: 15px; }
+    .use-case-card p { margin: 0; font-size: 14px; color: #999; }
+    .faq-item {
+      border-top: 1px solid #1d1d1d;
+      padding: 14px 0;
+    }
+    .faq-item:last-child { border-bottom: 1px solid #1d1d1d; }
+    .faq-q { color: #fff; font-weight: 600; margin: 0 0 6px; font-size: 15px; }
+    .faq-a { margin: 0; color: #aaa; font-size: 14px; }
+
     @media (max-width: 640px) {
       main { padding: 12px; }
       .sliders { grid-template-columns: 1fr; }
+      .content-section { padding: 0 16px; }
+      .content-section h2 { font-size: 20px; }
     }
   </style>
 </head>
@@ -545,6 +594,91 @@
         </div>
       </div>
     </div>
+
+    <section class="content-section" aria-labelledby="about-heading">
+      <h2 id="about-heading">What is Stream Filter?</h2>
+      <p>Stream Filter is a free, browser-based video filter tool that lets you adjust brightness, contrast, saturation, hue, sepia, blur, and zoom on streaming videos in real time. Paste a URL from YouTube, Vimeo, or Dailymotion, and the filter sliders apply standard CSS effects directly to the embedded player &mdash; nothing to install, nothing to upload, and the original video stays untouched on the source platform.</p>
+      <p>Unlike download-and-edit tools, Stream Filter works on the live embed. You can fix a dark video while you watch, soften the colors for late-night viewing, zoom into fine details for analysis, or apply a warm preset to make long viewing sessions easier on the eyes. The full set of filters runs locally in your browser using hardware-accelerated CSS, so there is no quality loss, no re-encoding, and no waiting for an upload to finish.</p>
+
+      <h2>Common Use Cases</h2>
+      <div class="use-case-grid">
+        <div class="use-case-card">
+          <h3>Dark or underexposed footage</h3>
+          <p>Rescue gaming clips, lecture recordings, or home videos shot in low light by raising brightness and contrast on the fly.</p>
+        </div>
+        <div class="use-case-card">
+          <h3>Night-mode viewing</h3>
+          <p>Reduce saturation, drop brightness, and add a sepia tint to cut blue light and eye strain during late-night watching.</p>
+        </div>
+        <div class="use-case-card">
+          <h3>Color-vision accessibility</h3>
+          <p>Hue rotation and saturation controls help some users distinguish colors that are otherwise indistinguishable on a standard display.</p>
+        </div>
+        <div class="use-case-card">
+          <h3>Detail analysis with zoom</h3>
+          <p>Zoom in up to 10x and pan around the frame &mdash; useful for sports replays, art tutorials, technical demonstrations, and anything with subtle on-screen detail.</p>
+        </div>
+        <div class="use-case-card">
+          <h3>Ambient background playback</h3>
+          <p>Apply blur and reduced saturation to turn a video into calm ambient visuals while you work or relax.</p>
+        </div>
+        <div class="use-case-card">
+          <h3>Quick color grading preview</h3>
+          <p>Experiment with looks before opening a full editor &mdash; try the Vivid, Warm, Cool, or Retro presets to see how a clip changes mood.</p>
+        </div>
+      </div>
+
+      <h2>Supported Video Platforms</h2>
+      <p>Stream Filter accepts standard video URLs from the following sources:</p>
+      <ul>
+        <li><strong>YouTube</strong> &mdash; full-length videos, Shorts, and clip URLs all work, including timestamp links and playlist entries.</li>
+        <li><strong>Twitch</strong> &mdash; VOD URLs (<code>twitch.tv/videos/&hellip;</code>). Live channels and Twitch clips load through the same player. Note: Twitch is excluded from the public ranking because its embed API does not expose play state.</li>
+        <li><strong>Vimeo</strong> &mdash; public and unlisted videos that the owner has marked as embeddable.</li>
+        <li><strong>Dailymotion</strong> &mdash; standard video URLs from the dailymotion.com domain.</li>
+      </ul>
+      <p>Whichever service you use, the brightness, contrast, saturation, hue, sepia, blur, and zoom controls behave identically. Switching from one platform to another is just a matter of pasting a different URL.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <p class="faq-q">Is Stream Filter free?</p>
+        <p class="faq-a">Yes. All filters, presets, zoom, and ranking features are free with no account required. If you find it useful and want to support development, there is a Buy me a coffee link in the header &mdash; entirely optional.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Do I need to install anything or sign up?</p>
+        <p class="faq-a">No. Stream Filter runs entirely in your browser. There is no extension to install, no account to create, and no upload. Paste a URL, adjust sliders, and that&rsquo;s it.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Does the original video get modified?</p>
+        <p class="faq-a">No. All filter effects are CSS adjustments applied to the embedded player in your browser. The source video file on YouTube, Vimeo, or Dailymotion is untouched. Other viewers see the original, unaltered video.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Will quality degrade when I apply filters?</p>
+        <p class="faq-a">Filters are applied as standard CSS effects by your browser, the same way native CSS filters work on any web page. The underlying video stream plays at its normal resolution and bitrate. There is no re-encoding or transcoding step.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Can I save a video with the filters baked in?</p>
+        <p class="faq-a">No &mdash; Stream Filter is a live-viewing tool, not a downloader or transcoder. We don&rsquo;t host, store, modify, or redistribute video content. Saving a modified copy would require a separate desktop video editor.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">What data do you collect?</p>
+        <p class="faq-a">For the public <a href="/ranking">ranking feature</a> we count anonymous playback events &mdash; video ID, source platform, and approximate watch time. No personal accounts, no IP storage in usable form, no cross-site tracking. Full details are in our <a href="/privacy.html">privacy policy</a>.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Why doesn&rsquo;t my Twitch clip appear in the ranking?</p>
+        <p class="faq-a">Twitch&rsquo;s embed API does not expose play-state events, which means we cannot reliably count play vs. autoplay vs. preview. To avoid inflated numbers, Twitch playback is supported but excluded from the ranking. YouTube, Vimeo, and Dailymotion are all included.</p>
+      </div>
+
+      <h2>Explore the Ranking</h2>
+      <p>Curious what other people are watching through Stream Filter? See the live charts:</p>
+      <ul>
+        <li><a href="/ranking/today">Today&rsquo;s most-played videos</a></li>
+        <li><a href="/ranking/week">This week&rsquo;s most-played videos</a></li>
+        <li><a href="/ranking/month">This month&rsquo;s most-played videos</a></li>
+        <li><a href="/ranking">All-time ranking</a></li>
+        <li><a href="/ranking/watchtime">Ranked by total watch time</a></li>
+        <li><a href="/ranking/jp">Most played in Japan</a> &middot; <a href="/ranking/us">Most played in the US</a></li>
+      </ul>
+    </section>
   </main>
 
   <footer>
@@ -555,7 +689,7 @@
     <a href="/tools/speed.html">Speed</a>
     <a href="/tools/infrared.html">Infrared</a>
     <a href="/tools/zoom.html">Zoom</a>
-    <a href="/ranking.html">Ranking</a>
+    <a href="/ranking">Ranking</a>
     <a href="/privacy.html">Privacy Policy</a>
     <a href="/terms.html">Terms of Service</a>
     <span>&copy; 2026 Stream Filter</span>

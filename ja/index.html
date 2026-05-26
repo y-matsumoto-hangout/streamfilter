@@ -364,9 +364,58 @@
     footer a { color: #777; text-decoration: none; margin: 0 12px; }
     footer a:hover { color: #fff; }
 
+    /* Content sections (About / Use cases / FAQ) */
+    .content-section {
+      max-width: 820px;
+      margin: 56px auto 0;
+      padding: 0 24px;
+      line-height: 1.8;
+      color: #b8b8b8;
+    }
+    .content-section h2 {
+      color: #fff;
+      font-size: 24px;
+      margin: 40px 0 12px;
+      font-weight: 600;
+    }
+    .content-section h3 {
+      color: #fff;
+      font-size: 17px;
+      margin: 24px 0 8px;
+      font-weight: 600;
+    }
+    .content-section p { margin: 12px 0; }
+    .content-section ul, .content-section ol { margin: 12px 0 12px 22px; }
+    .content-section li { margin: 6px 0; }
+    .content-section a { color: #ff4444; }
+    .content-section a:hover { color: #ff6666; }
+    .use-case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin: 16px 0;
+    }
+    .use-case-card {
+      background: #141414;
+      border: 1px solid #222;
+      border-radius: 10px;
+      padding: 16px 18px;
+    }
+    .use-case-card h3 { margin: 0 0 6px; font-size: 15px; }
+    .use-case-card p { margin: 0; font-size: 14px; color: #999; }
+    .faq-item {
+      border-top: 1px solid #1d1d1d;
+      padding: 14px 0;
+    }
+    .faq-item:last-child { border-bottom: 1px solid #1d1d1d; }
+    .faq-q { color: #fff; font-weight: 600; margin: 0 0 6px; font-size: 15px; }
+    .faq-a { margin: 0; color: #aaa; font-size: 14px; }
+
     @media (max-width: 640px) {
       main { padding: 12px; }
       .sliders { grid-template-columns: 1fr; }
+      .content-section { padding: 0 16px; }
+      .content-section h2 { font-size: 20px; }
     }
   </style>
 </head>
@@ -481,6 +530,91 @@
         </div>
       </div>
     </div>
+
+    <section class="content-section" aria-labelledby="about-heading">
+      <h2 id="about-heading">Stream Filter とは？</h2>
+      <p>Stream Filter は、ストリーミング動画の明るさ・コントラスト・彩度・色相・セピア・ぼかし・ズームをリアルタイムに調整できる無料のブラウザツールです。YouTube、Vimeo、Dailymotion の動画URLを貼り付けるだけで、スライダー操作が標準的な CSS エフェクトとして埋め込みプレイヤーに適用されます。インストール不要、アップロード不要。元の動画ファイル自体は配信元プラットフォーム上で一切変更されません。</p>
+      <p>ダウンロードして編集するタイプのツールと違い、Stream Filter は再生中の埋め込み動画にそのまま効果をかけます。暗い動画をその場で明るくしたり、就寝前の視聴用に色味を落としたり、細部を観察するためにズームしたり、長時間視聴用に暖色プリセットを当てたりといった用途に対応しています。フィルターはハードウェアアクセラレーション付きの CSS でブラウザ内処理されるため、画質劣化や再エンコードはなく、アップロード待ち時間もありません。</p>
+
+      <h2>主なユースケース</h2>
+      <div class="use-case-grid">
+        <div class="use-case-card">
+          <h3>暗い動画の救済</h3>
+          <p>低照度で撮られたゲーム映像、講義録画、ホームビデオなどを、明るさとコントラストの調整で見やすくします。</p>
+        </div>
+        <div class="use-case-card">
+          <h3>夜間視聴モード</h3>
+          <p>彩度を落とし、明るさを下げ、セピアを少し効かせれば、就寝前のブルーライトと目の疲労を軽減できます。</p>
+        </div>
+        <div class="use-case-card">
+          <h3>色覚補助</h3>
+          <p>色相回転と彩度のコントロールにより、通常のディスプレイ表示では区別しにくい色を見分けやすくできるケースがあります。</p>
+        </div>
+        <div class="use-case-card">
+          <h3>ズームによる細部観察</h3>
+          <p>最大10倍ズーム＋ドラッグ操作で画面を移動。スポーツのリプレイ、アートチュートリアル、技術デモなど、細部を見たいシーンで便利です。</p>
+        </div>
+        <div class="use-case-card">
+          <h3>アンビエント再生</h3>
+          <p>ぼかしと彩度低下を組み合わせれば、作業中やリラックスタイムの背景映像として落ち着いた雰囲気を作れます。</p>
+        </div>
+        <div class="use-case-card">
+          <h3>カラーグレーディングの試行</h3>
+          <p>本格的な編集ソフトを開く前に、Vivid/Warm/Cool/Retro などのプリセットでクリップの雰囲気を素早く比較できます。</p>
+        </div>
+      </div>
+
+      <h2>対応する動画プラットフォーム</h2>
+      <p>Stream Filter は以下のサービスの標準的な動画URLに対応しています。</p>
+      <ul>
+        <li><strong>YouTube</strong> &mdash; 通常動画・Shorts・クリップURLに対応。タイムスタンプ付きリンクや再生リスト内エントリも読み込めます。</li>
+        <li><strong>Twitch</strong> &mdash; VOD URL（<code>twitch.tv/videos/&hellip;</code>）に対応。ライブチャンネルや Twitch クリップも同じプレイヤー経由で再生できます。なお、Twitch は埋め込みAPIが再生状態を取得できない仕様のため、公開ランキング集計からは除外しています。</li>
+        <li><strong>Vimeo</strong> &mdash; 公開／限定公開で、投稿者が埋め込みを許可している動画。</li>
+        <li><strong>Dailymotion</strong> &mdash; dailymotion.com ドメインの標準的な動画URL。</li>
+      </ul>
+      <p>どのサービスを使っても、明るさ・コントラスト・彩度・色相・セピア・ぼかし・ズームの操作感は同じです。プラットフォームの切り替えは、別のURLを貼り直すだけで完了します。</p>
+
+      <h2>よくある質問</h2>
+      <div class="faq-item">
+        <p class="faq-q">Stream Filter は無料ですか？</p>
+        <p class="faq-a">はい。すべてのフィルター・プリセット・ズーム・ランキング機能を無料で利用できます。アカウント登録も不要です。気に入って応援したい方向けにヘッダーから Buy me a coffee の任意の支援リンクがありますが、利用には一切影響しません。</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">インストールや会員登録は必要ですか？</p>
+        <p class="faq-a">いいえ。Stream Filter は完全にブラウザ内で動作します。インストールするアプリも、拡張機能も、アカウント作成もありません。URLを貼り付けてスライダーを動かすだけです。</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">元の動画ファイルは変更されますか？</p>
+        <p class="faq-a">いいえ。すべてのエフェクトは、お使いのブラウザ内で埋め込みプレイヤーに対する CSS 調整として適用されます。YouTube・Vimeo・Dailymotion 上の元動画ファイルには一切手を加えません。他の視聴者には元のままの動画が表示されます。</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">フィルターをかけると画質は劣化しますか？</p>
+        <p class="faq-a">フィルターは、ブラウザが他のWebページに対して行うのと同じ標準的な CSS エフェクトとして適用されます。動画ストリーム自体は通常の解像度・ビットレートで再生され、再エンコードやトランスコードは行われません。</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">フィルター適用後の動画を保存できますか？</p>
+        <p class="faq-a">いいえ。Stream Filter は視聴時のリアルタイムツールであり、ダウンロードや変換は行いません。動画コンテンツのホスト・保存・改変・再配布もしていません。フィルター適用版を保存したい場合は、デスクトップ向けの動画編集ソフトをご利用ください。</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">どんなデータを収集していますか？</p>
+        <p class="faq-a">公開<a href="/ja/ranking">ランキング機能</a>のために、匿名化された再生イベント（動画ID・サービス名・概算の視聴時間）のみをカウントしています。個人アカウントや、利用可能な形での IP アドレス保存、クロスサイト追跡は行いません。詳細は<a href="/privacy.html">プライバシーポリシー</a>をご確認ください。</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Twitch のクリップがランキングに表示されないのはなぜですか？</p>
+        <p class="faq-a">Twitch の埋め込みAPIが再生状態のイベントを公開していないため、再生・自動再生・プレビューを正しく区別できません。数値が水増しされてしまうのを避けるため、Twitch は再生には対応していますが、ランキング集計からは除外しています。YouTube・Vimeo・Dailymotion はすべて集計対象です。</p>
+      </div>
+
+      <h2>ランキングを見る</h2>
+      <p>他の人がどんな動画を Stream Filter で見ているか気になる方は、こちらからどうぞ。</p>
+      <ul>
+        <li><a href="/ja/ranking/today">今日の人気動画</a></li>
+        <li><a href="/ja/ranking/week">今週の人気動画</a></li>
+        <li><a href="/ja/ranking/month">今月の人気動画</a></li>
+        <li><a href="/ja/ranking">全期間ランキング</a></li>
+        <li><a href="/ja/ranking/watchtime">再生時間で見るランキング</a></li>
+        <li><a href="/ja/ranking/jp">日本のランキング</a> &middot; <a href="/ja/ranking/us">アメリカのランキング</a></li>
+      </ul>
+    </section>
   </main>
 
   <footer>
@@ -491,7 +625,7 @@
     <a href="/ja/tools/speed.html">再生速度</a>
     <a href="/ja/tools/infrared.html">赤外線</a>
     <a href="/ja/tools/zoom.html">ズーム</a>
-    <a href="/ja/ranking.html">ランキング</a>
+    <a href="/ja/ranking">ランキング</a>
     <a href="/privacy.html">プライバシーポリシー</a>
     <a href="/terms.html">利用規約</a>
     <span>&copy; 2026 Stream Filter</span>

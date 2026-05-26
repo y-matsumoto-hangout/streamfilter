@@ -1,0 +1,15 @@
+# Old .html ranking URLs redirect to clean URLs (backwards-compat for indexed pages and external links)
+/ranking.html              /ranking              301
+/ranking/today.html        /ranking/today        301
+/ranking/week.html         /ranking/week         301
+/ranking/month.html        /ranking/month        301
+/ranking/jp.html           /ranking/jp           301
+/ranking/us.html           /ranking/us           301
+/ranking/watchtime.html    /ranking/watchtime    301
+/ja/ranking.html           /ja/ranking           301
+/ja/ranking/today.html     /ja/ranking/today     301
+/ja/ranking/week.html      /ja/ranking/week      301
+/ja/ranking/month.html     /ja/ranking/month     301
+/ja/ranking/jp.html        /ja/ranking/jp        301
+/ja/ranking/us.html        /ja/ranking/us        301
+/ja/ranking/watchtime.html /ja/ranking/watchtime 301
