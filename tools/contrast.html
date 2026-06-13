@@ -3,26 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Adjust Video Contrast Online - Free & Instant | Stream Filter</title>
-  <meta name="description" content="Enhance video contrast in real time while watching YouTube, Twitch, or Vimeo. No upload needed. Free online contrast adjustment tool.">
+  <title>Understanding Video Contrast and How to Adjust It | Stream Filter</title>
+  <meta name="description" content="What contrast really is, why footage looks flat or washed out, and how to adjust it without crushing detail — plus how contrast differs from brightness and saturation.">
   <link rel="canonical" href="https://streamfilter.tv/tools/contrast.html">
   <link rel="alternate" hreflang="en" href="https://streamfilter.tv/tools/contrast.html" />
   <link rel="alternate" hreflang="ja" href="https://streamfilter.tv/ja/tools/contrast.html" />
   <link rel="alternate" hreflang="x-default" href="https://streamfilter.tv/tools/contrast.html" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff4444'/><polygon points='38,25 38,75 78,50' fill='white'/></svg>">
-  <meta property="og:title" content="Adjust Video Contrast Online - Free & Instant">
-  <meta property="og:description" content="Enhance video contrast for clearer, more vivid viewing. Works with YouTube, Twitch, Vimeo and more.">
-  <meta property="og:type" content="website">
+  <meta property="og:title" content="Understanding Video Contrast and How to Adjust It">
+  <meta property="og:description" content="Why footage looks flat or washed out, and how to adjust contrast without crushing detail.">
+  <meta property="og:type" content="article">
   <meta property="og:url" content="https://streamfilter.tv/tools/contrast">
   <meta property="og:image" content="https://streamfilter.tv/ogp.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Adjust Video Contrast Online - Free & Instant">
-  <meta name="twitter:description" content="Enhance video contrast for clearer, more vivid viewing. Works with YouTube, Twitch, Vimeo and more.">
-  <meta name="twitter:image" content="https://streamfilter.tv/ogp.png">
+  <meta name="twitter:title" content="Understanding Video Contrast and How to Adjust It">
+  <meta name="twitter:description" content="Why footage looks flat or washed out, and how to adjust contrast without crushing detail.">
   <meta property="og:locale" content="en_US">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2360009503992783" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Understanding Video Contrast and How to Adjust It",
+    "description": "What contrast is, why videos look flat or washed out, and how to adjust it without crushing detail.",
+    "author": { "@type": "Organization", "name": "Stream Filter" },
+    "publisher": { "@type": "Organization", "name": "Stream Filter" },
+    "mainEntityOfPage": "https://streamfilter.tv/tools/contrast.html"
+  }
+  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -30,26 +40,34 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What does contrast adjustment do to a video?",
+        "name": "What's the difference between contrast and brightness?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Contrast adjustment increases or decreases the difference between the lightest and darkest parts of the video. Higher contrast makes colors pop and details stand out, while lower contrast creates a softer, more muted look."
+          "text": "Brightness shifts the whole image lighter or darker by the same amount. Contrast instead stretches or compresses the gap between the darkest and lightest parts: more contrast pushes shadows down and highlights up for a punchier look, while less contrast pulls them together for a flatter, softer one. Brightness moves the tones; contrast spreads them apart."
         }
       },
       {
         "@type": "Question",
-        "name": "How do I fix a washed-out video?",
+        "name": "Why does my video look flat and washed out?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Increase the contrast slider on Stream Filter. This restores depth and definition to flat, washed-out footage. Combining higher contrast with slightly increased saturation often gives the best results."
+          "text": "Common causes are atmospheric haze or fog, heavy compression that compresses the tonal range, screen glare in a bright room, or footage shot in a flat/log profile that was uploaded without colour grading. Raising contrast restores the separation between lights and darks and brings back a sense of depth."
         }
       },
       {
         "@type": "Question",
-        "name": "Can I combine contrast with other filters?",
+        "name": "Can too much contrast hurt the image?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes! Stream Filter lets you adjust contrast alongside brightness, saturation, hue, sepia, and blur — all at the same time. Use presets like 'Vivid' for a quick combo."
+          "text": "Yes. Pushing contrast too far clips the brightest areas to pure white and the darkest to pure black, permanently hiding any detail that lived in those regions on your screen. Increase it until the image looks lively but stop before highlights bloom or shadows turn into solid black."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is contrast the same as saturation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Contrast is about the difference in brightness between tones; saturation is about the intensity of colour. A black-and-white video has zero saturation but can still have very high contrast. They often look related because raising contrast can make colours feel richer, but they are separate controls."
         }
       }
     ]
@@ -75,81 +93,92 @@
     .cta:hover { background: #e03030; color: #fff; }
     .faq-item { margin-bottom: 24px; }
     .faq-item strong { color: #fff; display: block; margin-bottom: 6px; }
-    .use-cases { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 16px 0 24px; }
-    .use-case { background: #1a1a1a; border: 1px solid #282828; border-radius: 10px; padding: 16px; }
-    .use-case .title { color: #fff; font-weight: 600; margin-bottom: 4px; }
-    .use-case .desc { color: #888; font-size: 13px; }
+    table.cmp { width: 100%; border-collapse: collapse; margin: 8px 0 24px; font-size: 14px; }
+    table.cmp th, table.cmp td { border: 1px solid #282828; padding: 10px 12px; text-align: left; vertical-align: top; }
+    table.cmp th { background: #1a1a1a; color: #fff; font-weight: 600; }
+    table.cmp td:first-child { color: #fff; font-weight: 600; white-space: nowrap; }
+    .note { background: #161616; border-left: 3px solid #ff4444; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0 24px; color: #aaa; font-size: 14px; }
+    .breadcrumb { font-size: 13px; color: #666; margin-bottom: 8px; }
+    .breadcrumb a { color: #888; }
     footer { width: 100%; padding: 20px 24px; text-align: center; font-size: 12px; color: #555; border-top: 1px solid #1a1a1a; }
     footer a { color: #777; text-decoration: none; margin: 0 12px; }
     footer a:hover { color: #fff; }
   </style>
 </head>
 <body>
-  <header><a href="/"><div class="logo">&#9655;</div><h1>Stream Filter</h1></a></header>
+  <header>
+    <a href="/">
+      <div class="logo">&#9655;</div>
+      <h1>Stream Filter</h1>
+    </a>
+  </header>
   <main>
-    <h2>Adjust Video Contrast Online</h2>
-    <p class="subtitle">Enhance video clarity by adjusting contrast in real time — no upload, no download, no software needed.</p>
+    <p class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/guide.html">Guides</a> &rsaquo; Contrast</p>
+    <h2>Understanding Video Contrast and How to Adjust It</h2>
+    <p class="subtitle">What contrast really is, why footage ends up looking flat, and how to bring back depth without crushing the detail.</p>
 
-    <a href="/" class="cta">Open Contrast Adjuster</a>
+    <a href="/" class="cta">Open the Contrast Tool</a>
 
-    <h3>What Is Video Contrast?</h3>
-    <p>Contrast is the difference between the brightest and darkest parts of an image. Low contrast makes a video look flat and washed out, while high contrast adds depth, making colors richer and details sharper.</p>
+    <h3>What contrast actually means</h3>
+    <p>Contrast is the difference in brightness between the darkest and lightest parts of an image — its <em>tonal range</em>. A high-contrast picture has deep shadows and bright highlights with a wide gap between them, which reads as punchy, three-dimensional and sharp. A low-contrast picture squeezes everything toward the middle greys, so it looks flat, soft and a little lifeless. Crucially, contrast doesn't make the image lighter or darker overall — it changes how <em>spread out</em> the tones are.</p>
 
-    <h3>When to Adjust Contrast</h3>
-    <div class="use-cases">
-      <div class="use-case">
-        <div class="title">Washed-Out Videos</div>
-        <div class="desc">Increase contrast to restore depth and definition.</div>
-      </div>
-      <div class="use-case">
-        <div class="title">Foggy / Hazy Footage</div>
-        <div class="desc">Cut through haze with higher contrast settings.</div>
-      </div>
-      <div class="use-case">
-        <div class="title">Cinematic Look</div>
-        <div class="desc">Boost contrast for a dramatic, movie-like feel.</div>
-      </div>
-      <div class="use-case">
-        <div class="title">Comfortable Viewing</div>
-        <div class="desc">Lower contrast for a softer image during long sessions.</div>
-      </div>
-    </div>
-
-    <h3>How It Works</h3>
-    <ol>
-      <li>Go to <a href="/">streamfilter.tv</a></li>
-      <li>Paste any video URL</li>
-      <li>Use the <strong>Contrast</strong> slider (30% to 500%)</li>
-      <li>Combine with the <strong>"Vivid"</strong> preset for maximum impact</li>
-    </ol>
-
-    <h3>Recommended Combinations</h3>
+    <h3>Why videos lose contrast</h3>
     <ul>
-      <li><strong>Vivid preset</strong> — Higher contrast + higher saturation for colorful, punchy visuals</li>
-      <li><strong>Contrast + Brightness</strong> — Fix underexposed videos by boosting both</li>
-      <li><strong>Night Vision preset</strong> — High contrast + hue shift for a tactical look</li>
+      <li><strong>Haze, fog, and glare.</strong> Atmospheric haze or a smudged lens scatters light into the shadows, lifting them and flattening the range. The same happens when room light reflects off your screen.</li>
+      <li><strong>Heavy compression.</strong> Low-bitrate streaming reduces the number of distinct tones, collapsing smooth gradients and shrinking the effective contrast.</li>
+      <li><strong>Flat / log footage uploaded raw.</strong> Cameras can record a deliberately flat "log" profile that's meant to be graded later. If a creator uploads it without grading, it arrives looking washed out.</li>
+      <li><strong>Display and ambient light.</strong> A bright room or an uncalibrated screen can wash out the darkest tones before the file is even at fault.</li>
     </ul>
 
-    <h3>Frequently Asked Questions</h3>
+    <h3>Contrast vs. brightness vs. saturation</h3>
+    <p>These three controls are constantly confused, but they do different jobs:</p>
+    <table class="cmp">
+      <tr><th>Control</th><th>What it changes</th><th>Telltale sign you need it</th></tr>
+      <tr><td>Brightness</td><td>Moves all tones lighter or darker together</td><td>The whole image is too dim or too bright</td></tr>
+      <tr><td>Contrast</td><td>Widens or narrows the gap between dark and light</td><td>The image looks flat, grey or washed out</td></tr>
+      <tr><td>Saturation</td><td>Strength of the colours</td><td>Colours look dull (or, too far, cartoonish)</td></tr>
+    </table>
+    <p>They interact: a flat clip often needs a little more contrast <em>and</em> a touch more saturation, because flattening tends to mute colour too.</p>
 
+    <h3>Adjusting contrast without losing detail</h3>
+    <ol>
+      <li>Play a scene with both bright and dark areas — a face against a window is ideal for judging the range.</li>
+      <li>Raise <strong>Contrast</strong> until the picture gains depth and the blacks feel solid.</li>
+      <li>Watch the extremes. Stop as soon as highlights start to "bloom" into featureless white or shadows collapse into solid black — that detail is gone from your view once it clips.</li>
+      <li>If raising contrast made the image too dark overall, lift <strong>Brightness</strong> slightly to rebalance.</li>
+    </ol>
+    <div class="note">More contrast always trades away detail at the extremes for punch in the mid-tones. That's a good deal up to a point — the skill is stopping just before the clipping becomes obvious.</div>
+
+    <h3>Sensible starting points</h3>
+    <table class="cmp">
+      <tr><th>Footage</th><th>Contrast</th><th>Then</th></tr>
+      <tr><td>Flat / washed-out upload</td><td>120–140%</td><td>Saturation +10 to revive colour</td></tr>
+      <tr><td>Hazy or foggy scene</td><td>130–160%</td><td>Brightness &minus;5 if it lifts too far</td></tr>
+      <tr><td>Cinematic / dramatic look</td><td>140–170%</td><td>Saturation &minus;10 for a moodier feel</td></tr>
+      <tr><td>Harsh, over-contrasty clip</td><td>70–90%</td><td>Brightness +5 to keep shadows readable</td></tr>
+    </table>
+
+    <h3>Contrast sensitivity and accessibility</h3>
+    <p>The ability to perceive contrast isn't the same for everyone, and it naturally declines with age and with conditions such as cataracts and glaucoma. For some viewers a flat, low-contrast video is genuinely hard to follow, while for others harsh contrast is fatiguing. Because this control is applied per-view and is instantly reversible, each person can set the tonal range that's comfortable for them on the same clip — without re-editing the source or affecting other viewers.</p>
+
+    <h3>Frequently asked questions</h3>
     <div class="faq-item">
-      <strong>What does contrast adjustment do to a video?</strong>
-      <p>Contrast adjustment increases or decreases the difference between the lightest and darkest parts of the video. Higher contrast makes colors pop and details stand out, while lower contrast creates a softer, more muted look.</p>
+      <strong>What's the difference between contrast and brightness?</strong>
+      <p>Brightness shifts every tone lighter or darker by the same amount. Contrast stretches or compresses the gap between the darkest and lightest parts. Brightness moves the tones; contrast spreads them apart.</p>
     </div>
-
     <div class="faq-item">
-      <strong>How do I fix a washed-out video?</strong>
-      <p>Increase the contrast slider on Stream Filter. This restores depth and definition to flat, washed-out footage. Combining higher contrast with slightly increased saturation often gives the best results.</p>
+      <strong>Why does my video look flat and washed out?</strong>
+      <p>Usually haze or glare, heavy compression, or flat/log footage uploaded without grading. Raising contrast restores the separation between lights and darks and brings back depth.</p>
     </div>
-
     <div class="faq-item">
-      <strong>Can I combine contrast with other filters?</strong>
-      <p>Yes! Stream Filter lets you adjust contrast alongside brightness, saturation, hue, sepia, and blur — all at the same time. Use presets like "Vivid" for a quick combo.</p>
+      <strong>Can too much contrast hurt the image?</strong>
+      <p>Yes — push it too far and highlights clip to white and shadows to black, hiding detail in those regions. Increase until the image looks lively, then stop.</p>
     </div>
 
     <p style="text-align:center; margin-top: 32px;">
       <a href="/" class="cta">Try It Now — Free</a>
     </p>
+    <p style="text-align:center; font-size:14px;">Related: <a href="/tools/brightness.html">Brightness</a> &middot; <a href="/tools/infrared.html">Infrared effects</a> &middot; <a href="/tools/night-mode.html">Night mode</a></p>
   </main>
   <footer>
     <a href="/guide.html">How to Use</a>

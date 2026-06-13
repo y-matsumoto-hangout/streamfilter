@@ -3,26 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>動画の明るさをオンラインで調整 - 無料＆即時 | Stream Filter</title>
-  <meta name="description" content="YouTube、Twitch、Vimeoなどの動画の明るさをリアルタイムで調整。アップロード不要、ダウンロード不要、アカウント不要。無料のオンライン明るさ調整ツール。">
+  <title>暗い・明るすぎる動画をブラウザで補正する方法 | Stream Filter</title>
+  <meta name="description" content="動画が暗く見える原因、明るさフィルターが実際に変えているもの、そして黒つぶれさせずに持ち上げるコツ。YouTube・Vimeo・Dailymotion 再生のための実践ガイド。">
   <link rel="canonical" href="https://streamfilter.tv/ja/tools/brightness.html">
   <link rel="alternate" hreflang="en" href="https://streamfilter.tv/tools/brightness.html">
   <link rel="alternate" hreflang="ja" href="https://streamfilter.tv/ja/tools/brightness.html">
   <link rel="alternate" hreflang="x-default" href="https://streamfilter.tv/tools/brightness.html">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff4444'/><polygon points='38,25 38,75 78,50' fill='white'/></svg>">
-  <meta property="og:title" content="動画の明るさをオンラインで調整 - 無料＆即時">
-  <meta property="og:description" content="暗い動画を明るくしたり、夜間視聴用に暗くしたり。YouTube、Twitch、Vimeoなどに対応。">
-  <meta property="og:type" content="website">
+  <meta property="og:title" content="暗い・明るすぎる動画をブラウザで補正する方法">
+  <meta property="og:description" content="動画が暗く見える原因、明るさフィルターの実態、黒つぶれさせずに明るくするコツ。">
+  <meta property="og:type" content="article">
   <meta property="og:url" content="https://streamfilter.tv/ja/tools/brightness">
   <meta property="og:image" content="https://streamfilter.tv/ogp.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="動画の明るさをオンラインで調整 - 無料＆即時">
-  <meta name="twitter:description" content="暗い動画を明るくしたり、夜間視聴用に暗くしたり。YouTube、Twitch、Vimeoなどに対応。">
+  <meta name="twitter:title" content="暗い・明るすぎる動画をブラウザで補正する方法">
+  <meta name="twitter:description" content="動画が暗く見える原因、明るさフィルターの実態、黒つぶれさせずに明るくするコツ。">
   <meta name="twitter:image" content="https://streamfilter.tv/ogp.png">
   <meta property="og:locale" content="ja_JP">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2360009503992783" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "暗い・明るすぎる動画をブラウザで補正する方法",
+    "description": "動画が暗く見える原因、明るさフィルターが実際に変えているもの、黒つぶれさせずに持ち上げるコツ。",
+    "author": { "@type": "Organization", "name": "Stream Filter" },
+    "publisher": { "@type": "Organization", "name": "Stream Filter" },
+    "mainEntityOfPage": "https://streamfilter.tv/ja/tools/brightness.html"
+  }
+  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -30,74 +41,34 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "暗いYouTube動画を明るくするには？",
+        "name": "同じ動画が自分の画面では暗く、他人の画面では普通に見えるのはなぜ？",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Stream FilterにYouTubeのURLを貼り付けて、明るさスライダーを上げるだけです。「明るく」プリセットを使えば一瞬で調整できます。アップロードやソフトのインストールは不要で、ブラウザだけで動作します。"
+          "text": "明るさの見え方は、動画ファイルの外側にある3つの要素に左右されます。ディスプレイの輝度設定、部屋の明るさ、そしてモニターのガンマ／カラープロファイルです。同じファイルでも、明るい部屋の暗いノートPCでは、夜にキャリブレーション済みモニターで見るより本当に暗く見えます。明るさフィルターは、ファイルを変えずに自分側のこのズレを補正します。"
         }
       },
       {
         "@type": "Question",
-        "name": "明るさを調整すると動画の画質は落ちますか？",
+        "name": "明るくすれば暗部に潰れたディテールは戻る？",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "いいえ。Stream FilterはCSSフィルターを動画プレイヤーの上に適用するだけなので、元の動画品質には影響しません。画面上の表示だけが変わります。"
+          "text": "一部だけです。暗部のディテールが「記録はされていて、ただ暗く表示されているだけ」なら、明るさを上げれば見えてきます。しかし撮影時や圧縮時に真っ黒へ潰れていた場合、その情報はそもそも保存されておらず、どんなフィルターでも復元できません。明るさを上げても黒が平坦なグレーになるだけです。控えめな明るさアップと少しのコントラスト低下を組み合わせると、使えるディテールが最も戻ります。"
         }
       },
       {
         "@type": "Question",
-        "name": "スマホでも明るさ調整できますか？",
+        "name": "ブラウザの明るさフィルターで画質は落ちる？",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "はい、Stream Filterは完全レスポンシブ対応で、スマホやタブレットのブラウザでそのまま使えます。"
+          "text": "落ちません。CSS の brightness() フィルターは、プレーヤーの上に表示時にブラウザが重ねるものです。動画ストリーム自体は元の解像度・ビットレートのままダウンロード・デコードされ、再エンコードもアップロードもありません。タブを閉じれば元の動画はそのままです。"
         }
       },
       {
         "@type": "Question",
-        "name": "明るさはどの範囲で調整できますか？",
+        "name": "明るさとガンマの違いは？",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "30%（非常に暗い）から500%（非常に明るい）まで調整可能です。暗い動画でもしっかり見えるようになります。"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "YouTubeの明るさをスマホで調整するには？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "スマホのブラウザでstreamfilter.tvにアクセスし、YouTube URLを貼り付けるだけです。アプリのインストールは不要で、iPhone・Androidどちらでも動作します。"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "YouTube画面が暗い場合の直し方は？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Stream Filterで明るさを200%〜500%に上げることで改善できます。動画自体が暗い撮影環境の場合、端末の画面輝度だけでは解決しません。Stream Filterなら動画コンテンツの明るさを直接調整できます。"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Chrome拡張機能なしでYouTubeの明るさを調整できますか？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "はい。Stream Filterは拡張機能のインストールが一切不要です。Webブラウザからアクセスするだけで使え、Chrome、Safari、Firefox、Edgeなど主要ブラウザに対応しています。"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "PCでYouTubeの明るさを設定する方法は？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "YouTube自体には動画の明るさ設定がありません。streamfilter.tvをブラウザで開き、YouTube URLを貼り付けて明るさスライダーで調整します。OSのディスプレイ設定を変更せず、動画だけの明るさを変えられます。"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "YouTubeの明るさが勝手に変わるのはなぜ？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "YouTubeの自動輝度調整やHDR機能が原因の場合があります。Stream Filterを使えば、YouTubeの自動調整に関係なく自分で明るさを固定できます。"
+          "text": "明るさフィルターは全ピクセルの輝度を同じ倍率で掛けるため、暗部と明部を一緒に持ち上げ、最も明るい部分は白に飛んでしまうことがあります。一方ガンマ補正は、真っ黒と真っ白を固定したまま中間調を作り変えるので、より自然に見えがちです。ここで使う CSS の明るさ調整は乗算式なので全体の底上げに向いており、中間調の微調整はコントラストと組み合わせるのがコツです。"
         }
       }
     ]
@@ -105,15 +76,15 @@
   </script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', sans-serif; background: #0f0f0f; color: #ccc; min-height: 100vh; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', 'Noto Sans JP', sans-serif; background: #0f0f0f; color: #ccc; min-height: 100vh; }
     header { width: 100%; padding: 12px 24px; display: flex; align-items: center; gap: 12px; background: #1a1a1a; border-bottom: 1px solid #333; }
     header a { display: flex; align-items: center; gap: 12px; text-decoration: none; }
     header h1 { font-size: 18px; font-weight: 600; color: #fff; }
     .logo { width: 28px; height: 28px; background: #ff4444; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; }
-    main { max-width: 800px; margin: 0 auto; padding: 40px 24px 60px; line-height: 1.8; }
-    h2 { color: #fff; font-size: 28px; margin-bottom: 8px; }
-    .subtitle { color: #888; font-size: 16px; margin-bottom: 32px; }
-    h3 { color: #fff; font-size: 20px; margin: 32px 0 12px; }
+    main { max-width: 800px; margin: 0 auto; padding: 40px 24px 60px; line-height: 1.9; }
+    h2 { color: #fff; font-size: 26px; margin-bottom: 8px; }
+    .subtitle { color: #888; font-size: 15px; margin-bottom: 32px; }
+    h3 { color: #fff; font-size: 19px; margin: 32px 0 12px; }
     p { margin-bottom: 16px; }
     ul, ol { margin: 0 0 16px 24px; }
     li { margin-bottom: 8px; }
@@ -123,113 +94,100 @@
     .cta:hover { background: #e03030; color: #fff; }
     .faq-item { margin-bottom: 24px; }
     .faq-item strong { color: #fff; display: block; margin-bottom: 6px; }
-    .use-cases { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 16px 0 24px; }
-    .use-case { background: #1a1a1a; border: 1px solid #282828; border-radius: 10px; padding: 16px; }
-    .use-case .title { color: #fff; font-weight: 600; margin-bottom: 4px; }
-    .use-case .desc { color: #888; font-size: 13px; }
+    table.cmp { width: 100%; border-collapse: collapse; margin: 8px 0 24px; font-size: 14px; }
+    table.cmp th, table.cmp td { border: 1px solid #282828; padding: 10px 12px; text-align: left; vertical-align: top; }
+    table.cmp th { background: #1a1a1a; color: #fff; font-weight: 600; }
+    table.cmp td:first-child { color: #fff; font-weight: 600; white-space: nowrap; }
+    .note { background: #161616; border-left: 3px solid #ff4444; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0 24px; color: #aaa; font-size: 14px; }
+    .breadcrumb { font-size: 13px; color: #666; margin-bottom: 8px; }
+    .breadcrumb a { color: #888; }
     footer { width: 100%; padding: 20px 24px; text-align: center; font-size: 12px; color: #555; border-top: 1px solid #1a1a1a; }
     footer a { color: #777; text-decoration: none; margin: 0 12px; }
     footer a:hover { color: #fff; }
   </style>
 </head>
 <body>
-  <header><a href="/ja/"><div class="logo">&#9655;</div><h1>Stream Filter</h1></a></header>
+  <header>
+    <a href="/ja/">
+      <div class="logo">&#9655;</div>
+      <h1>Stream Filter</h1>
+    </a>
+  </header>
   <main>
-    <h2>動画の明るさをオンラインで調整</h2>
-    <p class="subtitle">暗い動画を明るくしたり、夜間視聴用に暗くしたり。アップロード不要で即座に調整できます。</p>
+    <p class="breadcrumb"><a href="/ja/">ホーム</a> &rsaquo; <a href="/ja/guide.html">ガイド</a> &rsaquo; 明るさ</p>
+    <h2>暗い・明るすぎる動画をブラウザで補正する方法</h2>
+    <p class="subtitle">動画が暗く見えてしまう理由、明るさフィルターが実際に変えているもの、そして画を平坦にせずに持ち上げる手順を、短く実践的にまとめました。</p>
 
     <a href="/ja/" class="cta">明るさ調整ツールを開く</a>
 
-    <h3>なぜ明るさを調整するのか？</h3>
-    <p>暗い場所で撮影された動画は見づらいことがよくあります。目を細めて見る代わりに、再生中にリアルタイムで明るさを上げましょう。Stream Filterならソフトのダウンロードやファイルのアップロードなしで調整できます。</p>
-
-    <h3>よくある使い方</h3>
-    <div class="use-cases">
-      <div class="use-case">
-        <div class="title">暗い動画</div>
-        <div class="desc">暗い映像のディテールを見えるように明るさアップ。</div>
-      </div>
-      <div class="use-case">
-        <div class="title">夜間視聴</div>
-        <div class="desc">明るさを下げて目の負担を軽減。</div>
-      </div>
-      <div class="use-case">
-        <div class="title">屋外視聴</div>
-        <div class="desc">日光の下でも見えるように明るさを最大に。</div>
-      </div>
-      <div class="use-case">
-        <div class="title">アクセシビリティ</div>
-        <div class="desc">視覚に困難がある方の視聴サポートに。</div>
-      </div>
-    </div>
-
-    <h3>使い方</h3>
-    <ol>
-      <li><a href="/ja/">streamfilter.tv/ja/</a> にアクセス</li>
-      <li>動画URLを貼り付け（YouTube、Twitch、Vimeo、Dailymotionなど）</li>
-      <li><strong>明るさ</strong>スライダーで30%〜500%に調整</li>
-      <li>または<strong>「明るく」</strong>プリセットでワンクリック調整</li>
-    </ol>
-    <p>すべての処理はブラウザ内で完結。動画データがサーバーに送信されることはありません。</p>
-
-    <h3>明るさの範囲</h3>
+    <h3>なぜ多くの動画は暗く見えるのか</h3>
+    <p>講義、ゲーム実況、スマホ撮影、古いアップロード——どんなに良い画面でも妙に暗い、と感じることが多いなら、それは気のせいではありません。動画を暗い方へ寄せる、いくつかの具体的な理由があります。</p>
     <ul>
-      <li><strong>30%</strong> — 非常に暗い。極端なナイトモード向け</li>
-      <li><strong>100%</strong> — デフォルト。元の明るさ</li>
-      <li><strong>200%</strong> — 明るめ。暗い動画に最適</li>
-      <li><strong>500%</strong> — 最大ブースト。最も暗い映像にも</li>
+      <li><strong>低照度での撮影。</strong> スマホやウェブカメラは暗い部屋で ISO を上げますが、ノイズを避けるためにあえて露出を抑え、暗部を暗いまま残しがちです。ディテールは一応そこにありますが、埋もれています。</li>
+      <li><strong>HDR を SDR 画面で表示。</strong> HDR で撮られた動画は明るさの幅がずっと広く、標準（SDR）ディスプレイやブラウザがそれを圧縮（トーンマッピング）すると、中間調や暗部が濁って出ることがあります。</li>
+      <li><strong>強い圧縮。</strong> 帯域を節約するため、エンコーダは暗い領域に最も少ないビットしか割きません。微妙な暗部の階調が一様な黒へ「潰され」、暗く生気のない画になります。</li>
+      <li><strong>視聴環境。</strong> 同じファイルでも、夜なら問題なく、日差しの入るカフェの暗いノートPCでは見られないほど暗くなります。画面輝度・周囲光・モニターのガンマすべてが、実際の見え方を変えます。</li>
     </ul>
+    <p>はじめの3つはファイルに焼き付いており、最後の1つは視聴環境の問題です。ブラウザ側の明るさフィルターはそのどちらにも効く手早い解決策で、元データに触れずに「目に届く画」だけを調整します。</p>
+
+    <h3>明るさスライダーが実際にしていること</h3>
+    <p>ここで使うのは CSS の <code>brightness()</code> フィルターで、全ピクセルの輝度を同じ倍率で掛けます。200% なら全値が2倍、50% なら半分です。知っておくと役立つ実用的な結果が2つあります。</p>
+    <ul>
+      <li>暗部「も」明部「も」一緒に持ち上げます。上げすぎると最も明るい部分が真っ白に飛び、ディテールを失います。</li>
+      <li>これはガンマ補正では「ありません」。ガンマは黒と白を固定したまま中間調を作り変えるので、ふつうより自然に見えます。スライダーは乗算式なので、一気に明るさを上げるより「控えめな底上げ＋少しのコントラスト調整」が最もきれいです。</li>
+    </ul>
+    <div class="note">正直な限界：暗部のディテールがそもそも記録されていない（カメラや圧縮で真っ黒に潰れている）場合、いくら明るくしても戻りません。黒が平坦なグレーになるだけです。明るさは「暗く表示されているだけのディテール」は救えますが、「失われたディテール」は救えません。</div>
+
+    <h3>画を平坦にせず明るくする確実な手順</h3>
+    <ol>
+      <li>動画 URL を貼り付けて再生し、タイトル画面ではなく代表的なシーンで判断します。</li>
+      <li><strong>明るさ</strong>を少しずつ上げ、暗部が開いてくるまで調整します。最も明るい部分が光り出す（ブルームする）瞬間で止めます——それがクリップ（白飛び）です。</li>
+      <li>白っぽく眠くなったら<strong>コントラスト</strong>を少し下げます。多くの人が飛ばす工程ですが、自然な補正と乳白色の差はここで決まります。</li>
+      <li>必要なら<strong>彩度</strong>を少し上げます。明るくすると色が抜けがちなので、わずかなアップで生気が戻ります。</li>
+    </ol>
+
+    <h3>状況別の目安</h3>
+    <table class="cmp">
+      <tr><th>状況</th><th>明るさ</th><th>次に</th></tr>
+      <tr><td>やや暗い講義・トーク</td><td>120–140%</td><td>コントラストは触らない</td></tr>
+      <tr><td>暗いゲーム/夜のシーン</td><td>150–200%</td><td>コントラスト &minus;10 で暗部を回復</td></tr>
+      <tr><td>露出不足のスマホ動画</td><td>200–300%</td><td>コントラスト &minus;15、彩度 +10</td></tr>
+      <tr><td>明るすぎ/白飛び気味</td><td>60–80%</td><td>コントラスト +10 で締める</td></tr>
+    </table>
+    <p>これは出発点であってルールではありません。クリップごとに違うので、最後は自分の目で調整してください。</p>
+
+    <h3>ブラウザフィルターが最適？ 正直な比較</h3>
+    <p>ブラウザでの明るさ調整は最速ですが、いつでも最善とは限りません。他の手段との比較がこちらです。</p>
+    <table class="cmp">
+      <tr><th>方法</th><th>得意なこと</th><th>限界</th></tr>
+      <tr><td>このブラウザフィルター</td><td>視聴しながら特定の動画を補正。どのプラットフォームでもインストール不要</td><td>自分の見え方だけ。補正後のファイルは書き出せない</td></tr>
+      <tr><td>モニター/OS の輝度</td><td>画面全体が暗すぎ／明るすぎるとき</td><td>動画以外も全部変わる。並行作業や読書には不向き</td></tr>
+      <tr><td>ブラウザのダークモード拡張</td><td>夜のページ背景の減光</td><td>多くは埋め込み動画に効かず、動画は暗いまま</td></tr>
+      <tr><td>編集ソフトで再エンコード</td><td>自分が持つファイルを恒久的に補正して再共有</td><td>遅く、ソフトと元ファイルが必要で、再圧縮される</td></tr>
+    </table>
+    <p>暗いクリップを今すぐ快適に見たいだけならブラウザフィルターが速さで勝ちます。公開用に補正済みファイルが要るなら、ちゃんとした編集ソフトの出番です。</p>
+
+    <h3>明るさとアクセシビリティ</h3>
+    <p>ロービジョンや光過敏、白内障などの方にとって、固定された明るさが万人に合うことはまずありません。暗すぎるクリップを明るくでき、逆に強すぎる映像を「暗く」できることは、小さくても本物のアクセシビリティの利点です。とくに録画した授業やチュートリアル、家族の動画のように撮り直せないコンテンツで効きます。調整は視聴ごとで元に戻せるため、各人が他の人に影響を与えず、自分に快適な見え方へ追い込めます。</p>
 
     <h3>よくある質問</h3>
-
     <div class="faq-item">
-      <strong>暗いYouTube動画を明るくするには？</strong>
-      <p>Stream FilterにYouTubeのURLを貼り付けて、明るさスライダーを上げるだけです。「明るく」プリセットを使えば一瞬で調整できます。アップロードやソフトのインストールは不要です。</p>
+      <strong>同じ動画が自分の画面では暗く、他人の画面では普通なのはなぜ？</strong>
+      <p>明るさの見え方はファイル外の要素——画面輝度、部屋の明るさ、モニターのガンマ——に左右されます。明るい部屋の暗いノートPCでは、夜のキャリブレーション済みモニターより本当に暗く見えます。フィルターはファイルを変えず自分側で補正します。</p>
     </div>
-
     <div class="faq-item">
-      <strong>明るさを調整すると動画の画質は落ちますか？</strong>
-      <p>いいえ。Stream FilterはCSSフィルターを動画プレイヤーの上に適用するだけなので、元の動画品質には影響しません。</p>
+      <strong>明るくすれば暗部の潰れは戻る？</strong>
+      <p>記録されていて暗く表示されているだけなら戻ります。撮影や圧縮で真っ黒に潰れていた場合は情報自体が無く、黒が平坦なグレーになるだけです。控えめな明るさアップ＋少しのコントラスト低下が最も効きます。</p>
     </div>
-
     <div class="faq-item">
-      <strong>スマホでも明るさ調整できますか？</strong>
-      <p>はい、Stream Filterは完全レスポンシブ対応で、スマホやタブレットのブラウザでそのまま使えます。</p>
-    </div>
-
-    <div class="faq-item">
-      <strong>明るさはどの範囲で調整できますか？</strong>
-      <p>30%（非常に暗い）から500%（非常に明るい）まで調整可能です。</p>
-    </div>
-
-    <div class="faq-item">
-      <strong>YouTubeの明るさをスマホで調整するには？</strong>
-      <p>スマホのブラウザで streamfilter.tv にアクセスし、YouTube URLを貼り付けるだけです。アプリのインストールは不要で、iPhone・Androidどちらでも動作します。スマホのブラウザ上でスライダーを操作して、リアルタイムで明るさを変えられます。</p>
-    </div>
-
-    <div class="faq-item">
-      <strong>YouTube画面が暗い場合の直し方は？</strong>
-      <p>YouTube動画が暗くて見えない場合、Stream Filterで明るさを200%〜500%に上げることで改善できます。端末の画面輝度を上げても暗い場合は、動画自体が暗い撮影環境のためです。Stream Filterなら動画のコンテンツの明るさを直接調整できます。</p>
-    </div>
-
-    <div class="faq-item">
-      <strong>Chrome拡張機能をインストールしなくても明るさ調整できますか？</strong>
-      <p>はい。Stream Filterは拡張機能のインストールが一切不要です。Webブラウザからアクセスするだけで使えるので、会社のPCなど拡張機能をインストールできない環境でも利用できます。Chrome、Safari、Firefox、Edgeなど主要なブラウザに対応しています。</p>
-    </div>
-
-    <div class="faq-item">
-      <strong>PCでYouTubeの明るさを設定する方法は？</strong>
-      <p>YouTube自体には動画の明るさ設定がありません。PCの場合、streamfilter.tv をブラウザで開き、YouTube URLを貼り付けて明るさスライダーで調整します。OSのディスプレイ設定を変更する必要はなく、動画だけの明るさを変えられるのがポイントです。</p>
-    </div>
-
-    <div class="faq-item">
-      <strong>YouTubeの明るさが勝手に変わるのはなぜ？</strong>
-      <p>YouTubeの自動輝度調整やHDR機能が原因の場合があります。Stream Filterを使えば、YouTubeの自動調整に関係なく自分で明るさを固定できます。常に一定の明るさで視聴したい方におすすめです。</p>
+      <strong>画質は落ちる？</strong>
+      <p>落ちません。フィルターは表示時にブラウザが適用するもので、ストリームは元の解像度・ビットレートで再生されます。再エンコードもアップロードもなく、元データは無傷です。</p>
     </div>
 
     <p style="text-align:center; margin-top: 32px;">
-      <a href="/ja/" class="cta">無料で試す</a>
+      <a href="/ja/" class="cta">今すぐ試す — 無料</a>
     </p>
+    <p style="text-align:center; font-size:14px;">関連: <a href="/ja/tools/contrast.html">コントラスト</a> &middot; <a href="/ja/tools/night-mode.html">ナイトモード</a> &middot; <a href="/ja/tools/zoom.html">ズーム＆パン</a></p>
   </main>
   <footer>
     <a href="/ja/guide.html">使い方</a>

@@ -3,36 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Adjust Video Brightness Online - Free & Instant | Stream Filter</title>
-  <meta name="description" content="Adjust the brightness of any YouTube, Twitch, or Vimeo video in real time. No upload, no download, no account needed. Free online brightness adjuster.">
+  <title>How to Fix Dark or Overexposed Videos in Your Browser | Stream Filter</title>
+  <meta name="description" content="Why videos look too dark, what a brightness filter actually changes, and how to brighten footage without crushing detail — a practical guide for YouTube, Vimeo, and Dailymotion playback.">
   <link rel="canonical" href="https://streamfilter.tv/tools/brightness.html">
   <link rel="alternate" hreflang="en" href="https://streamfilter.tv/tools/brightness.html" />
   <link rel="alternate" hreflang="ja" href="https://streamfilter.tv/ja/tools/brightness.html" />
   <link rel="alternate" hreflang="x-default" href="https://streamfilter.tv/tools/brightness.html" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff4444'/><polygon points='38,25 38,75 78,50' fill='white'/></svg>">
-  <meta property="og:title" content="Adjust Video Brightness Online - Free & Instant">
-  <meta property="og:description" content="Make dark videos brighter or reduce brightness for comfortable viewing. Works with YouTube, Twitch, Vimeo and more.">
-  <meta property="og:type" content="website">
+  <meta property="og:title" content="How to Fix Dark or Overexposed Videos in Your Browser">
+  <meta property="og:description" content="Why footage looks dark, what a brightness filter really does, and how to brighten video without losing shadow detail.">
+  <meta property="og:type" content="article">
   <meta property="og:url" content="https://streamfilter.tv/tools/brightness">
   <meta property="og:image" content="https://streamfilter.tv/ogp.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Adjust Video Brightness Online - Free & Instant">
-  <meta name="twitter:description" content="Make dark videos brighter or reduce brightness for comfortable viewing. Works with YouTube, Twitch, Vimeo and more.">
+  <meta name="twitter:title" content="How to Fix Dark or Overexposed Videos in Your Browser">
+  <meta name="twitter:description" content="Why footage looks dark, what a brightness filter really does, and how to brighten video without losing shadow detail.">
   <meta name="twitter:image" content="https://streamfilter.tv/ogp.png">
   <meta property="og:locale" content="en_US">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2360009503992783" crossorigin="anonymous"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Stream Filter - Video Brightness Adjuster",
-    "url": "https://streamfilter.tv/tools/brightness.html",
-    "description": "Free online tool to adjust video brightness in real time while streaming.",
-    "applicationCategory": "MultimediaApplication",
-    "operatingSystem": "All",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    "@type": "Article",
+    "headline": "How to Fix Dark or Overexposed Videos in Your Browser",
+    "description": "A practical explanation of why videos look too dark, what a CSS brightness filter actually changes, and how to brighten footage without crushing shadow detail.",
+    "author": { "@type": "Organization", "name": "Stream Filter" },
+    "publisher": { "@type": "Organization", "name": "Stream Filter" },
+    "mainEntityOfPage": "https://streamfilter.tv/tools/brightness.html"
   }
   </script>
   <script type="application/ld+json">
@@ -42,34 +41,34 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How do I make a dark YouTube video brighter?",
+        "name": "Why does a video look so dark on my screen but fine on someone else's?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Paste the YouTube URL into Stream Filter and increase the Brightness slider. You can also try the 'Bright' preset for an instant boost. No upload or software needed — it works directly in your browser."
+          "text": "Brightness perception depends on three things outside the video file: your display's brightness setting, the ambient light in your room, and your monitor's gamma/colour profile. The same file genuinely looks darker on a dim laptop in a bright room than on a calibrated monitor at night. A brightness filter compensates for that mismatch on your end without changing the file."
         }
       },
       {
         "@type": "Question",
-        "name": "Does adjusting brightness affect video quality?",
+        "name": "Can brightening a video bring back detail that's lost in the shadows?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. Stream Filter applies CSS filters on top of the video player, so the original video quality is not affected. You're just changing how it's displayed on your screen."
+          "text": "Only partly. If shadow detail was captured but is simply displayed too dark, raising brightness reveals it. If the shadows were 'crushed' to pure black during recording or compression, that information was never stored and no filter can recover it — raising brightness just turns black into flat grey. Combining a moderate brightness lift with a small contrast reduction usually recovers the most usable detail."
         }
       },
       {
         "@type": "Question",
-        "name": "Can I adjust brightness on mobile?",
+        "name": "Does a browser brightness filter reduce video quality?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, Stream Filter is fully responsive and works on phones and tablets. Just open streamfilter.tv in your mobile browser."
+          "text": "No. The CSS brightness() filter is applied by your browser at display time, on top of the player. The video stream still downloads and decodes at its original resolution and bitrate — there is no re-encoding, transcoding, or upload. Close the tab and the original is exactly as it was."
         }
       },
       {
         "@type": "Question",
-        "name": "What range of brightness adjustment is available?",
+        "name": "What's the difference between brightness and gamma?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "You can adjust brightness from 30% (very dark) to 500% (extremely bright), giving you full control over the video's visibility."
+          "text": "A brightness filter multiplies every pixel's luminance by the same factor, so it lifts shadows and highlights together and can clip the brightest areas to white. Gamma correction instead reshapes the midtones while leaving pure black and pure white anchored, which often looks more natural. The CSS brightness control used here is the multiplicative kind, so it's best for an overall lift; pair it with contrast to fine-tune the midtones."
         }
       }
     ]
@@ -87,7 +86,7 @@
     .subtitle { color: #888; font-size: 16px; margin-bottom: 32px; }
     h3 { color: #fff; font-size: 20px; margin: 32px 0 12px; }
     p { margin-bottom: 16px; }
-    ul { margin: 0 0 16px 24px; }
+    ul, ol { margin: 0 0 16px 24px; }
     li { margin-bottom: 8px; }
     a { color: #ff4444; }
     a:hover { color: #ff6666; }
@@ -95,10 +94,13 @@
     .cta:hover { background: #e03030; color: #fff; }
     .faq-item { margin-bottom: 24px; }
     .faq-item strong { color: #fff; display: block; margin-bottom: 6px; }
-    .use-cases { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 16px 0 24px; }
-    .use-case { background: #1a1a1a; border: 1px solid #282828; border-radius: 10px; padding: 16px; }
-    .use-case .title { color: #fff; font-weight: 600; margin-bottom: 4px; }
-    .use-case .desc { color: #888; font-size: 13px; }
+    table.cmp { width: 100%; border-collapse: collapse; margin: 8px 0 24px; font-size: 14px; }
+    table.cmp th, table.cmp td { border: 1px solid #282828; padding: 10px 12px; text-align: left; vertical-align: top; }
+    table.cmp th { background: #1a1a1a; color: #fff; font-weight: 600; }
+    table.cmp td:first-child { color: #fff; font-weight: 600; white-space: nowrap; }
+    .note { background: #161616; border-left: 3px solid #ff4444; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0 24px; color: #aaa; font-size: 14px; }
+    .breadcrumb { font-size: 13px; color: #666; margin-bottom: 8px; }
+    .breadcrumb a { color: #888; }
     footer { width: 100%; padding: 20px 24px; text-align: center; font-size: 12px; color: #555; border-top: 1px solid #1a1a1a; }
     footer a { color: #777; text-decoration: none; margin: 0 12px; }
     footer a:hover { color: #fff; }
@@ -112,76 +114,80 @@
     </a>
   </header>
   <main>
-    <h2>Adjust Video Brightness Online</h2>
-    <p class="subtitle">Make dark videos brighter or reduce brightness for comfortable night viewing — instantly, with no upload required.</p>
+    <p class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/guide.html">Guides</a> &rsaquo; Brightness</p>
+    <h2>How to Fix Dark or Overexposed Videos in Your Browser</h2>
+    <p class="subtitle">A short, practical guide to why footage looks too dark, what a brightness filter really changes, and how to lift the image without flattening it.</p>
 
-    <a href="/" class="cta">Open Brightness Adjuster</a>
+    <a href="/" class="cta">Open the Brightness Tool</a>
 
-    <h3>Why Adjust Video Brightness?</h3>
-    <p>Many videos are recorded in poor lighting conditions, making them difficult to watch. Instead of straining your eyes, you can increase the brightness in real time while the video plays. Stream Filter lets you do this without downloading software or uploading files.</p>
-
-    <h3>Common Use Cases</h3>
-    <div class="use-cases">
-      <div class="use-case">
-        <div class="title">Dark Videos</div>
-        <div class="desc">Increase brightness to see details in poorly lit footage.</div>
-      </div>
-      <div class="use-case">
-        <div class="title">Night Viewing</div>
-        <div class="desc">Lower brightness to reduce eye strain when watching at night.</div>
-      </div>
-      <div class="use-case">
-        <div class="title">Outdoor Viewing</div>
-        <div class="desc">Boost brightness to see your screen in sunlight.</div>
-      </div>
-      <div class="use-case">
-        <div class="title">Accessibility</div>
-        <div class="desc">Help those with visual impairments see content more clearly.</div>
-      </div>
-    </div>
-
-    <h3>How It Works</h3>
-    <ol>
-      <li>Go to <a href="/">streamfilter.tv</a></li>
-      <li>Paste any video URL (YouTube, Twitch, Vimeo, Dailymotion, and more)</li>
-      <li>Use the <strong>Brightness</strong> slider to adjust from 30% to 500%</li>
-      <li>Or click the <strong>"Bright"</strong> preset for an instant boost</li>
-    </ol>
-    <p>All processing happens in your browser — your video data never leaves your device.</p>
-
-    <h3>Brightness Range</h3>
+    <h3>Why so many videos look too dark</h3>
+    <p>If you've noticed that a lot of clips — lectures, gameplay, phone footage, old uploads — look dim no matter how good your screen is, it usually isn't your imagination. A few specific things push videos toward the dark end:</p>
     <ul>
-      <li><strong>30%</strong> — Very dark, for extreme night mode</li>
-      <li><strong>100%</strong> — Default, original brightness</li>
-      <li><strong>200%</strong> — Noticeably brighter, good for dark videos</li>
-      <li><strong>500%</strong> — Maximum boost for the darkest footage</li>
+      <li><strong>Low-light recording.</strong> Phones and webcams raise their ISO in dim rooms, but to avoid grain they often underexpose and let the shadows fall dark. The detail is technically there, just buried.</li>
+      <li><strong>HDR shown on an SDR screen.</strong> Video shot in HDR carries a much wider brightness range. When a standard (SDR) display or browser tone-maps it down, mid-tones and shadows can come out noticeably muddy.</li>
+      <li><strong>Aggressive compression.</strong> To save bandwidth, encoders spend the fewest bits on dark areas. Subtle shadow gradients get "crushed" toward a single flat black, which reads as a dark, lifeless image.</li>
+      <li><strong>Your environment.</strong> The same file looks fine at night and unwatchably dark on a dim laptop in a sunlit café. Display brightness, ambient light and your monitor's gamma all change what you actually see.</li>
     </ul>
+    <p>The first three are baked into the file; the last one is about your viewing setup. A browser-side brightness filter is the fast fix for both, because it adjusts what reaches your eyes without touching the source.</p>
 
-    <h3>Frequently Asked Questions</h3>
+    <h3>What the brightness slider actually does</h3>
+    <p>The control here uses the CSS <code>brightness()</code> filter, which multiplies every pixel's luminance by the same factor. At 200% every value is twice as bright; at 50% it's halved. That has two practical consequences worth knowing:</p>
+    <ul>
+      <li>It lifts <em>everything</em> together — shadows <em>and</em> highlights. Push it far enough and the brightest areas clip to pure white and lose detail.</li>
+      <li>It is <em>not</em> gamma correction. Gamma reshapes the mid-tones while keeping black and white anchored, which usually looks more natural. Because the slider is multiplicative, the cleanest results come from a moderate lift combined with a small contrast adjustment, rather than one giant brightness push.</li>
+    </ul>
+    <div class="note">Honest limit: if shadow detail was never captured — crushed to pure black at the camera or by compression — no amount of brightening brings it back. Raising brightness just turns that black into flat grey. Brightness rescues <em>under-displayed</em> detail, not <em>missing</em> detail.</div>
 
+    <h3>A reliable way to brighten without flattening the image</h3>
+    <ol>
+      <li>Paste your video URL and start playback so you can judge a representative scene, not a title card.</li>
+      <li>Raise <strong>Brightness</strong> gradually until the shadows open up. Stop the moment the brightest areas start to glow or "bloom" — that's clipping.</li>
+      <li>If the picture now looks washed out, lower <strong>Contrast</strong> slightly. This is the step most people skip, and it's what separates a natural fix from a milky one.</li>
+      <li>Optional: nudge <strong>Saturation</strong> up a touch. Brightening tends to mute colour, so a small bump restores life.</li>
+    </ol>
+
+    <h3>Sensible starting points</h3>
+    <table class="cmp">
+      <tr><th>Situation</th><th>Brightness</th><th>Then adjust</th></tr>
+      <tr><td>Slightly dim lecture / talk</td><td>120–140%</td><td>Leave contrast alone</td></tr>
+      <tr><td>Dark gameplay or night scene</td><td>150–200%</td><td>Contrast &minus;10 to recover shadow detail</td></tr>
+      <tr><td>Very underexposed phone clip</td><td>200–300%</td><td>Contrast &minus;15, Saturation +10</td></tr>
+      <tr><td>Too bright / blown-out footage</td><td>60–80%</td><td>Contrast +10 for punch</td></tr>
+    </table>
+    <p>These are starting points, not rules — every clip is different, so trust your eyes and adjust from here.</p>
+
+    <h3>Is a browser filter the right tool? An honest comparison</h3>
+    <p>Adjusting brightness in the browser is the quickest option, but it isn't always the best one. Here's how it stacks up against the alternatives:</p>
+    <table class="cmp">
+      <tr><th>Method</th><th>Best for</th><th>Limitation</th></tr>
+      <tr><td>This browser filter</td><td>Fixing a specific video while you watch, on any platform, with nothing to install</td><td>Affects only your view; can't export a changed file</td></tr>
+      <tr><td>Monitor / OS brightness</td><td>The whole screen is too dim or too bright</td><td>Changes everything, not just the video — bad for editing or reading alongside</td></tr>
+      <tr><td>Browser dark-mode extension</td><td>Dimming page backgrounds at night</td><td>Most leave embedded video untouched, so the clip stays dark</td></tr>
+      <tr><td>Re-encoding in a video editor</td><td>Permanently fixing a file you own and will re-share</td><td>Slow, needs software and the source file, and re-compresses the video</td></tr>
+    </table>
+    <p>If you just want to comfortably watch a dark clip right now, the browser filter wins on speed. If you need a corrected file to publish, reach for a proper editor.</p>
+
+    <h3>Brightness and accessibility</h3>
+    <p>For viewers with low vision, light sensitivity, or conditions like cataracts, a fixed brightness level rarely suits everyone. Being able to raise brightness on a too-dark clip — or <em>lower</em> it on a harsh, over-lit one — is a small but real accessibility win, especially when the content (a recorded class, a tutorial, a family video) can't be re-shot. Because the adjustment is per-view and reversible, each person can tune the image to what's comfortable for them without affecting anyone else.</p>
+
+    <h3>Frequently asked questions</h3>
     <div class="faq-item">
-      <strong>How do I make a dark YouTube video brighter?</strong>
-      <p>Paste the YouTube URL into Stream Filter and increase the Brightness slider. You can also try the "Bright" preset for an instant boost. No upload or software needed — it works directly in your browser.</p>
+      <strong>Why does a video look dark on my screen but fine on someone else's?</strong>
+      <p>Brightness perception depends on factors outside the file: your display's brightness, the light in your room, and your monitor's gamma profile. The same clip genuinely looks darker on a dim laptop in a bright room than on a calibrated monitor at night. A brightness filter compensates on your end without changing the file.</p>
     </div>
-
     <div class="faq-item">
-      <strong>Does adjusting brightness affect video quality?</strong>
-      <p>No. Stream Filter applies CSS filters on top of the video player, so the original video quality is not affected. You're just changing how it's displayed on your screen.</p>
+      <strong>Can brightening bring back detail lost in the shadows?</strong>
+      <p>Only if that detail was captured and is merely displayed too dark. If the shadows were crushed to pure black during recording or compression, the information was never stored, and raising brightness just turns black into flat grey. A moderate brightness lift plus a small contrast cut recovers the most usable detail.</p>
     </div>
-
     <div class="faq-item">
-      <strong>Can I adjust brightness on mobile?</strong>
-      <p>Yes, Stream Filter is fully responsive and works on phones and tablets. Just open streamfilter.tv in your mobile browser.</p>
-    </div>
-
-    <div class="faq-item">
-      <strong>What range of brightness adjustment is available?</strong>
-      <p>You can adjust brightness from 30% (very dark) to 500% (extremely bright), giving you full control over the video's visibility.</p>
+      <strong>Does this reduce the video's quality?</strong>
+      <p>No. The filter is applied by your browser at display time. The stream still plays at its original resolution and bitrate — there's no re-encoding or upload, and the source is untouched.</p>
     </div>
 
     <p style="text-align:center; margin-top: 32px;">
       <a href="/" class="cta">Try It Now — Free</a>
     </p>
+    <p style="text-align:center; font-size:14px;">Related: <a href="/tools/contrast.html">Contrast</a> &middot; <a href="/tools/night-mode.html">Night mode</a> &middot; <a href="/tools/zoom.html">Zoom &amp; pan</a></p>
   </main>
   <footer>
     <a href="/guide.html">How to Use</a>

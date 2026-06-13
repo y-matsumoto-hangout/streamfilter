@@ -3,26 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Infrared & Night Vision Video Filter Online - Free | Stream Filter</title>
-  <meta name="description" content="Apply infrared thermal camera and night vision military scope effects to any video. Watch YouTube and Twitch with creative color filters. Free, instant, no install.">
+  <title>Thermal & Night-Vision Video Effects (and How They Really Work) | Stream Filter</title>
+  <meta name="description" content="How real thermal and night-vision cameras work, how a browser filter recreates the look, the exact recipes used, and creative ways to use infrared and night-vision effects on any video.">
   <link rel="canonical" href="https://streamfilter.tv/tools/infrared.html">
   <link rel="alternate" hreflang="en" href="https://streamfilter.tv/tools/infrared.html" />
   <link rel="alternate" hreflang="ja" href="https://streamfilter.tv/ja/tools/infrared.html" />
   <link rel="alternate" hreflang="x-default" href="https://streamfilter.tv/tools/infrared.html" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff4444'/><polygon points='38,25 38,75 78,50' fill='white'/></svg>">
-  <meta property="og:title" content="Infrared & Night Vision Video Filter Online">
-  <meta property="og:description" content="Apply thermal camera and night vision effects to any video. Free online tool.">
-  <meta property="og:type" content="website">
+  <meta property="og:title" content="Thermal & Night-Vision Video Effects (and How They Really Work)">
+  <meta property="og:description" content="How real thermal and night-vision cameras work, how a browser filter recreates the look, and creative ways to use the effect.">
+  <meta property="og:type" content="article">
   <meta property="og:url" content="https://streamfilter.tv/tools/infrared">
   <meta property="og:image" content="https://streamfilter.tv/ogp.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Infrared & Night Vision Video Filter Online">
-  <meta name="twitter:description" content="Apply thermal camera and night vision effects to any video. Free online tool.">
-  <meta name="twitter:image" content="https://streamfilter.tv/ogp.png">
+  <meta name="twitter:title" content="Thermal & Night-Vision Video Effects (and How They Really Work)">
+  <meta name="twitter:description" content="How real thermal and night-vision cameras work, and how a browser filter recreates the look.">
   <meta property="og:locale" content="en_US">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2360009503992783" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Thermal & Night-Vision Video Effects (and How They Really Work)",
+    "description": "How real thermal and night-vision cameras work, how a browser filter recreates the look, and creative uses.",
+    "author": { "@type": "Organization", "name": "Stream Filter" },
+    "publisher": { "@type": "Organization", "name": "Stream Filter" },
+    "mainEntityOfPage": "https://streamfilter.tv/tools/infrared.html"
+  }
+  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -30,26 +40,34 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How do I apply an infrared filter to a video?",
+        "name": "Does this actually detect heat like a real thermal camera?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Open streamfilter.tv, paste any video URL, and click the 'Infrared' preset. This applies a 180° hue rotation with high saturation and contrast, creating a thermal camera effect instantly."
+          "text": "No, and this is important: a browser filter only remaps the colours that are already in the video. A real thermal camera senses long-wave infrared radiation that an ordinary camera can't see at all. The filter recreates the look of thermal imaging for creative and aesthetic purposes — it does not measure temperature or reveal anything that wasn't already in the footage."
         }
       },
       {
         "@type": "Question",
-        "name": "What's the difference between Infrared and Night Vision filters?",
+        "name": "What's the difference between infrared and night vision in this tool?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The Infrared filter shifts colors by 180° with high saturation, mimicking a thermal imaging camera. The Night Vision filter uses a 120° hue shift to create a green-tinted military scope effect with high contrast."
+          "text": "The Infrared look inverts colours and boosts saturation to mimic a heat-map, where areas appear in vivid contrasting colours. The Night Vision look applies a green tint with raised contrast to imitate a military scope. Infrared is colourful and surreal; night vision is monochrome-green and tactical."
         }
       },
       {
         "@type": "Question",
-        "name": "Can I use these filters on live streams?",
+        "name": "How is the thermal effect created technically?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes! Both Infrared and Night Vision filters work in real time on YouTube live streams, Twitch streams, and any other supported video. The filters are applied instantly as the video plays."
+          "text": "It combines CSS filters: a hue rotation of around 180 degrees flips colours to their opposites, high saturation intensifies them, and a brightness/contrast adjustment exaggerates the bright-vs-dark separation so the result reads like a heat map. The night-vision look instead uses a strong green tint with high contrast."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What can I use these effects for?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "They're popular for stream overlays and intros, horror or sci-fi aesthetics, music videos, reaction content, and previewing a stylised look before committing to it in a full editor. Because the effect is live and reversible, you can toggle it on and off while watching."
         }
       }
     ]
@@ -75,98 +93,77 @@
     .cta:hover { background: #e03030; color: #fff; }
     .faq-item { margin-bottom: 24px; }
     .faq-item strong { color: #fff; display: block; margin-bottom: 6px; }
-    .filter-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0 24px; }
-    .filter-card { background: #1a1a1a; border: 1px solid #282828; border-radius: 10px; padding: 20px; }
-    .filter-card h4 { color: #fff; font-size: 16px; margin-bottom: 8px; }
-    .filter-card .settings { color: #888; font-size: 12px; margin-top: 8px; }
-    .use-cases { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 16px 0 24px; }
-    .use-case { background: #1a1a1a; border: 1px solid #282828; border-radius: 10px; padding: 16px; }
-    .use-case .title { color: #fff; font-weight: 600; margin-bottom: 4px; }
-    .use-case .desc { color: #888; font-size: 13px; }
+    table.cmp { width: 100%; border-collapse: collapse; margin: 8px 0 24px; font-size: 14px; }
+    table.cmp th, table.cmp td { border: 1px solid #282828; padding: 10px 12px; text-align: left; vertical-align: top; }
+    table.cmp th { background: #1a1a1a; color: #fff; font-weight: 600; }
+    table.cmp td:first-child { color: #fff; font-weight: 600; white-space: nowrap; }
+    .note { background: #161616; border-left: 3px solid #ff4444; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0 24px; color: #aaa; font-size: 14px; }
+    .breadcrumb { font-size: 13px; color: #666; margin-bottom: 8px; }
+    .breadcrumb a { color: #888; }
     footer { width: 100%; padding: 20px 24px; text-align: center; font-size: 12px; color: #555; border-top: 1px solid #1a1a1a; }
     footer a { color: #777; text-decoration: none; margin: 0 12px; }
     footer a:hover { color: #fff; }
-    @media (max-width: 640px) { .filter-compare { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
-  <header><a href="/"><div class="logo">&#9655;</div><h1>Stream Filter</h1></a></header>
+  <header>
+    <a href="/">
+      <div class="logo">&#9655;</div>
+      <h1>Stream Filter</h1>
+    </a>
+  </header>
   <main>
-    <h2>Infrared & Night Vision Video Filter</h2>
-    <p class="subtitle">Transform any video with thermal camera and military night vision effects — instantly, in your browser.</p>
+    <p class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/guide.html">Guides</a> &rsaquo; Infrared &amp; Night Vision</p>
+    <h2>Thermal &amp; Night-Vision Video Effects</h2>
+    <p class="subtitle">How real thermal and night-vision cameras work, how a browser filter recreates the look, and the creative ways people use it.</p>
 
-    <a href="/" class="cta">Try Infrared Filter</a>
+    <a href="/" class="cta">Open the Infrared Filter</a>
 
-    <h3>Two Unique Filters</h3>
-    <div class="filter-compare">
-      <div class="filter-card">
-        <h4>Infrared</h4>
-        <p>Mimics a thermal imaging camera by inverting colors and boosting saturation. Creates a surreal, heat-map look where warm and cool areas appear in vivid contrasting colors.</p>
-        <div class="settings">Brightness 110% | Contrast 140% | Saturation 200% | Hue 180°</div>
-      </div>
-      <div class="filter-card">
-        <h4>Night Vision</h4>
-        <p>Simulates a military night vision scope with a green-tinted display and high contrast. Perfect for a tactical aesthetic on gaming streams or action footage.</p>
-        <div class="settings">Brightness 80% | Contrast 150% | Saturation 120% | Hue 120°</div>
-      </div>
-    </div>
+    <div class="note"><strong>First, an honest disclaimer.</strong> This is a <em>visual effect</em>, not a sensor. It remaps the colours already present in a normal video to <em>look like</em> thermal or night-vision footage. It does not detect heat, reveal hidden objects, or see in the dark. Keep that in mind for anything beyond aesthetics.</div>
 
-    <h3>Creative Use Cases</h3>
-    <div class="use-cases">
-      <div class="use-case">
-        <div class="title">Gaming Streams</div>
-        <div class="desc">Watch FPS games and survival horror with a tactical night vision overlay.</div>
-      </div>
-      <div class="use-case">
-        <div class="title">Nature Videos</div>
-        <div class="desc">See wildlife footage in a completely different perspective with infrared colors.</div>
-      </div>
-      <div class="use-case">
-        <div class="title">Music Videos</div>
-        <div class="desc">Create trippy visual effects on music videos for a psychedelic viewing experience.</div>
-      </div>
-      <div class="use-case">
-        <div class="title">Educational</div>
-        <div class="desc">Demonstrate how thermal imaging and night vision technology works.</div>
-      </div>
-    </div>
-
-    <h3>How to Use</h3>
-    <ol>
-      <li>Go to <a href="/">streamfilter.tv</a></li>
-      <li>Paste any video URL and click Play</li>
-      <li>Click <strong>"Infrared"</strong> or <strong>"Night Vision"</strong> in the Presets section</li>
-      <li>Fine-tune the Hue Rotate slider for different color variations</li>
-    </ol>
-
-    <h3>Pro Tips</h3>
+    <h3>How real thermal and night-vision cameras work</h3>
+    <p>Understanding the real devices makes the effect more fun to use. They're actually two completely different technologies:</p>
     <ul>
-      <li><strong>Hue Rotate at 90°</strong> — Creates a purple/blue cold infrared look</li>
-      <li><strong>Hue Rotate at 270°</strong> — Creates a warm amber/orange thermal look</li>
-      <li><strong>Night Vision + 0.5x speed</strong> — Slow-motion tactical replay effect</li>
-      <li><strong>Infrared + high saturation (400%+)</strong> — Extreme psychedelic visuals</li>
+      <li><strong>Thermal (infrared) imaging</strong> detects long-wave infrared radiation — heat — that every object emits. It needs no visible light at all, which is why warm bodies glow against a cool background. The familiar rainbow "heat map" is a false-colour palette applied to invisible temperature data.</li>
+      <li><strong>Night vision</strong> works in the opposite way: it amplifies the tiny amount of visible and near-infrared light that <em>is</em> present and intensifies it thousands of times. The classic green image comes from the phosphor screen in the eyepiece — green is the colour the human eye distinguishes best at low brightness.</li>
     </ul>
 
-    <h3>Frequently Asked Questions</h3>
+    <h3>What the filter actually does</h3>
+    <p>A browser can only work with the pixels in the video it's given, so it imitates these looks with standard CSS adjustments:</p>
+    <table class="cmp">
+      <tr><th>Effect</th><th>Recipe</th><th>Result</th></tr>
+      <tr><td>Infrared</td><td>Hue rotate ~180&deg;, Saturation 200%, Brightness 110%, Contrast 140%</td><td>Colours flip to their opposites and intensify into a surreal heat-map look</td></tr>
+      <tr><td>Night Vision</td><td>Strong green tint, Brightness 80%, Contrast 150%</td><td>A monochrome-green, high-contrast tactical scope appearance</td></tr>
+    </table>
+    <p>The infrared trick relies mostly on the 180&deg; hue rotation: it pushes every colour to the opposite side of the colour wheel, so skin tones and warm areas swing toward cool blues and greens while cool areas turn warm — the visual signature of a thermal map. The heavy saturation and contrast then exaggerate the separation.</p>
 
+    <h3>Creative ways to use it</h3>
+    <ul>
+      <li><strong>Stream overlays and intros.</strong> Toggle the night-vision look on a webcam or gameplay clip for a tactical, "spec-ops" intro.</li>
+      <li><strong>Horror and sci-fi aesthetics.</strong> The surreal infrared palette instantly makes ordinary footage feel alien or unsettling.</li>
+      <li><strong>Music and reaction videos.</strong> A quick effect change punctuates a beat drop or a reveal without any editing software.</li>
+      <li><strong>Previewing a stylised grade.</strong> See whether a clip suits a heavy, inverted look before you commit to recreating it in a real editor.</li>
+    </ul>
+    <p>Because the effect is applied live and is fully reversible, you can flip between the normal image and the effect while the video plays — handy for comparing or for timing the switch to a moment in the footage.</p>
+
+    <h3>Frequently asked questions</h3>
     <div class="faq-item">
-      <strong>How do I apply an infrared filter to a video?</strong>
-      <p>Open streamfilter.tv, paste any video URL, and click the "Infrared" preset. This applies a 180° hue rotation with high saturation and contrast, creating a thermal camera effect instantly.</p>
+      <strong>Does this actually detect heat like a real thermal camera?</strong>
+      <p>No. It only remaps colours already in the video. A real thermal camera senses infrared radiation an ordinary camera can't capture. This recreates the <em>look</em> for creative use — it doesn't measure temperature or reveal anything new.</p>
     </div>
-
     <div class="faq-item">
-      <strong>What's the difference between Infrared and Night Vision filters?</strong>
-      <p>The Infrared filter shifts colors by 180° with high saturation, mimicking a thermal imaging camera. The Night Vision filter uses a 120° hue shift to create a green-tinted military scope effect with high contrast.</p>
+      <strong>What's the difference between the Infrared and Night Vision looks?</strong>
+      <p>Infrared inverts colours and boosts saturation for a vivid heat-map; Night Vision applies a green tint with high contrast for a military-scope feel. One is colourful and surreal, the other monochrome-green and tactical.</p>
     </div>
-
     <div class="faq-item">
-      <strong>Can I use these filters on live streams?</strong>
-      <p>Yes! Both Infrared and Night Vision filters work in real time on YouTube live streams, Twitch streams, and any other supported video. The filters are applied instantly as the video plays.</p>
+      <strong>Will it work on any video?</strong>
+      <p>Yes — paste a URL from any supported platform and apply the effect. It changes only how the video is displayed in your browser; the source file is untouched and other viewers see the original.</p>
     </div>
 
     <p style="text-align:center; margin-top: 32px;">
       <a href="/" class="cta">Try It Now — Free</a>
     </p>
+    <p style="text-align:center; font-size:14px;">Related: <a href="/tools/night-mode.html">Night mode</a> &middot; <a href="/tools/contrast.html">Contrast</a> &middot; <a href="/tools/brightness.html">Brightness</a></p>
   </main>
   <footer>
     <a href="/guide.html">How to Use</a>
